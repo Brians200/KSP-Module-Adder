@@ -1,4 +1,4 @@
-package configtree;
+package config.tree;
 
 import org.antlr.runtime.tree.CommonTree;
 

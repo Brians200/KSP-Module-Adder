@@ -1,4 +1,4 @@
-package configtree;
+package config.tree;
 
 import java.util.ArrayList;
 import java.util.List;

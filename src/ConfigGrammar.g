@@ -11,6 +11,14 @@ tokens
 	ASSIGNMENT;
 }
 
+@lexer::header {
+    package config.io;
+}
+
+@parser::header {
+    package config.io;
+}
+
 config	:	(configField*				-> ^(CONFIG configField*))
 	;
 	
@@ -59,7 +67,7 @@ fragment NUMBER
 	;
 	
 fragment SYMBOL
-	:	'://' | '.' | '!' | '?' | '-' | '_' | ',' | '\'' | '"' | '%' | ':' | '(' | ')' | '|' | '&'
+	:	'://' | '.' | '!' | '?' | '-' | '_' | ',' | '\'' | '"' | '%' | ':' | '(' | ')' | '|' | '&' | '*'
 	;
 
 WS  :   ( ' '

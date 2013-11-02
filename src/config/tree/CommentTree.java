@@ -1,4 +1,4 @@
-package configtree;
+package config.tree;
 
 import org.antlr.runtime.tree.CommonTree;
 
@@ -13,10 +13,13 @@ public class CommentTree implements IKspPartTree {
 		
 		StringBuilder commentBuilder = new StringBuilder();
 		
-		for(Object objectChild : t.getChildren())
+		if(t.getChildCount()>0)
 		{
-			CommonTree child = (CommonTree) objectChild;
-			commentBuilder.append(child.getText());
+			for(Object objectChild : t.getChildren())
+			{
+				CommonTree child = (CommonTree) objectChild;
+				commentBuilder.append(child.getText());
+			}
 		}
 		
 		comment = commentBuilder.toString();

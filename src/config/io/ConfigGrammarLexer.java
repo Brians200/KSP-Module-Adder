@@ -1,4 +1,7 @@
-// $ANTLR 3.4 C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g 2013-11-01 23:26:40
+// $ANTLR 3.4 C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g 2013-11-02 02:38:21
+
+    package config.io;
+
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -44,8 +47,8 @@ public class ConfigGrammarLexer extends Lexer {
         try {
             int _type = T__14;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:2:7: ( '/' )
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:2:9: '/'
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:6:7: ( '/' )
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:6:9: '/'
             {
             match('/'); 
 
@@ -65,8 +68,8 @@ public class ConfigGrammarLexer extends Lexer {
         try {
             int _type = T__15;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:3:7: ( '//' )
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:3:9: '//'
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:7:7: ( '//' )
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:7:9: '//'
             {
             match("//"); 
 
@@ -88,8 +91,8 @@ public class ConfigGrammarLexer extends Lexer {
         try {
             int _type = T__16;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:4:7: ( '=' )
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:4:9: '='
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:8:7: ( '=' )
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:8:9: '='
             {
             match('='); 
 
@@ -109,8 +112,8 @@ public class ConfigGrammarLexer extends Lexer {
         try {
             int _type = T__17;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:5:7: ( '{' )
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:5:9: '{'
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:9:7: ( '{' )
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:9:9: '{'
             {
             match('{'); 
 
@@ -130,8 +133,8 @@ public class ConfigGrammarLexer extends Lexer {
         try {
             int _type = T__18;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:6:7: ( '}' )
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:6:9: '}'
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:10:7: ( '}' )
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:10:9: '}'
             {
             match('}'); 
 
@@ -151,10 +154,10 @@ public class ConfigGrammarLexer extends Lexer {
         try {
             int _type = STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:50:8: ( ( LETTER | NUMBER | SYMBOL | ' ' )* )
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:50:10: ( LETTER | NUMBER | SYMBOL | ' ' )*
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:58:8: ( ( LETTER | NUMBER | SYMBOL | ' ' )* )
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:58:10: ( LETTER | NUMBER | SYMBOL | ' ' )*
             {
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:50:10: ( LETTER | NUMBER | SYMBOL | ' ' )*
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:58:10: ( LETTER | NUMBER | SYMBOL | ' ' )*
             loop1:
             do {
                 int alt1=5;
@@ -236,6 +239,7 @@ public class ConfigGrammarLexer extends Lexer {
                 case '\'':
                 case '(':
                 case ')':
+                case '*':
                 case ',':
                 case '-':
                 case '.':
@@ -257,7 +261,7 @@ public class ConfigGrammarLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:50:11: LETTER
+            	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:58:11: LETTER
             	    {
             	    mLETTER(); 
 
@@ -265,7 +269,7 @@ public class ConfigGrammarLexer extends Lexer {
             	    }
             	    break;
             	case 2 :
-            	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:50:20: NUMBER
+            	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:58:20: NUMBER
             	    {
             	    mNUMBER(); 
 
@@ -273,7 +277,7 @@ public class ConfigGrammarLexer extends Lexer {
             	    }
             	    break;
             	case 3 :
-            	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:50:29: SYMBOL
+            	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:58:29: SYMBOL
             	    {
             	    mSYMBOL(); 
 
@@ -281,7 +285,7 @@ public class ConfigGrammarLexer extends Lexer {
             	    }
             	    break;
             	case 4 :
-            	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:50:38: ' '
+            	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:58:38: ' '
             	    {
             	    match(' '); 
 
@@ -308,7 +312,7 @@ public class ConfigGrammarLexer extends Lexer {
     // $ANTLR start "LETTER"
     public final void mLETTER() throws RecognitionException {
         try {
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:54:2: ( ( 'A' .. 'Z' | 'a' .. 'z' ) )
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:62:2: ( ( 'A' .. 'Z' | 'a' .. 'z' ) )
             // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:
             {
             if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
@@ -334,7 +338,7 @@ public class ConfigGrammarLexer extends Lexer {
     // $ANTLR start "NUMBER"
     public final void mNUMBER() throws RecognitionException {
         try {
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:58:2: ( '0' .. '9' )
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:66:2: ( '0' .. '9' )
             // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:
             {
             if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
@@ -360,8 +364,8 @@ public class ConfigGrammarLexer extends Lexer {
     // $ANTLR start "SYMBOL"
     public final void mSYMBOL() throws RecognitionException {
         try {
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:62:2: ( '://' | '.' | '!' | '?' | '-' | '_' | ',' | '\\'' | '\"' | '%' | ':' | '(' | ')' | '|' | '&' )
-            int alt2=15;
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:70:2: ( '://' | '.' | '!' | '?' | '-' | '_' | ',' | '\\'' | '\"' | '%' | ':' | '(' | ')' | '|' | '&' | '*' )
+            int alt2=16;
             switch ( input.LA(1) ) {
             case ':':
                 {
@@ -440,6 +444,11 @@ public class ConfigGrammarLexer extends Lexer {
                 alt2=15;
                 }
                 break;
+            case '*':
+                {
+                alt2=16;
+                }
+                break;
             default:
                 NoViableAltException nvae =
                     new NoViableAltException("", 2, 0, input);
@@ -450,7 +459,7 @@ public class ConfigGrammarLexer extends Lexer {
 
             switch (alt2) {
                 case 1 :
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:62:4: '://'
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:70:4: '://'
                     {
                     match("://"); 
 
@@ -459,100 +468,107 @@ public class ConfigGrammarLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:62:12: '.'
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:70:12: '.'
                     {
                     match('.'); 
 
                     }
                     break;
                 case 3 :
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:62:18: '!'
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:70:18: '!'
                     {
                     match('!'); 
 
                     }
                     break;
                 case 4 :
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:62:24: '?'
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:70:24: '?'
                     {
                     match('?'); 
 
                     }
                     break;
                 case 5 :
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:62:30: '-'
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:70:30: '-'
                     {
                     match('-'); 
 
                     }
                     break;
                 case 6 :
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:62:36: '_'
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:70:36: '_'
                     {
                     match('_'); 
 
                     }
                     break;
                 case 7 :
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:62:42: ','
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:70:42: ','
                     {
                     match(','); 
 
                     }
                     break;
                 case 8 :
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:62:48: '\\''
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:70:48: '\\''
                     {
                     match('\''); 
 
                     }
                     break;
                 case 9 :
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:62:55: '\"'
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:70:55: '\"'
                     {
                     match('\"'); 
 
                     }
                     break;
                 case 10 :
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:62:61: '%'
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:70:61: '%'
                     {
                     match('%'); 
 
                     }
                     break;
                 case 11 :
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:62:67: ':'
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:70:67: ':'
                     {
                     match(':'); 
 
                     }
                     break;
                 case 12 :
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:62:73: '('
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:70:73: '('
                     {
                     match('('); 
 
                     }
                     break;
                 case 13 :
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:62:79: ')'
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:70:79: ')'
                     {
                     match(')'); 
 
                     }
                     break;
                 case 14 :
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:62:85: '|'
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:70:85: '|'
                     {
                     match('|'); 
 
                     }
                     break;
                 case 15 :
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:62:91: '&'
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:70:91: '&'
                     {
                     match('&'); 
+
+                    }
+                    break;
+                case 16 :
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:70:97: '*'
+                    {
+                    match('*'); 
 
                     }
                     break;
@@ -571,10 +587,10 @@ public class ConfigGrammarLexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:65:5: ( ( ' ' | '\\t' | '\\r' | '\\n' )* )
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:65:9: ( ' ' | '\\t' | '\\r' | '\\n' )*
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:73:5: ( ( ' ' | '\\t' | '\\r' | '\\n' )* )
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:73:9: ( ' ' | '\\t' | '\\r' | '\\n' )*
             {
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:65:9: ( ' ' | '\\t' | '\\r' | '\\n' )*
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:73:9: ( ' ' | '\\t' | '\\r' | '\\n' )*
             loop3:
             do {
                 int alt3=2;

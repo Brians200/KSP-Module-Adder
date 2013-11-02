@@ -1,4 +1,4 @@
-package configtree;
+package config.tree;
 
 public interface IKspPartTree {
 

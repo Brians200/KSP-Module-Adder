@@ -4,4 +4,5 @@ GameData
 .classpath
 part.cfg
 src/antlrworks.jar
-src/classes
+src/config/io/classes
+__Test__*
