@@ -1,4 +1,4 @@
-// $ANTLR 3.4 C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g 2013-11-01 22:49:17
+// $ANTLR 3.4 C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g 2013-11-01 23:26:40
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -398,7 +398,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
             // AST REWRITE
-            // elements: b1, blockField
+            // elements: blockField, b1
             // token labels: b1
             // rule labels: retval
             // token list labels: 
@@ -825,7 +825,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
             // AST REWRITE
-            // elements: a1, a2
+            // elements: a2, a1
             // token labels: a1, a2
             // rule labels: retval
             // token list labels: 
@@ -1087,7 +1087,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "commentContent"
-    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:43:1: commentContent : ( '{' -> ^( '{' ) | '}' -> ^( '}' ) |c1= STRING (c2= ( ( '/' | '=' ) STRING ) )* -> ^( $c1 ( $c2)* ) |c1= ( '/' ) c2= STRING (c3= ( ( '/' | '=' ) STRING ) )* -> ^( $c2 ( $c2)* ) );
+    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:43:1: commentContent : ( '{' -> '{' | '}' -> '}' | (c1= STRING -> $c1) ( ( '/' -> $commentContent '/' | '=' -> $commentContent '=' ) c2= STRING -> $commentContent $c2)* | ( '/' c1= STRING -> '/' $c1) ( ( '/' -> $commentContent '/' | '=' -> $commentContent '=' ) c2= STRING -> $commentContent $c2)* );
     public final ConfigGrammarParser.commentContent_return commentContent() throws RecognitionException {
         ConfigGrammarParser.commentContent_return retval = new ConfigGrammarParser.commentContent_return();
         retval.start = input.LT(1);
@@ -1097,29 +1097,23 @@ public TreeAdaptor getTreeAdaptor() {
 
         Token c1=null;
         Token c2=null;
-        Token c3=null;
         Token char_literal18=null;
         Token char_literal19=null;
         Token char_literal20=null;
         Token char_literal21=null;
-        Token STRING22=null;
+        Token char_literal22=null;
         Token char_literal23=null;
         Token char_literal24=null;
-        Token char_literal25=null;
-        Token STRING26=null;
 
         Object c1_tree=null;
         Object c2_tree=null;
-        Object c3_tree=null;
         Object char_literal18_tree=null;
         Object char_literal19_tree=null;
         Object char_literal20_tree=null;
         Object char_literal21_tree=null;
-        Object STRING22_tree=null;
+        Object char_literal22_tree=null;
         Object char_literal23_tree=null;
         Object char_literal24_tree=null;
-        Object char_literal25_tree=null;
-        Object STRING26_tree=null;
         RewriteRuleTokenStream stream_17=new RewriteRuleTokenStream(adaptor,"token 17");
         RewriteRuleTokenStream stream_18=new RewriteRuleTokenStream(adaptor,"token 18");
         RewriteRuleTokenStream stream_16=new RewriteRuleTokenStream(adaptor,"token 16");
@@ -1127,7 +1121,7 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleTokenStream stream_STRING=new RewriteRuleTokenStream(adaptor,"token STRING");
 
         try {
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:44:2: ( '{' -> ^( '{' ) | '}' -> ^( '}' ) |c1= STRING (c2= ( ( '/' | '=' ) STRING ) )* -> ^( $c1 ( $c2)* ) |c1= ( '/' ) c2= STRING (c3= ( ( '/' | '=' ) STRING ) )* -> ^( $c2 ( $c2)* ) )
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:44:2: ( '{' -> '{' | '}' -> '}' | (c1= STRING -> $c1) ( ( '/' -> $commentContent '/' | '=' -> $commentContent '=' ) c2= STRING -> $commentContent $c2)* | ( '/' c1= STRING -> '/' $c1) ( ( '/' -> $commentContent '/' | '=' -> $commentContent '=' ) c2= STRING -> $commentContent $c2)* )
             int alt12=4;
             switch ( input.LA(1) ) {
             case 17:
@@ -1180,17 +1174,11 @@ public TreeAdaptor getTreeAdaptor() {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 44:14: -> ^( '{' )
+                    // 44:15: -> '{'
                     {
-                        // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:44:17: ^( '{' )
-                        {
-                        Object root_1 = (Object)adaptor.nil();
-                        root_1 = (Object)adaptor.becomeRoot(
+                        adaptor.addChild(root_0, 
                         stream_17.nextNode()
-                        , root_1);
-
-                        adaptor.addChild(root_0, root_1);
-                        }
+                        );
 
                     }
 
@@ -1203,7 +1191,7 @@ public TreeAdaptor getTreeAdaptor() {
                 case 2 :
                     // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:45:4: '}'
                     {
-                    char_literal19=(Token)match(input,18,FOLLOW_18_in_commentContent321); if (state.failed) return retval; 
+                    char_literal19=(Token)match(input,18,FOLLOW_18_in_commentContent320); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_18.add(char_literal19);
 
 
@@ -1220,17 +1208,11 @@ public TreeAdaptor getTreeAdaptor() {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 45:14: -> ^( '}' )
+                    // 45:15: -> '}'
                     {
-                        // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:45:17: ^( '}' )
-                        {
-                        Object root_1 = (Object)adaptor.nil();
-                        root_1 = (Object)adaptor.becomeRoot(
+                        adaptor.addChild(root_0, 
                         stream_18.nextNode()
-                        , root_1);
-
-                        adaptor.addChild(root_0, root_1);
-                        }
+                        );
 
                     }
 
@@ -1241,13 +1223,43 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 3 :
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:46:4: c1= STRING (c2= ( ( '/' | '=' ) STRING ) )*
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:46:4: (c1= STRING -> $c1) ( ( '/' -> $commentContent '/' | '=' -> $commentContent '=' ) c2= STRING -> $commentContent $c2)*
                     {
-                    c1=(Token)match(input,STRING,FOLLOW_STRING_in_commentContent342); if (state.failed) return retval; 
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:46:4: (c1= STRING -> $c1)
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:46:5: c1= STRING
+                    {
+                    c1=(Token)match(input,STRING,FOLLOW_STRING_in_commentContent341); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_STRING.add(c1);
 
 
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:46:16: (c2= ( ( '/' | '=' ) STRING ) )*
+                    // AST REWRITE
+                    // elements: c1
+                    // token labels: c1
+                    // rule labels: retval
+                    // token list labels: 
+                    // rule list labels: 
+                    // wildcard labels: 
+                    if ( state.backtracking==0 ) {
+
+                    retval.tree = root_0;
+                    RewriteRuleTokenStream stream_c1=new RewriteRuleTokenStream(adaptor,"token c1",c1);
+                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
+
+                    root_0 = (Object)adaptor.nil();
+                    // 46:15: -> $c1
+                    {
+                        adaptor.addChild(root_0, stream_c1.nextNode());
+
+                    }
+
+
+                    retval.tree = root_0;
+                    }
+
+                    }
+
+
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:46:24: ( ( '/' -> $commentContent '/' | '=' -> $commentContent '=' ) c2= STRING -> $commentContent $c2)*
                     loop9:
                     do {
                         int alt9=2;
@@ -1260,12 +1272,9 @@ public TreeAdaptor getTreeAdaptor() {
 
                         switch (alt9) {
                     	case 1 :
-                    	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:46:16: c2= ( ( '/' | '=' ) STRING )
+                    	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:46:25: ( '/' -> $commentContent '/' | '=' -> $commentContent '=' ) c2= STRING
                     	    {
-                    	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:46:17: ( ( '/' | '=' ) STRING )
-                    	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:46:18: ( '/' | '=' ) STRING
-                    	    {
-                    	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:46:18: ( '/' | '=' )
+                    	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:46:25: ( '/' -> $commentContent '/' | '=' -> $commentContent '=' )
                     	    int alt8=2;
                     	    int LA8_0 = input.LA(1);
 
@@ -1285,20 +1294,74 @@ public TreeAdaptor getTreeAdaptor() {
                     	    }
                     	    switch (alt8) {
                     	        case 1 :
-                    	            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:46:19: '/'
+                    	            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:46:26: '/'
                     	            {
-                    	            char_literal20=(Token)match(input,14,FOLLOW_14_in_commentContent348); if (state.failed) return retval; 
+                    	            char_literal20=(Token)match(input,14,FOLLOW_14_in_commentContent352); if (state.failed) return retval; 
                     	            if ( state.backtracking==0 ) stream_14.add(char_literal20);
 
+
+                    	            // AST REWRITE
+                    	            // elements: commentContent, 14
+                    	            // token labels: 
+                    	            // rule labels: retval
+                    	            // token list labels: 
+                    	            // rule list labels: 
+                    	            // wildcard labels: 
+                    	            if ( state.backtracking==0 ) {
+
+                    	            retval.tree = root_0;
+                    	            RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
+
+                    	            root_0 = (Object)adaptor.nil();
+                    	            // 46:30: -> $commentContent '/'
+                    	            {
+                    	                adaptor.addChild(root_0, stream_retval.nextTree());
+
+                    	                adaptor.addChild(root_0, 
+                    	                stream_14.nextNode()
+                    	                );
+
+                    	            }
+
+
+                    	            retval.tree = root_0;
+                    	            }
 
                     	            }
                     	            break;
                     	        case 2 :
-                    	            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:46:25: '='
+                    	            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:46:55: '='
                     	            {
-                    	            char_literal21=(Token)match(input,16,FOLLOW_16_in_commentContent352); if (state.failed) return retval; 
+                    	            char_literal21=(Token)match(input,16,FOLLOW_16_in_commentContent363); if (state.failed) return retval; 
                     	            if ( state.backtracking==0 ) stream_16.add(char_literal21);
 
+
+                    	            // AST REWRITE
+                    	            // elements: commentContent, 16
+                    	            // token labels: 
+                    	            // rule labels: retval
+                    	            // token list labels: 
+                    	            // rule list labels: 
+                    	            // wildcard labels: 
+                    	            if ( state.backtracking==0 ) {
+
+                    	            retval.tree = root_0;
+                    	            RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
+
+                    	            root_0 = (Object)adaptor.nil();
+                    	            // 46:59: -> $commentContent '='
+                    	            {
+                    	                adaptor.addChild(root_0, stream_retval.nextTree());
+
+                    	                adaptor.addChild(root_0, 
+                    	                stream_16.nextNode()
+                    	                );
+
+                    	            }
+
+
+                    	            retval.tree = root_0;
+                    	            }
 
                     	            }
                     	            break;
@@ -1306,12 +1369,35 @@ public TreeAdaptor getTreeAdaptor() {
                     	    }
 
 
-                    	    STRING22=(Token)match(input,STRING,FOLLOW_STRING_in_commentContent355); if (state.failed) return retval; 
-                    	    if ( state.backtracking==0 ) stream_STRING.add(STRING22);
+                    	    c2=(Token)match(input,STRING,FOLLOW_STRING_in_commentContent375); if (state.failed) return retval; 
+                    	    if ( state.backtracking==0 ) stream_STRING.add(c2);
 
+
+                    	    // AST REWRITE
+                    	    // elements: c2, commentContent
+                    	    // token labels: c2
+                    	    // rule labels: retval
+                    	    // token list labels: 
+                    	    // rule list labels: 
+                    	    // wildcard labels: 
+                    	    if ( state.backtracking==0 ) {
+
+                    	    retval.tree = root_0;
+                    	    RewriteRuleTokenStream stream_c2=new RewriteRuleTokenStream(adaptor,"token c2",c2);
+                    	    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
+
+                    	    root_0 = (Object)adaptor.nil();
+                    	    // 46:94: -> $commentContent $c2
+                    	    {
+                    	        adaptor.addChild(root_0, stream_retval.nextTree());
+
+                    	        adaptor.addChild(root_0, stream_c2.nextNode());
 
                     	    }
 
+
+                    	    retval.tree = root_0;
+                    	    }
 
                     	    }
                     	    break;
@@ -1322,9 +1408,25 @@ public TreeAdaptor getTreeAdaptor() {
                     } while (true);
 
 
+                    }
+                    break;
+                case 4 :
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:47:4: ( '/' c1= STRING -> '/' $c1) ( ( '/' -> $commentContent '/' | '=' -> $commentContent '=' ) c2= STRING -> $commentContent $c2)*
+                    {
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:47:4: ( '/' c1= STRING -> '/' $c1)
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:47:5: '/' c1= STRING
+                    {
+                    char_literal22=(Token)match(input,14,FOLLOW_14_in_commentContent392); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_14.add(char_literal22);
+
+
+                    c1=(Token)match(input,STRING,FOLLOW_STRING_in_commentContent396); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_STRING.add(c1);
+
+
                     // AST REWRITE
-                    // elements: c1, c2
-                    // token labels: c1, c2
+                    // elements: 14, c1
+                    // token labels: c1
                     // rule labels: retval
                     // token list labels: 
                     // rule list labels: 
@@ -1333,26 +1435,16 @@ public TreeAdaptor getTreeAdaptor() {
 
                     retval.tree = root_0;
                     RewriteRuleTokenStream stream_c1=new RewriteRuleTokenStream(adaptor,"token c1",c1);
-                    RewriteRuleTokenStream stream_c2=new RewriteRuleTokenStream(adaptor,"token c2",c2);
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 46:41: -> ^( $c1 ( $c2)* )
+                    // 47:19: -> '/' $c1
                     {
-                        // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:46:44: ^( $c1 ( $c2)* )
-                        {
-                        Object root_1 = (Object)adaptor.nil();
-                        root_1 = (Object)adaptor.becomeRoot(stream_c1.nextNode(), root_1);
+                        adaptor.addChild(root_0, 
+                        stream_14.nextNode()
+                        );
 
-                        // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:46:51: ( $c2)*
-                        while ( stream_c2.hasNext() ) {
-                            adaptor.addChild(root_1, stream_c2.nextNode());
-
-                        }
-                        stream_c2.reset();
-
-                        adaptor.addChild(root_0, root_1);
-                        }
+                        adaptor.addChild(root_0, stream_c1.nextNode());
 
                     }
 
@@ -1361,25 +1453,9 @@ public TreeAdaptor getTreeAdaptor() {
                     }
 
                     }
-                    break;
-                case 4 :
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:47:4: c1= ( '/' ) c2= STRING (c3= ( ( '/' | '=' ) STRING ) )*
-                    {
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:47:7: ( '/' )
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:47:8: '/'
-                    {
-                    char_literal23=(Token)match(input,14,FOLLOW_14_in_commentContent378); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_14.add(char_literal23);
 
 
-                    }
-
-
-                    c2=(Token)match(input,STRING,FOLLOW_STRING_in_commentContent383); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_STRING.add(c2);
-
-
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:47:25: (c3= ( ( '/' | '=' ) STRING ) )*
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:47:33: ( ( '/' -> $commentContent '/' | '=' -> $commentContent '=' ) c2= STRING -> $commentContent $c2)*
                     loop11:
                     do {
                         int alt11=2;
@@ -1392,12 +1468,9 @@ public TreeAdaptor getTreeAdaptor() {
 
                         switch (alt11) {
                     	case 1 :
-                    	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:47:25: c3= ( ( '/' | '=' ) STRING )
+                    	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:47:34: ( '/' -> $commentContent '/' | '=' -> $commentContent '=' ) c2= STRING
                     	    {
-                    	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:47:26: ( ( '/' | '=' ) STRING )
-                    	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:47:27: ( '/' | '=' ) STRING
-                    	    {
-                    	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:47:27: ( '/' | '=' )
+                    	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:47:34: ( '/' -> $commentContent '/' | '=' -> $commentContent '=' )
                     	    int alt10=2;
                     	    int LA10_0 = input.LA(1);
 
@@ -1417,20 +1490,74 @@ public TreeAdaptor getTreeAdaptor() {
                     	    }
                     	    switch (alt10) {
                     	        case 1 :
-                    	            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:47:28: '/'
+                    	            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:47:35: '/'
                     	            {
-                    	            char_literal24=(Token)match(input,14,FOLLOW_14_in_commentContent389); if (state.failed) return retval; 
-                    	            if ( state.backtracking==0 ) stream_14.add(char_literal24);
+                    	            char_literal23=(Token)match(input,14,FOLLOW_14_in_commentContent410); if (state.failed) return retval; 
+                    	            if ( state.backtracking==0 ) stream_14.add(char_literal23);
 
+
+                    	            // AST REWRITE
+                    	            // elements: commentContent, 14
+                    	            // token labels: 
+                    	            // rule labels: retval
+                    	            // token list labels: 
+                    	            // rule list labels: 
+                    	            // wildcard labels: 
+                    	            if ( state.backtracking==0 ) {
+
+                    	            retval.tree = root_0;
+                    	            RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
+
+                    	            root_0 = (Object)adaptor.nil();
+                    	            // 47:39: -> $commentContent '/'
+                    	            {
+                    	                adaptor.addChild(root_0, stream_retval.nextTree());
+
+                    	                adaptor.addChild(root_0, 
+                    	                stream_14.nextNode()
+                    	                );
+
+                    	            }
+
+
+                    	            retval.tree = root_0;
+                    	            }
 
                     	            }
                     	            break;
                     	        case 2 :
-                    	            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:47:34: '='
+                    	            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:47:64: '='
                     	            {
-                    	            char_literal25=(Token)match(input,16,FOLLOW_16_in_commentContent393); if (state.failed) return retval; 
-                    	            if ( state.backtracking==0 ) stream_16.add(char_literal25);
+                    	            char_literal24=(Token)match(input,16,FOLLOW_16_in_commentContent421); if (state.failed) return retval; 
+                    	            if ( state.backtracking==0 ) stream_16.add(char_literal24);
 
+
+                    	            // AST REWRITE
+                    	            // elements: 16, commentContent
+                    	            // token labels: 
+                    	            // rule labels: retval
+                    	            // token list labels: 
+                    	            // rule list labels: 
+                    	            // wildcard labels: 
+                    	            if ( state.backtracking==0 ) {
+
+                    	            retval.tree = root_0;
+                    	            RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
+
+                    	            root_0 = (Object)adaptor.nil();
+                    	            // 47:68: -> $commentContent '='
+                    	            {
+                    	                adaptor.addChild(root_0, stream_retval.nextTree());
+
+                    	                adaptor.addChild(root_0, 
+                    	                stream_16.nextNode()
+                    	                );
+
+                    	            }
+
+
+                    	            retval.tree = root_0;
+                    	            }
 
                     	            }
                     	            break;
@@ -1438,12 +1565,35 @@ public TreeAdaptor getTreeAdaptor() {
                     	    }
 
 
-                    	    STRING26=(Token)match(input,STRING,FOLLOW_STRING_in_commentContent396); if (state.failed) return retval; 
-                    	    if ( state.backtracking==0 ) stream_STRING.add(STRING26);
+                    	    c2=(Token)match(input,STRING,FOLLOW_STRING_in_commentContent433); if (state.failed) return retval; 
+                    	    if ( state.backtracking==0 ) stream_STRING.add(c2);
 
+
+                    	    // AST REWRITE
+                    	    // elements: c2, commentContent
+                    	    // token labels: c2
+                    	    // rule labels: retval
+                    	    // token list labels: 
+                    	    // rule list labels: 
+                    	    // wildcard labels: 
+                    	    if ( state.backtracking==0 ) {
+
+                    	    retval.tree = root_0;
+                    	    RewriteRuleTokenStream stream_c2=new RewriteRuleTokenStream(adaptor,"token c2",c2);
+                    	    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
+
+                    	    root_0 = (Object)adaptor.nil();
+                    	    // 47:102: -> $commentContent $c2
+                    	    {
+                    	        adaptor.addChild(root_0, stream_retval.nextTree());
+
+                    	        adaptor.addChild(root_0, stream_c2.nextNode());
 
                     	    }
 
+
+                    	    retval.tree = root_0;
+                    	    }
 
                     	    }
                     	    break;
@@ -1453,43 +1603,6 @@ public TreeAdaptor getTreeAdaptor() {
                         }
                     } while (true);
 
-
-                    // AST REWRITE
-                    // elements: c2, c2
-                    // token labels: c2
-                    // rule labels: retval
-                    // token list labels: 
-                    // rule list labels: 
-                    // wildcard labels: 
-                    if ( state.backtracking==0 ) {
-
-                    retval.tree = root_0;
-                    RewriteRuleTokenStream stream_c2=new RewriteRuleTokenStream(adaptor,"token c2",c2);
-                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
-
-                    root_0 = (Object)adaptor.nil();
-                    // 47:49: -> ^( $c2 ( $c2)* )
-                    {
-                        // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:47:52: ^( $c2 ( $c2)* )
-                        {
-                        Object root_1 = (Object)adaptor.nil();
-                        root_1 = (Object)adaptor.becomeRoot(stream_c2.nextNode(), root_1);
-
-                        // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:47:59: ( $c2)*
-                        while ( stream_c2.hasNext() ) {
-                            adaptor.addChild(root_1, stream_c2.nextNode());
-
-                        }
-                        stream_c2.reset();
-
-                        adaptor.addChild(root_0, root_1);
-                        }
-
-                    }
-
-
-                    retval.tree = root_0;
-                    }
 
                     }
                     break;
@@ -1572,16 +1685,16 @@ public TreeAdaptor getTreeAdaptor() {
     public static final BitSet FOLLOW_15_in_comment269 = new BitSet(new long[]{0x0000000000064802L});
     public static final BitSet FOLLOW_commentContent_in_comment271 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_17_in_commentContent302 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_commentContent321 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRING_in_commentContent342 = new BitSet(new long[]{0x0000000000014002L});
-    public static final BitSet FOLLOW_14_in_commentContent348 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_16_in_commentContent352 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_STRING_in_commentContent355 = new BitSet(new long[]{0x0000000000014002L});
-    public static final BitSet FOLLOW_14_in_commentContent378 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_STRING_in_commentContent383 = new BitSet(new long[]{0x0000000000014002L});
-    public static final BitSet FOLLOW_14_in_commentContent389 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_16_in_commentContent393 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_18_in_commentContent320 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRING_in_commentContent341 = new BitSet(new long[]{0x0000000000014002L});
+    public static final BitSet FOLLOW_14_in_commentContent352 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_16_in_commentContent363 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_STRING_in_commentContent375 = new BitSet(new long[]{0x0000000000014002L});
+    public static final BitSet FOLLOW_14_in_commentContent392 = new BitSet(new long[]{0x0000000000000800L});
     public static final BitSet FOLLOW_STRING_in_commentContent396 = new BitSet(new long[]{0x0000000000014002L});
+    public static final BitSet FOLLOW_14_in_commentContent410 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_16_in_commentContent421 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_STRING_in_commentContent433 = new BitSet(new long[]{0x0000000000014002L});
     public static final BitSet FOLLOW_17_in_synpred1_ConfigGrammar167 = new BitSet(new long[]{0x0000000000000002L});
 
 }

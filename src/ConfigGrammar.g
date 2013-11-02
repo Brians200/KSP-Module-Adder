@@ -41,10 +41,10 @@ comment	:	('//' commentContent?					-> ^(COMMENT commentContent?))
 	;
 
 commentContent
-	:	'{'							-> ^( '{' )
-	|	'}'							-> ^( '}' )
-	|	c1=STRING c2=(('/' | '=') STRING)*			-> ^($c1 $c2*)
-	|	c1=('/') c2=STRING c3=(('/' | '=') STRING)*		-> ^($c2 $c2*)
+	:	'{'								->  '{' 
+	|	'}'								->  '}' 
+	|	(c1=STRING -> $c1)  (('/' -> $commentContent '/' | '=' -> $commentContent '=') c2=STRING 	-> $commentContent $c2)*
+	|	('/' c1=STRING -> '/' $c1 )  (('/' -> $commentContent '/' | '=' -> $commentContent '=') c2=STRING	-> $commentContent $c2)*
 	;
 	
 STRING	:	(LETTER | NUMBER | SYMBOL | ' ')*	
