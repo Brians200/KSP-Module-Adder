@@ -51,13 +51,13 @@ comment	:	('//' commentContent?					-> ^(COMMENT commentContent?))
 commentContent
 	:	'{'								->  '{' 
 	|	'}'								->  '}' 
-	|	(c1=STRING -> $c1)  (('/' -> $commentContent '/' | '=' -> $commentContent '=') c2=STRING 	-> $commentContent $c2)*
+	|	(c1=STRING -> $c1)  (('/' -> $commentContent '/' | '=' -> $commentContent '=') (c2=STRING 	-> $commentContent $c2)?)*
 	|	('/' c1=STRING -> '/' $c1 )  (('/' -> $commentContent '/' | '=' -> $commentContent '=') c2=STRING	-> $commentContent $c2)*
 	;
 	
 STRING	:	(LETTER | NUMBER | SYMBOL | ' ')*	
 	;
-
+	
 fragment LETTER
 	:	('A'..'Z' | 'a'..'z')	
 	;	
@@ -67,7 +67,7 @@ fragment NUMBER
 	;
 	
 fragment SYMBOL
-	:	'://' | '.' | '!' | '?' | '-' | '_' | ',' | '\'' | '"' | '%' | ':' | '(' | ')' | '|' | '&' | '*'
+	:	'://' | '.' | '!' | '?' | '-' | '_' | ',' | '\'' | '"' | '%' | ':' | '(' | ')' | '|' | '&' | '*' | ';' 
 	;
 
 WS  :   ( ' '

@@ -1,4 +1,4 @@
-// $ANTLR 3.4 C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g 2013-11-02 02:38:21
+// $ANTLR 3.4 C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g 2013-11-02 12:47:13
 
     package config.io;
 
@@ -244,6 +244,7 @@ public class ConfigGrammarLexer extends Lexer {
                 case '-':
                 case '.':
                 case ':':
+                case ';':
                 case '?':
                 case '_':
                 case '|':
@@ -364,8 +365,8 @@ public class ConfigGrammarLexer extends Lexer {
     // $ANTLR start "SYMBOL"
     public final void mSYMBOL() throws RecognitionException {
         try {
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:70:2: ( '://' | '.' | '!' | '?' | '-' | '_' | ',' | '\\'' | '\"' | '%' | ':' | '(' | ')' | '|' | '&' | '*' )
-            int alt2=16;
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:70:2: ( '://' | '.' | '!' | '?' | '-' | '_' | ',' | '\\'' | '\"' | '%' | ':' | '(' | ')' | '|' | '&' | '*' | ';' )
+            int alt2=17;
             switch ( input.LA(1) ) {
             case ':':
                 {
@@ -447,6 +448,11 @@ public class ConfigGrammarLexer extends Lexer {
             case '*':
                 {
                 alt2=16;
+                }
+                break;
+            case ';':
+                {
+                alt2=17;
                 }
                 break;
             default:
@@ -569,6 +575,13 @@ public class ConfigGrammarLexer extends Lexer {
                     // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:70:97: '*'
                     {
                     match('*'); 
+
+                    }
+                    break;
+                case 17 :
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:70:103: ';'
+                    {
+                    match(';'); 
 
                     }
                     break;
