@@ -12,15 +12,10 @@ public class AssignmentTree implements IKspPartTree {
 	{
 		this.tabAmount = tabAmount;
 		
-		//String tabs = createTabs(tabAmount);
-		//value.append(tabs);
-		
 		int i = 0;
 		CommonTree leftSide = (CommonTree) t.getChild(i++);
 		
 		lhs = leftSide.getText();	
-		//value.append(leftSide.getText());
-		//value.append(" = ");
 		
 		StringBuilder rightSide = new StringBuilder();
 		int childCount = t.getChildCount();

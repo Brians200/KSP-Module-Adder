@@ -11,11 +11,6 @@ public class CommentTree implements IKspPartTree {
 	{
 		this.tabAmount = tabAmount;
 		
-		//String tabs = createTabs(tabAmount);
-		
-		//value.append(tabs);
-		//value.append("//");
-		
 		StringBuilder commentBuilder = new StringBuilder();
 		
 		for(Object objectChild : t.getChildren())

@@ -19,12 +19,10 @@ public class ConfigTree implements IKspPartTree {
 			if(child.getText().equals("BLOCK"))
 			{
 				parts.add(new BlockTree(child, 0));
-				//value.append(createStringBlock(child, 0));
 			}
 			else if(child.getText().equals("COMMENT"))
 			{	
 				parts.add(new CommentTree(child, 0));
-				//value.append(createStringComment(child, 0));
 			}
 			else
 			{
