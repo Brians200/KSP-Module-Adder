@@ -96,7 +96,7 @@ public class KspModuleEditor {
 		
 		value.append("\n");
 		value.append(tabs);
-		value.append("}");
+		value.append("}\n");
 		
 		
 		
@@ -108,7 +108,44 @@ public class KspModuleEditor {
 	{
 		StringBuilder value = new StringBuilder();
 		
+		int i = 0;
+			
+		String tabs = createTabs(tabAmount);
 		
+		value.append(tabs);
+		value.append("{");
+		
+		int numberOfChildren = t.getChildCount();
+		for(; i<numberOfChildren; i++)
+		{
+			value.append("\n");
+			
+			CommonTree child = (CommonTree) t.getChild(i);
+			if(child.getText().equals("BLOCK"))
+			{
+				value.append(createStringBlock(child, tabAmount+1));
+			}
+			else if(child.getText().equals("COMMENT"))
+			{
+				value.append(createStringComment(child, tabAmount+1));
+			}
+			else if(child.getText().equals("EMPTYBLOCK"))
+			{
+				value.append(createStringEmptyBlock(child, tabAmount+1));
+			}
+			else if(child.getText().equals("ASSIGNMENT"))
+			{
+				value.append(createStringAssignment(child, tabAmount+1));
+			}
+			else
+			{
+				throw new IllegalArgumentException();
+			}
+		}
+		
+		value.append("\n");
+		value.append(tabs);
+		value.append("}\n");
 		
 		
 		
