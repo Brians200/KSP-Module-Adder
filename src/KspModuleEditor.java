@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.io.ObjectInputStream.GetField;
 
 import org.antlr.runtime.ANTLRFileStream;
 import org.antlr.runtime.RecognitionException;
@@ -140,12 +141,18 @@ public class KspModuleEditor {
 		String tabs = createTabs(tabAmount);
 		value.append(tabs);
 		
-		CommonTree leftSide = (CommonTree) t.getChild(0);
-		CommonTree rightSide = (CommonTree) t.getChild(1);
-		
+		int i = 0;
+		CommonTree leftSide = (CommonTree) t.getChild(i++);
 		value.append(leftSide.getText());
 		value.append(" = ");
-		value.append(rightSide.getText());
+		
+		int childCount = t.getChildCount();
+		
+		for(; i<childCount; i++)
+		{	
+			CommonTree child = (CommonTree) t.getChild(i);
+			value.append(child.getText());
+		}
 		
 		
 		return value.toString();

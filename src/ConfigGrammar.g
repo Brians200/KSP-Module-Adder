@@ -30,11 +30,11 @@ blockField
 	:	('{') => emptyBlock
 	|	block
 	|	comment						
-	|	assignment
+	|	assignment				-> ^(ASSIGNMENT assignment)
 	;
 	
 assignment
-	:	a1=STRING '=' a2=STRING ('/' STRING)*			-> ^(ASSIGNMENT $a1 $a2)
+	:	(a1=STRING '=' a2=STRING  -> $a1 $a2 ) ('/' a3=STRING -> $assignment '/' $a3)*		
 	;
 	
 comment	:	('//' commentContent?					-> ^(COMMENT commentContent?))	 			

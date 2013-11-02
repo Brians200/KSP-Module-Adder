@@ -1,4 +1,4 @@
-// $ANTLR 3.4 C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g 2013-11-01 22:29:17
+// $ANTLR 3.4 C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g 2013-11-01 22:49:17
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -603,7 +603,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "blockField"
-    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:29:1: blockField : ( ( '{' )=> emptyBlock | block | comment | assignment );
+    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:29:1: blockField : ( ( '{' )=> emptyBlock | block | comment | assignment -> ^( ASSIGNMENT assignment ) );
     public final ConfigGrammarParser.blockField_return blockField() throws RecognitionException {
         ConfigGrammarParser.blockField_return retval = new ConfigGrammarParser.blockField_return();
         retval.start = input.LT(1);
@@ -620,9 +620,9 @@ public TreeAdaptor getTreeAdaptor() {
         ConfigGrammarParser.assignment_return assignment13 =null;
 
 
-
+        RewriteRuleSubtreeStream stream_assignment=new RewriteRuleSubtreeStream(adaptor,"rule assignment");
         try {
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:30:2: ( ( '{' )=> emptyBlock | block | comment | assignment )
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:30:2: ( ( '{' )=> emptyBlock | block | comment | assignment -> ^( ASSIGNMENT assignment ) )
             int alt5=4;
             int LA5_0 = input.LA(1);
 
@@ -707,15 +707,45 @@ public TreeAdaptor getTreeAdaptor() {
                 case 4 :
                     // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:33:4: assignment
                     {
-                    root_0 = (Object)adaptor.nil();
-
-
                     pushFollow(FOLLOW_assignment_in_blockField193);
                     assignment13=assignment();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) adaptor.addChild(root_0, assignment13.getTree());
+                    if ( state.backtracking==0 ) stream_assignment.add(assignment13.getTree());
+
+                    // AST REWRITE
+                    // elements: assignment
+                    // token labels: 
+                    // rule labels: retval
+                    // token list labels: 
+                    // rule list labels: 
+                    // wildcard labels: 
+                    if ( state.backtracking==0 ) {
+
+                    retval.tree = root_0;
+                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
+
+                    root_0 = (Object)adaptor.nil();
+                    // 33:18: -> ^( ASSIGNMENT assignment )
+                    {
+                        // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:33:21: ^( ASSIGNMENT assignment )
+                        {
+                        Object root_1 = (Object)adaptor.nil();
+                        root_1 = (Object)adaptor.becomeRoot(
+                        (Object)adaptor.create(ASSIGNMENT, "ASSIGNMENT")
+                        , root_1);
+
+                        adaptor.addChild(root_1, stream_assignment.nextTree());
+
+                        adaptor.addChild(root_0, root_1);
+                        }
+
+                    }
+
+
+                    retval.tree = root_0;
+                    }
 
                     }
                     break;
@@ -752,7 +782,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "assignment"
-    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:36:1: assignment : a1= STRING '=' a2= STRING ( '/' STRING )* -> ^( ASSIGNMENT $a1 $a2) ;
+    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:36:1: assignment : (a1= STRING '=' a2= STRING -> $a1 $a2) ( '/' a3= STRING -> $assignment '/' $a3)* ;
     public final ConfigGrammarParser.assignment_return assignment() throws RecognitionException {
         ConfigGrammarParser.assignment_return retval = new ConfigGrammarParser.assignment_return();
         retval.start = input.LT(1);
@@ -762,65 +792,36 @@ public TreeAdaptor getTreeAdaptor() {
 
         Token a1=null;
         Token a2=null;
+        Token a3=null;
         Token char_literal14=null;
         Token char_literal15=null;
-        Token STRING16=null;
 
         Object a1_tree=null;
         Object a2_tree=null;
+        Object a3_tree=null;
         Object char_literal14_tree=null;
         Object char_literal15_tree=null;
-        Object STRING16_tree=null;
         RewriteRuleTokenStream stream_16=new RewriteRuleTokenStream(adaptor,"token 16");
         RewriteRuleTokenStream stream_14=new RewriteRuleTokenStream(adaptor,"token 14");
         RewriteRuleTokenStream stream_STRING=new RewriteRuleTokenStream(adaptor,"token STRING");
 
         try {
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:37:2: (a1= STRING '=' a2= STRING ( '/' STRING )* -> ^( ASSIGNMENT $a1 $a2) )
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:37:4: a1= STRING '=' a2= STRING ( '/' STRING )*
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:37:2: ( (a1= STRING '=' a2= STRING -> $a1 $a2) ( '/' a3= STRING -> $assignment '/' $a3)* )
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:37:4: (a1= STRING '=' a2= STRING -> $a1 $a2) ( '/' a3= STRING -> $assignment '/' $a3)*
             {
-            a1=(Token)match(input,STRING,FOLLOW_STRING_in_assignment207); if (state.failed) return retval; 
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:37:4: (a1= STRING '=' a2= STRING -> $a1 $a2)
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:37:5: a1= STRING '=' a2= STRING
+            {
+            a1=(Token)match(input,STRING,FOLLOW_STRING_in_assignment219); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_STRING.add(a1);
 
 
-            char_literal14=(Token)match(input,16,FOLLOW_16_in_assignment209); if (state.failed) return retval; 
+            char_literal14=(Token)match(input,16,FOLLOW_16_in_assignment221); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_16.add(char_literal14);
 
 
-            a2=(Token)match(input,STRING,FOLLOW_STRING_in_assignment213); if (state.failed) return retval; 
+            a2=(Token)match(input,STRING,FOLLOW_STRING_in_assignment225); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_STRING.add(a2);
-
-
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:37:28: ( '/' STRING )*
-            loop6:
-            do {
-                int alt6=2;
-                int LA6_0 = input.LA(1);
-
-                if ( (LA6_0==14) ) {
-                    alt6=1;
-                }
-
-
-                switch (alt6) {
-            	case 1 :
-            	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:37:29: '/' STRING
-            	    {
-            	    char_literal15=(Token)match(input,14,FOLLOW_14_in_assignment216); if (state.failed) return retval; 
-            	    if ( state.backtracking==0 ) stream_14.add(char_literal15);
-
-
-            	    STRING16=(Token)match(input,STRING,FOLLOW_STRING_in_assignment218); if (state.failed) return retval; 
-            	    if ( state.backtracking==0 ) stream_STRING.add(STRING16);
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop6;
-                }
-            } while (true);
 
 
             // AST REWRITE
@@ -838,27 +839,82 @@ public TreeAdaptor getTreeAdaptor() {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 37:44: -> ^( ASSIGNMENT $a1 $a2)
+            // 37:30: -> $a1 $a2
             {
-                // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:37:47: ^( ASSIGNMENT $a1 $a2)
-                {
-                Object root_1 = (Object)adaptor.nil();
-                root_1 = (Object)adaptor.becomeRoot(
-                (Object)adaptor.create(ASSIGNMENT, "ASSIGNMENT")
-                , root_1);
+                adaptor.addChild(root_0, stream_a1.nextNode());
 
-                adaptor.addChild(root_1, stream_a1.nextNode());
-
-                adaptor.addChild(root_1, stream_a2.nextNode());
-
-                adaptor.addChild(root_0, root_1);
-                }
+                adaptor.addChild(root_0, stream_a2.nextNode());
 
             }
 
 
             retval.tree = root_0;
             }
+
+            }
+
+
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:37:43: ( '/' a3= STRING -> $assignment '/' $a3)*
+            loop6:
+            do {
+                int alt6=2;
+                int LA6_0 = input.LA(1);
+
+                if ( (LA6_0==14) ) {
+                    alt6=1;
+                }
+
+
+                switch (alt6) {
+            	case 1 :
+            	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:37:44: '/' a3= STRING
+            	    {
+            	    char_literal15=(Token)match(input,14,FOLLOW_14_in_assignment239); if (state.failed) return retval; 
+            	    if ( state.backtracking==0 ) stream_14.add(char_literal15);
+
+
+            	    a3=(Token)match(input,STRING,FOLLOW_STRING_in_assignment243); if (state.failed) return retval; 
+            	    if ( state.backtracking==0 ) stream_STRING.add(a3);
+
+
+            	    // AST REWRITE
+            	    // elements: assignment, 14, a3
+            	    // token labels: a3
+            	    // rule labels: retval
+            	    // token list labels: 
+            	    // rule list labels: 
+            	    // wildcard labels: 
+            	    if ( state.backtracking==0 ) {
+
+            	    retval.tree = root_0;
+            	    RewriteRuleTokenStream stream_a3=new RewriteRuleTokenStream(adaptor,"token a3",a3);
+            	    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
+
+            	    root_0 = (Object)adaptor.nil();
+            	    // 37:58: -> $assignment '/' $a3
+            	    {
+            	        adaptor.addChild(root_0, stream_retval.nextTree());
+
+            	        adaptor.addChild(root_0, 
+            	        stream_14.nextNode()
+            	        );
+
+            	        adaptor.addChild(root_0, stream_a3.nextNode());
+
+            	    }
+
+
+            	    retval.tree = root_0;
+            	    }
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop6;
+                }
+            } while (true);
+
 
             }
 
@@ -901,11 +957,11 @@ public TreeAdaptor getTreeAdaptor() {
 
         Object root_0 = null;
 
-        Token string_literal17=null;
-        ConfigGrammarParser.commentContent_return commentContent18 =null;
+        Token string_literal16=null;
+        ConfigGrammarParser.commentContent_return commentContent17 =null;
 
 
-        Object string_literal17_tree=null;
+        Object string_literal16_tree=null;
         RewriteRuleTokenStream stream_15=new RewriteRuleTokenStream(adaptor,"token 15");
         RewriteRuleSubtreeStream stream_commentContent=new RewriteRuleSubtreeStream(adaptor,"rule commentContent");
         try {
@@ -915,8 +971,8 @@ public TreeAdaptor getTreeAdaptor() {
             // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:40:11: ( '//' ( commentContent )? -> ^( COMMENT ( commentContent )? ) )
             // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:40:12: '//' ( commentContent )?
             {
-            string_literal17=(Token)match(input,15,FOLLOW_15_in_comment246); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_15.add(string_literal17);
+            string_literal16=(Token)match(input,15,FOLLOW_15_in_comment269); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_15.add(string_literal16);
 
 
             // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:40:17: ( commentContent )?
@@ -944,12 +1000,12 @@ public TreeAdaptor getTreeAdaptor() {
                 case 1 :
                     // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:40:17: commentContent
                     {
-                    pushFollow(FOLLOW_commentContent_in_comment248);
-                    commentContent18=commentContent();
+                    pushFollow(FOLLOW_commentContent_in_comment271);
+                    commentContent17=commentContent();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) stream_commentContent.add(commentContent18.getTree());
+                    if ( state.backtracking==0 ) stream_commentContent.add(commentContent17.getTree());
 
                     }
                     break;
@@ -1042,28 +1098,28 @@ public TreeAdaptor getTreeAdaptor() {
         Token c1=null;
         Token c2=null;
         Token c3=null;
+        Token char_literal18=null;
         Token char_literal19=null;
         Token char_literal20=null;
         Token char_literal21=null;
-        Token char_literal22=null;
-        Token STRING23=null;
+        Token STRING22=null;
+        Token char_literal23=null;
         Token char_literal24=null;
         Token char_literal25=null;
-        Token char_literal26=null;
-        Token STRING27=null;
+        Token STRING26=null;
 
         Object c1_tree=null;
         Object c2_tree=null;
         Object c3_tree=null;
+        Object char_literal18_tree=null;
         Object char_literal19_tree=null;
         Object char_literal20_tree=null;
         Object char_literal21_tree=null;
-        Object char_literal22_tree=null;
-        Object STRING23_tree=null;
+        Object STRING22_tree=null;
+        Object char_literal23_tree=null;
         Object char_literal24_tree=null;
         Object char_literal25_tree=null;
-        Object char_literal26_tree=null;
-        Object STRING27_tree=null;
+        Object STRING26_tree=null;
         RewriteRuleTokenStream stream_17=new RewriteRuleTokenStream(adaptor,"token 17");
         RewriteRuleTokenStream stream_18=new RewriteRuleTokenStream(adaptor,"token 18");
         RewriteRuleTokenStream stream_16=new RewriteRuleTokenStream(adaptor,"token 16");
@@ -1107,8 +1163,8 @@ public TreeAdaptor getTreeAdaptor() {
                 case 1 :
                     // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:44:4: '{'
                     {
-                    char_literal19=(Token)match(input,17,FOLLOW_17_in_commentContent279); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_17.add(char_literal19);
+                    char_literal18=(Token)match(input,17,FOLLOW_17_in_commentContent302); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_17.add(char_literal18);
 
 
                     // AST REWRITE
@@ -1147,8 +1203,8 @@ public TreeAdaptor getTreeAdaptor() {
                 case 2 :
                     // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:45:4: '}'
                     {
-                    char_literal20=(Token)match(input,18,FOLLOW_18_in_commentContent298); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_18.add(char_literal20);
+                    char_literal19=(Token)match(input,18,FOLLOW_18_in_commentContent321); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_18.add(char_literal19);
 
 
                     // AST REWRITE
@@ -1187,7 +1243,7 @@ public TreeAdaptor getTreeAdaptor() {
                 case 3 :
                     // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:46:4: c1= STRING (c2= ( ( '/' | '=' ) STRING ) )*
                     {
-                    c1=(Token)match(input,STRING,FOLLOW_STRING_in_commentContent319); if (state.failed) return retval; 
+                    c1=(Token)match(input,STRING,FOLLOW_STRING_in_commentContent342); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_STRING.add(c1);
 
 
@@ -1231,8 +1287,8 @@ public TreeAdaptor getTreeAdaptor() {
                     	        case 1 :
                     	            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:46:19: '/'
                     	            {
-                    	            char_literal21=(Token)match(input,14,FOLLOW_14_in_commentContent325); if (state.failed) return retval; 
-                    	            if ( state.backtracking==0 ) stream_14.add(char_literal21);
+                    	            char_literal20=(Token)match(input,14,FOLLOW_14_in_commentContent348); if (state.failed) return retval; 
+                    	            if ( state.backtracking==0 ) stream_14.add(char_literal20);
 
 
                     	            }
@@ -1240,8 +1296,8 @@ public TreeAdaptor getTreeAdaptor() {
                     	        case 2 :
                     	            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:46:25: '='
                     	            {
-                    	            char_literal22=(Token)match(input,16,FOLLOW_16_in_commentContent329); if (state.failed) return retval; 
-                    	            if ( state.backtracking==0 ) stream_16.add(char_literal22);
+                    	            char_literal21=(Token)match(input,16,FOLLOW_16_in_commentContent352); if (state.failed) return retval; 
+                    	            if ( state.backtracking==0 ) stream_16.add(char_literal21);
 
 
                     	            }
@@ -1250,8 +1306,8 @@ public TreeAdaptor getTreeAdaptor() {
                     	    }
 
 
-                    	    STRING23=(Token)match(input,STRING,FOLLOW_STRING_in_commentContent332); if (state.failed) return retval; 
-                    	    if ( state.backtracking==0 ) stream_STRING.add(STRING23);
+                    	    STRING22=(Token)match(input,STRING,FOLLOW_STRING_in_commentContent355); if (state.failed) return retval; 
+                    	    if ( state.backtracking==0 ) stream_STRING.add(STRING22);
 
 
                     	    }
@@ -1267,7 +1323,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
                     // AST REWRITE
-                    // elements: c2, c1
+                    // elements: c1, c2
                     // token labels: c1, c2
                     // rule labels: retval
                     // token list labels: 
@@ -1312,14 +1368,14 @@ public TreeAdaptor getTreeAdaptor() {
                     // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:47:7: ( '/' )
                     // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:47:8: '/'
                     {
-                    char_literal24=(Token)match(input,14,FOLLOW_14_in_commentContent355); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_14.add(char_literal24);
+                    char_literal23=(Token)match(input,14,FOLLOW_14_in_commentContent378); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_14.add(char_literal23);
 
 
                     }
 
 
-                    c2=(Token)match(input,STRING,FOLLOW_STRING_in_commentContent360); if (state.failed) return retval; 
+                    c2=(Token)match(input,STRING,FOLLOW_STRING_in_commentContent383); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_STRING.add(c2);
 
 
@@ -1363,8 +1419,8 @@ public TreeAdaptor getTreeAdaptor() {
                     	        case 1 :
                     	            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:47:28: '/'
                     	            {
-                    	            char_literal25=(Token)match(input,14,FOLLOW_14_in_commentContent366); if (state.failed) return retval; 
-                    	            if ( state.backtracking==0 ) stream_14.add(char_literal25);
+                    	            char_literal24=(Token)match(input,14,FOLLOW_14_in_commentContent389); if (state.failed) return retval; 
+                    	            if ( state.backtracking==0 ) stream_14.add(char_literal24);
 
 
                     	            }
@@ -1372,8 +1428,8 @@ public TreeAdaptor getTreeAdaptor() {
                     	        case 2 :
                     	            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:47:34: '='
                     	            {
-                    	            char_literal26=(Token)match(input,16,FOLLOW_16_in_commentContent370); if (state.failed) return retval; 
-                    	            if ( state.backtracking==0 ) stream_16.add(char_literal26);
+                    	            char_literal25=(Token)match(input,16,FOLLOW_16_in_commentContent393); if (state.failed) return retval; 
+                    	            if ( state.backtracking==0 ) stream_16.add(char_literal25);
 
 
                     	            }
@@ -1382,8 +1438,8 @@ public TreeAdaptor getTreeAdaptor() {
                     	    }
 
 
-                    	    STRING27=(Token)match(input,STRING,FOLLOW_STRING_in_commentContent373); if (state.failed) return retval; 
-                    	    if ( state.backtracking==0 ) stream_STRING.add(STRING27);
+                    	    STRING26=(Token)match(input,STRING,FOLLOW_STRING_in_commentContent396); if (state.failed) return retval; 
+                    	    if ( state.backtracking==0 ) stream_STRING.add(STRING26);
 
 
                     	    }
@@ -1508,24 +1564,24 @@ public TreeAdaptor getTreeAdaptor() {
     public static final BitSet FOLLOW_block_in_blockField177 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_comment_in_blockField182 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_assignment_in_blockField193 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRING_in_assignment207 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_assignment209 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_STRING_in_assignment213 = new BitSet(new long[]{0x0000000000004002L});
-    public static final BitSet FOLLOW_14_in_assignment216 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_STRING_in_assignment218 = new BitSet(new long[]{0x0000000000004002L});
-    public static final BitSet FOLLOW_15_in_comment246 = new BitSet(new long[]{0x0000000000064802L});
-    public static final BitSet FOLLOW_commentContent_in_comment248 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_commentContent279 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_commentContent298 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRING_in_commentContent319 = new BitSet(new long[]{0x0000000000014002L});
-    public static final BitSet FOLLOW_14_in_commentContent325 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_16_in_commentContent329 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_STRING_in_commentContent332 = new BitSet(new long[]{0x0000000000014002L});
-    public static final BitSet FOLLOW_14_in_commentContent355 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_STRING_in_commentContent360 = new BitSet(new long[]{0x0000000000014002L});
-    public static final BitSet FOLLOW_14_in_commentContent366 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_16_in_commentContent370 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_STRING_in_commentContent373 = new BitSet(new long[]{0x0000000000014002L});
+    public static final BitSet FOLLOW_STRING_in_assignment219 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_assignment221 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_STRING_in_assignment225 = new BitSet(new long[]{0x0000000000004002L});
+    public static final BitSet FOLLOW_14_in_assignment239 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_STRING_in_assignment243 = new BitSet(new long[]{0x0000000000004002L});
+    public static final BitSet FOLLOW_15_in_comment269 = new BitSet(new long[]{0x0000000000064802L});
+    public static final BitSet FOLLOW_commentContent_in_comment271 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_commentContent302 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_commentContent321 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRING_in_commentContent342 = new BitSet(new long[]{0x0000000000014002L});
+    public static final BitSet FOLLOW_14_in_commentContent348 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_16_in_commentContent352 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_STRING_in_commentContent355 = new BitSet(new long[]{0x0000000000014002L});
+    public static final BitSet FOLLOW_14_in_commentContent378 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_STRING_in_commentContent383 = new BitSet(new long[]{0x0000000000014002L});
+    public static final BitSet FOLLOW_14_in_commentContent389 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_16_in_commentContent393 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_STRING_in_commentContent396 = new BitSet(new long[]{0x0000000000014002L});
     public static final BitSet FOLLOW_17_in_synpred1_ConfigGrammar167 = new BitSet(new long[]{0x0000000000000002L});
 
 }
