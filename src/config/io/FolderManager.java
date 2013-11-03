@@ -48,6 +48,7 @@ public class FolderManager {
 		filesToIgnore.add("GameData\\TiberDyneShuttle\\Parts\\LandingGear\\TD_ShuttleGearDownLarge\\part.cfg");
 		filesToIgnore.add("GameData\\TiberDyneShuttle\\Parts\\LandingGear\\TD_ShuttleGearUp\\part.cfg");
 		filesToIgnore.add("GameData\\TiberDyneShuttle\\Parts\\LandingGear\\TD_ShuttleGearUpLarge\\part.cfg");
+		filesToIgnore.add("GameData\\Squad\\Parts\\Command\\probeCoreHex\\part.cfg");  //file ends with ) instead of }
 		
 		
 		
