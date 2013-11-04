@@ -1,4 +1,4 @@
-// $ANTLR 3.4 C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g 2013-11-03 21:23:35
+// $ANTLR 3.4 C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g 2013-11-04 01:42:39
 
     package config.io;
 
@@ -190,7 +190,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "configField"
-    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:25:1: configField : ( block -> block | comment -> comment );
+    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:25:1: configField : ( comment -> comment | block -> block );
     public final ConfigGrammarParser.configField_return configField() throws RecognitionException {
         ConfigGrammarParser.configField_return retval = new ConfigGrammarParser.configField_return();
         retval.start = input.LT(1);
@@ -198,22 +198,22 @@ public TreeAdaptor getTreeAdaptor() {
 
         Object root_0 = null;
 
-        ConfigGrammarParser.block_return block2 =null;
+        ConfigGrammarParser.comment_return comment2 =null;
 
-        ConfigGrammarParser.comment_return comment3 =null;
+        ConfigGrammarParser.block_return block3 =null;
 
 
         RewriteRuleSubtreeStream stream_block=new RewriteRuleSubtreeStream(adaptor,"rule block");
         RewriteRuleSubtreeStream stream_comment=new RewriteRuleSubtreeStream(adaptor,"rule comment");
         try {
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:26:2: ( block -> block | comment -> comment )
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:26:2: ( comment -> comment | block -> block )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
-            if ( (LA2_0==STRING) ) {
+            if ( (LA2_0==COMMENTT) ) {
                 alt2=1;
             }
-            else if ( (LA2_0==COMMENTT) ) {
+            else if ( (LA2_0==STRING) ) {
                 alt2=2;
             }
             else {
@@ -226,49 +226,14 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt2) {
                 case 1 :
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:26:4: block
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:26:4: comment
                     {
-                    pushFollow(FOLLOW_block_in_configField88);
-                    block2=block();
+                    pushFollow(FOLLOW_comment_in_configField88);
+                    comment2=comment();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) stream_block.add(block2.getTree());
-
-                    // AST REWRITE
-                    // elements: block
-                    // token labels: 
-                    // rule labels: retval
-                    // token list labels: 
-                    // rule list labels: 
-                    // wildcard labels: 
-                    if ( state.backtracking==0 ) {
-
-                    retval.tree = root_0;
-                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
-
-                    root_0 = (Object)adaptor.nil();
-                    // 26:14: -> block
-                    {
-                        adaptor.addChild(root_0, stream_block.nextTree());
-
-                    }
-
-
-                    retval.tree = root_0;
-                    }
-
-                    }
-                    break;
-                case 2 :
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:27:4: comment
-                    {
-                    pushFollow(FOLLOW_comment_in_configField101);
-                    comment3=comment();
-
-                    state._fsp--;
-                    if (state.failed) return retval;
-                    if ( state.backtracking==0 ) stream_comment.add(comment3.getTree());
+                    if ( state.backtracking==0 ) stream_comment.add(comment2.getTree());
 
                     // AST REWRITE
                     // elements: comment
@@ -283,9 +248,44 @@ public TreeAdaptor getTreeAdaptor() {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 27:16: -> comment
+                    // 26:16: -> comment
                     {
                         adaptor.addChild(root_0, stream_comment.nextTree());
+
+                    }
+
+
+                    retval.tree = root_0;
+                    }
+
+                    }
+                    break;
+                case 2 :
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:27:4: block
+                    {
+                    pushFollow(FOLLOW_block_in_configField101);
+                    block3=block();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    if ( state.backtracking==0 ) stream_block.add(block3.getTree());
+
+                    // AST REWRITE
+                    // elements: block
+                    // token labels: 
+                    // rule labels: retval
+                    // token list labels: 
+                    // rule list labels: 
+                    // wildcard labels: 
+                    if ( state.backtracking==0 ) {
+
+                    retval.tree = root_0;
+                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
+
+                    root_0 = (Object)adaptor.nil();
+                    // 27:14: -> block
+                    {
+                        adaptor.addChild(root_0, stream_block.nextTree());
 
                     }
 
@@ -397,7 +397,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
             // AST REWRITE
-            // elements: b1, blockField
+            // elements: blockField, b1
             // token labels: b1
             // rule labels: retval
             // token list labels: 
@@ -995,8 +995,8 @@ public TreeAdaptor getTreeAdaptor() {
  
 
     public static final BitSet FOLLOW_configField_in_config62 = new BitSet(new long[]{0x0000000000000482L});
-    public static final BitSet FOLLOW_block_in_configField88 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_comment_in_configField101 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_comment_in_configField88 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_block_in_configField101 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_STRING_in_block121 = new BitSet(new long[]{0x0000000000002000L});
     public static final BitSet FOLLOW_13_in_block123 = new BitSet(new long[]{0x0000000000006480L});
     public static final BitSet FOLLOW_blockField_in_block125 = new BitSet(new long[]{0x0000000000006480L});

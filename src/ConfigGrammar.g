@@ -23,8 +23,8 @@ config	:	(configField*				-> ^(CONFIG configField*))
 	;
 	
 configField
-	:	block					-> block
-	|	comment					-> comment
+	:	comment					-> comment
+	|	block					-> block
 	;
 
 block	:	b1=STRING '{' blockField* '}'		-> ^(BLOCK $b1 blockField* )
@@ -48,11 +48,11 @@ assignment
 comment	:	COMMENTT					-> ^(COMMENT COMMENTT)
 	;
 
-STRING	:	~('\n' | '\r' | '\t' | '\\\\' | '=' | '{' | '}')+	
+STRING	:	~('\n' | '\r' | '\t' | '//' | '=' | '{' | '}')+	
 	;	
 
 COMMENTT
-    :   ('\t' | ' ')* '//' ~('\n'|'\r')* '\r'? '\n' /*{$channel=HIDDEN;}*/
+    :   (' ' | '\t')* '//' ~('\n'|'\r')* '\r'? '\n' /*{$channel=HIDDEN;}*/
     ;
 
 WS  :   ( ' '
