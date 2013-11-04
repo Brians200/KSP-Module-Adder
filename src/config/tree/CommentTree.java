@@ -28,6 +28,6 @@ public class CommentTree implements IKspPartTree {
 	@Override
 	public String toString() {
 		String tabs = KspPartTreeBuilder.createTabs(tabAmount);
-		return tabs + "//" + comment;
+		return tabs + comment;
 	}
 }

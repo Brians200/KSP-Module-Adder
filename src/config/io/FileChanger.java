@@ -1,6 +1,7 @@
 package config.io;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import org.antlr.runtime.ANTLRFileStream;
 import org.antlr.runtime.RecognitionException;
@@ -26,8 +27,9 @@ public class FileChanger {
 			
 			IKspPartTree tree = KspPartTreeBuilder.build((CommonTree) config.getTree());
 			
-			//TODO: Finish this. print for right now
-			//System.out.println(tree);
+			PrintWriter out = new PrintWriter(filePath);
+			out.print(tree.toString());
+			out.close();
 			
 		} catch (RecognitionException | IOException e) {
 			// TODO: Proper error handling

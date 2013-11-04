@@ -17,6 +17,8 @@ public class FolderManager {
 		String directory = "GameData";
 		
 		//Files that don't need touched
+		filesToIgnore.add("GameData\\BoulderCo\\common.cfg");
+		filesToIgnore.add("GameData\\BoulderCo\\Clouds\\cloudLayers.cfg");
 		filesToIgnore.add("GameData\\KAS\\addModule.cfg");
 		filesToIgnore.add("GameData\\KAS\\settings.cfg");
 		filesToIgnore.add("GameData\\Kethane\\Grid.cfg");
@@ -27,31 +29,19 @@ public class FolderManager {
 		filesToIgnore.add("GameData\\MechJeb2\\Plugins\\PluginData\\MechJeb2\\mechjeb_settings_type_Untitled Space Craft Probe.cfg");
 		filesToIgnore.add("GameData\\MechJeb2\\Plugins\\PluginData\\MechJeb2\\mechjeb_settings_type_Untitled Space Craft.cfg");
 		filesToIgnore.add("GameData\\RCSBuildAid\\settings.cfg");
-		filesToIgnore.add("GameData\\Squad\\Resources\\ScienceDefs.cfg"); //works as a string stream but not a filestream...
-		filesToIgnore.add("GameData\\WarpPlugin\\Parts\\Resources\\ScienceDefs.cfg"); //works as a string stream but not a filestream...
-		filesToIgnore.add("GameData\\WarpPlugin\\Parts\\Resources\\ResourcesGeneric.cfg"); //works as a string stream but not a filestream...
-		
-		//TODO: handle special characters, blacklisting files for now
-		filesToIgnore.add("GameData\\Squad\\Parts\\Science\\GooExperiment\\part.cfg");
-		filesToIgnore.add("GameData\\Squad\\Parts\\Utility\\ladder1\\part.cfg");
-		filesToIgnore.add("GameData\\Squad\\Parts\\Utility\\telescopicLadder\\part.cfg");
-		filesToIgnore.add("GameData\\Squad\\Parts\\Utility\\telescopicLadderBay\\part.cfg");
+		filesToIgnore.add("GameData\\Squad\\Resources\\ScienceDefs.cfg"); 
+		filesToIgnore.add("GameData\\Squad\\Resources\\ResourcesGeneric.cfg");
 		
 		//TODO: handle files that are malformed, blacklisting for now
-		filesToIgnore.add("GameData\\Squad\\Parts\\Electrical\\batteryBankLarge\\part.cfg");
-		filesToIgnore.add("GameData\\Squad\\Parts\\Science\\MaterialBay\\part.cfg");
-		filesToIgnore.add("GameData\\Squad\\Parts\\Structural\\adapterLargeSmallBi\\part.cfg");
-		filesToIgnore.add("GameData\\Squad\\Parts\\Structural\\adapterLargeSmallQuad\\part.cfg");
-		filesToIgnore.add("GameData\\Squad\\Parts\\Structural\\adapterLargeSmallTri\\part.cfg");
-		filesToIgnore.add("GameData\\Squad\\Parts\\Utility\\mediumDishAntenna\\part.cfg"); //not really sure what is wrong with this file yet...
-		filesToIgnore.add("GameData\\TiberDyneShuttle\\Parts\\LandingGear\\TD_ShuttleGearDown\\part.cfg");
-		filesToIgnore.add("GameData\\TiberDyneShuttle\\Parts\\LandingGear\\TD_ShuttleGearDownLarge\\part.cfg");
-		filesToIgnore.add("GameData\\TiberDyneShuttle\\Parts\\LandingGear\\TD_ShuttleGearUp\\part.cfg");
-		filesToIgnore.add("GameData\\TiberDyneShuttle\\Parts\\LandingGear\\TD_ShuttleGearUpLarge\\part.cfg");
-		filesToIgnore.add("GameData\\Squad\\Parts\\Command\\probeCoreHex\\part.cfg");  //file ends with ) instead of }
-		
-		
-		
+		filesToIgnore.add("GameData\\Squad\\Parts\\Electrical\\batteryBankLarge\\part.cfg");					//missing }
+		filesToIgnore.add("GameData\\Squad\\Parts\\Science\\MaterialBay\\part.cfg");							//missing }
+		filesToIgnore.add("GameData\\Squad\\Parts\\Structural\\adapterLargeSmallBi\\part.cfg");					//There is a line that should be a comment, but doesn't begin with //
+		filesToIgnore.add("GameData\\Squad\\Parts\\Structural\\adapterLargeSmallQuad\\part.cfg");				//There is a line that should be a comment, but doesn't begin with //
+		filesToIgnore.add("GameData\\Squad\\Parts\\Structural\\adapterLargeSmallTri\\part.cfg");				//There is a line that should be a comment, but doesn't begin with //
+		filesToIgnore.add("GameData\\TiberDyneShuttle\\Parts\\LandingGear\\TD_ShuttleGearDown\\part.cfg"); 		//There is a line containing only '
+		filesToIgnore.add("GameData\\TiberDyneShuttle\\Parts\\LandingGear\\TD_ShuttleGearDownLarge\\part.cfg");	//There is a line containing only '
+		filesToIgnore.add("GameData\\TiberDyneShuttle\\Parts\\LandingGear\\TD_ShuttleGearUp\\part.cfg");		//There is a line containing only '
+		filesToIgnore.add("GameData\\Squad\\Parts\\Command\\probeCoreHex\\part.cfg");  							//file ends with ) instead of }
 		
 		traverseDirectory(directory);
 	}

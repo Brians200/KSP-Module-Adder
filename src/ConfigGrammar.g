@@ -26,7 +26,7 @@ configField
 	:	block					-> block
 	|	comment					-> comment
 	;
-	
+
 block	:	b1=STRING '{' blockField* '}'		-> ^(BLOCK $b1 blockField* )
 	;
 	
@@ -42,20 +42,16 @@ blockField
 	;
 	
 assignment
-	:	(a1=STRING '=' a2=STRING  -> $a1 $a2 ) ('/' a3=STRING -> $assignment '/' $a3)*		
+	:	(a1=STRING '=' a2=STRING  -> $a1 $a2 ) 
 	;
 	
-comment	:	('//' commentContent?					-> ^(COMMENT commentContent?))	 			
+comment	:	COMMENTT					-> ^(COMMENT COMMENTT)
 	;
 
-commentContent
-	:	'{'								->  '{' 
-	|	'}'								->  '}' 
-	|	(c1=STRING -> $c1)  (('/' -> $commentContent '/' | '=' -> $commentContent '=') (c2=STRING 	-> $commentContent $c2)?)*
-	|	('/' c1=STRING -> '/' $c1 )  (('/' -> $commentContent '/' | '=' -> $commentContent '=') c2=STRING	-> $commentContent $c2)*
-	;
-	
-STRING	:	(LETTER | NUMBER | SYMBOL | ' ')*	
+STRING	:	~('\n' | '\r' | '\t' | '\\\\' | '=' | '{' | '}')+	
+	;	
+
+/*STRING	:	(LETTER | NUMBER | SYMBOL | ' ')*	
 	;
 	
 fragment LETTER
@@ -68,11 +64,16 @@ fragment NUMBER
 	
 fragment SYMBOL
 	:	'://' | '.' | '!' | '?' | '-' | '_' | ',' | '\'' | '"' | '%' | ':' | '(' | ')' | '|' | '&' | '*' | ';' 
-	;
+	;*/
+
+COMMENTT
+    :   ('\t' | ' ')* '//' ~('\n'|'\r')* '\r'? '\n' /*{$channel=HIDDEN;}*/
+    ;
 
 WS  :   ( ' '
         | '\t'
         | '\r'
         | '\n'
-        )* {$channel=HIDDEN;}
+        )+ {$channel=HIDDEN;}
     ;
+
