@@ -14,19 +14,10 @@ public class AssignmentTree implements IKspPartTree {
 		
 		int i = 0;
 		CommonTree leftSide = (CommonTree) t.getChild(i++);
+		CommonTree rightSide = (CommonTree) t.getChild(i++);
 		
-		lhs = leftSide.getText();	
-		
-		StringBuilder rightSide = new StringBuilder();
-		int childCount = t.getChildCount();
-		
-		for(; i<childCount; i++)
-		{	
-			CommonTree child = (CommonTree) t.getChild(i);
-			rightSide.append(child.getText());
-		}
-		
-		rhs = rightSide.toString();
+		lhs = leftSide.getText().trim();	
+		rhs = rightSide.getText().trim();
 	}
 
 	@Override

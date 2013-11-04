@@ -10,19 +10,8 @@ public class CommentTree implements IKspPartTree {
 	public CommentTree(CommonTree t, int tabAmount)
 	{
 		this.tabAmount = tabAmount;
-		
-		StringBuilder commentBuilder = new StringBuilder();
-		
-		if(t.getChildCount()>0)
-		{
-			for(Object objectChild : t.getChildren())
-			{
-				CommonTree child = (CommonTree) objectChild;
-				commentBuilder.append(child.getText());
-			}
-		}
-		
-		comment = commentBuilder.toString();
+		CommonTree child = (CommonTree) t.getChild(0);
+		comment = child.getText().trim();
 	}
 	
 	@Override
