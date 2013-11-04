@@ -51,21 +51,6 @@ comment	:	COMMENTT					-> ^(COMMENT COMMENTT)
 STRING	:	~('\n' | '\r' | '\t' | '\\\\' | '=' | '{' | '}')+	
 	;	
 
-/*STRING	:	(LETTER | NUMBER | SYMBOL | ' ')*	
-	;
-	
-fragment LETTER
-	:	('A'..'Z' | 'a'..'z')	
-	;	
-
-fragment NUMBER
-	:	'0'..'9'	
-	;
-	
-fragment SYMBOL
-	:	'://' | '.' | '!' | '?' | '-' | '_' | ',' | '\'' | '"' | '%' | ':' | '(' | ')' | '|' | '&' | '*' | ';' 
-	;*/
-
 COMMENTT
     :   ('\t' | ' ')* '//' ~('\n'|'\r')* '\r'? '\n' /*{$channel=HIDDEN;}*/
     ;
