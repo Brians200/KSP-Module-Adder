@@ -1,5 +1,6 @@
 package config.io;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
@@ -15,7 +16,10 @@ public class FolderManager {
 	static public void applyChanges(/*parameters to be added */)
 	{
 		String directory = "GameData";
-		
+	
+		//Check to see if mechjeb is present
+		File mechjeb = new File(directory + "\\MechJeb2\\Plugins\\MechJeb2.dll");		
+			
 		//Files that don't need touched
 		filesToIgnore.add("GameData\\BoulderCo\\common.cfg");
 		filesToIgnore.add("GameData\\BoulderCo\\Clouds\\cloudLayers.cfg");
@@ -43,10 +47,10 @@ public class FolderManager {
 		filesToIgnore.add("GameData\\TiberDyneShuttle\\Parts\\LandingGear\\TD_ShuttleGearUp\\part.cfg");		//There is a line containing only '
 		filesToIgnore.add("GameData\\Squad\\Parts\\Command\\probeCoreHex\\part.cfg");  							//file ends with ) instead of }
 		
-		traverseDirectory(directory);
+		traverseDirectory(directory, mechjeb.exists());
 	}
 	
-	static private void traverseDirectory(String directory)
+	static private void traverseDirectory(String directory, boolean addMechjeb)
 	{
 		List<String> fileNames = new ArrayList<>();
 		
@@ -67,13 +71,13 @@ public class FolderManager {
 				if(path.equals("GameData\\Squad\\Props"))
 					continue;
 				
-				traverseDirectory(path);
+				traverseDirectory(path, addMechjeb);
 			}
 			else
 			{
 				if(path.endsWith(".cfg") && !filesToIgnore.contains(path))
 				{
-					FileChanger.applyChanges(path);
+					FileChanger.applyChanges(path, addMechjeb);
 				}
 			}
 		}

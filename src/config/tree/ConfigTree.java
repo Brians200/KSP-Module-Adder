@@ -32,6 +32,18 @@ public class ConfigTree implements IKspPartTree {
 		}
 	}
 	
+	public boolean addMechjeb(IKspPartTree module)
+	{
+		for(int i = 0; i < parts.size(); i++)
+		{
+			if(parts.get(i).addMechjeb(module))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	@Override
 	public String toString() {
 		StringBuilder value = new StringBuilder();

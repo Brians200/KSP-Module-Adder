@@ -8,14 +8,16 @@ import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenRewriteStream;
 import org.antlr.runtime.tree.CommonTree;
 
+import config.modules.Mechjeb;
 import config.tree.IKspPartTree;
 import config.tree.KspPartTreeBuilder;
 
 public class FileChanger {
 
-	public static void applyChanges(String filePath)
+	static IKspPartTree mechjeb = Mechjeb.createMechjebTree();
+	
+	public static void applyChanges(String filePath, boolean addMechjeb)
 	{
-		
 		try {
 			
 			ANTLRFileStream fileStream = new ANTLRFileStream(filePath);
@@ -26,6 +28,12 @@ public class FileChanger {
 			config = cgp.config();
 			
 			IKspPartTree tree = KspPartTreeBuilder.build((CommonTree) config.getTree());
+			
+			
+			if(addMechjeb && tree.addMechjeb(mechjeb))
+			{	
+					System.out.println("Mechjeb added to " + filePath);
+			}
 			
 			PrintWriter out = new PrintWriter(filePath);
 			out.print(tree.toString());

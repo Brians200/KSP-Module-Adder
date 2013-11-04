@@ -19,10 +19,30 @@ public class AssignmentTree implements IKspPartTree {
 		lhs = leftSide.getText().trim();	
 		rhs = rightSide.getText().trim();
 	}
+	
+	public String getLhs() {
+		return lhs;
+	}
+
+	public String getRhs() {
+		return rhs;
+	}
+
+	public boolean addMechjeb(IKspPartTree module)
+	{
+		return false;  //Should never add mechjeb to this
+	}
+	
+	public AssignmentTree(String lhs, String rhs, int tabAmount)
+	{
+		this.tabAmount = tabAmount;
+		this.lhs = lhs;
+		this.rhs = rhs;
+	}
 
 	@Override
 	public String toString() {
 		String tabs = KspPartTreeBuilder.createTabs(tabAmount);
-		return tabs + lhs + " = " + rhs;
+		return tabs + lhs + " = " + rhs + "\n";
 	}
 }

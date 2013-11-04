@@ -42,6 +42,21 @@ public class EmptyBlockTree implements IKspPartTree {
 		}
 	}
 	
+	public EmptyBlockTree()
+	{
+		
+	}
+	
+	public void addPart(IKspPartTree part)
+	{
+		parts.add(part);
+	}
+	
+	public boolean addMechjeb(IKspPartTree module)
+	{
+		return false;  //Should never add mechjeb to this
+	}
+	
 	@Override
 	public String toString() {
 		String tabs = KspPartTreeBuilder.createTabs(tabAmount);
@@ -52,11 +67,11 @@ public class EmptyBlockTree implements IKspPartTree {
 		
 		for(IKspPartTree child : parts)
 		{
-			value.append("\n");
+			//value.append("\n");
 			value.append(child);
 		}
 		
-		value.append("\n");
+		//value.append("\n");
 		value.append(tabs);
 		value.append("}\n");
 		

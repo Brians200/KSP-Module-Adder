@@ -14,9 +14,19 @@ public class CommentTree implements IKspPartTree {
 		comment = child.getText().trim();
 	}
 	
+	public boolean addMechjeb(IKspPartTree module)
+	{
+		return false;  //Should never add mechjeb to this
+	}
+	
+	public CommentTree(String comment)
+	{
+		this.comment = comment;
+	}
+	
 	@Override
 	public String toString() {
 		String tabs = KspPartTreeBuilder.createTabs(tabAmount);
-		return tabs + comment;
+		return tabs + comment + "\n";
 	}
 }
