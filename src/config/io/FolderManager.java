@@ -18,7 +18,10 @@ public class FolderManager {
 		String directory = "GameData";
 	
 		//Check to see if mechjeb is present
-		File mechjeb = new File(directory + "\\MechJeb2\\Plugins\\MechJeb2.dll");		
+		File mechjeb = new File(directory + "\\MechJeb2\\Plugins\\MechJeb2.dll");	
+		
+		//Check to see if Protractor is present
+		File protractor = new File(directory + "\\Protractor\\Plugins\\protractor.dll");
 			
 		//Files that don't need touched
 		filesToIgnore.add("GameData\\BoulderCo\\common.cfg");
@@ -47,10 +50,10 @@ public class FolderManager {
 		filesToIgnore.add("GameData\\TiberDyneShuttle\\Parts\\LandingGear\\TD_ShuttleGearUp\\part.cfg");		//There is a line containing only '
 		filesToIgnore.add("GameData\\Squad\\Parts\\Command\\probeCoreHex\\part.cfg");  							//file ends with ) instead of }
 		
-		traverseDirectory(directory, mechjeb.exists());
+		traverseDirectory(directory, mechjeb.exists(), protractor.exists());
 	}
 	
-	static private void traverseDirectory(String directory, boolean addMechjeb)
+	static private void traverseDirectory(String directory, boolean addMechjeb, boolean addProtractor)
 	{
 		List<String> fileNames = new ArrayList<>();
 		
@@ -71,13 +74,13 @@ public class FolderManager {
 				if(path.equals("GameData\\Squad\\Props"))
 					continue;
 				
-				traverseDirectory(path, addMechjeb);
+				traverseDirectory(path, addMechjeb, addProtractor);
 			}
 			else
 			{
 				if(path.endsWith(".cfg") && !filesToIgnore.contains(path))
 				{
-					FileChanger.applyChanges(path, addMechjeb);
+					FileChanger.applyChanges(path, addMechjeb, addProtractor);
 				}
 			}
 		}

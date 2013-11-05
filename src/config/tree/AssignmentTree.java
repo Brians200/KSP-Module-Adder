@@ -33,6 +33,10 @@ public class AssignmentTree implements IKspPartTree {
 		return false;  //Should never add mechjeb to this
 	}
 	
+	public boolean addProtractor(IKspPartTree module) {
+		return false;  //Should never add protractor to this
+	}
+	
 	public AssignmentTree(String lhs, String rhs, int tabAmount)
 	{
 		this.tabAmount = tabAmount;
@@ -45,4 +49,6 @@ public class AssignmentTree implements IKspPartTree {
 		String tabs = KspPartTreeBuilder.createTabs(tabAmount);
 		return tabs + lhs + " = " + rhs + "\n";
 	}
+
+	
 }

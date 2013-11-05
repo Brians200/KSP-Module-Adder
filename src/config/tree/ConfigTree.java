@@ -44,6 +44,17 @@ public class ConfigTree implements IKspPartTree {
 		return false;
 	}
 	
+	public boolean addProtractor(IKspPartTree module) {
+		for(int i = 0; i < parts.size(); i++)
+		{
+			if(parts.get(i).addProtractor(module))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	@Override
 	public String toString() {
 		StringBuilder value = new StringBuilder();

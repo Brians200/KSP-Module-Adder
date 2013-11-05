@@ -19,6 +19,10 @@ public class CommentTree implements IKspPartTree {
 		return false;  //Should never add mechjeb to this
 	}
 	
+	public boolean addProtractor(IKspPartTree module) {
+		return false;  //Should never add protractor to this
+	}
+	
 	public CommentTree(String comment)
 	{
 		this.comment = comment;
