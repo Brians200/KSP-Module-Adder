@@ -5,5 +5,5 @@ This program is designed to assist with adding modules that mods create to exist
 
 Currently, it adds:
 
-Mechjeb to all command pods  (If the dll is present)
-Protractor to all command pods (If the dll is present)
+*Mechjeb to all command pods  (If the dll is present)<br>
+*Protractor to all command pods (If the dll is present)
