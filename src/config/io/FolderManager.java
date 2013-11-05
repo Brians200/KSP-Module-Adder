@@ -39,17 +39,6 @@ public class FolderManager {
 		filesToIgnore.add("GameData\\Squad\\Resources\\ScienceDefs.cfg"); 
 		filesToIgnore.add("GameData\\Squad\\Resources\\ResourcesGeneric.cfg");
 		
-		//TODO: handle files that are malformed, blacklisting for now
-		filesToIgnore.add("GameData\\Squad\\Parts\\Electrical\\batteryBankLarge\\part.cfg");					//missing }
-		filesToIgnore.add("GameData\\Squad\\Parts\\Science\\MaterialBay\\part.cfg");							//missing }
-		filesToIgnore.add("GameData\\Squad\\Parts\\Structural\\adapterLargeSmallBi\\part.cfg");					//There is a line that should be a comment, but doesn't begin with //
-		filesToIgnore.add("GameData\\Squad\\Parts\\Structural\\adapterLargeSmallQuad\\part.cfg");				//There is a line that should be a comment, but doesn't begin with //
-		filesToIgnore.add("GameData\\Squad\\Parts\\Structural\\adapterLargeSmallTri\\part.cfg");				//There is a line that should be a comment, but doesn't begin with //
-		filesToIgnore.add("GameData\\TiberDyneShuttle\\Parts\\LandingGear\\TD_ShuttleGearDown\\part.cfg"); 		//There is a line containing only '
-		filesToIgnore.add("GameData\\TiberDyneShuttle\\Parts\\LandingGear\\TD_ShuttleGearDownLarge\\part.cfg");	//There is a line containing only '
-		filesToIgnore.add("GameData\\TiberDyneShuttle\\Parts\\LandingGear\\TD_ShuttleGearUp\\part.cfg");		//There is a line containing only '
-		filesToIgnore.add("GameData\\Squad\\Parts\\Command\\probeCoreHex\\part.cfg");  							//file ends with ) instead of }
-		
 		traverseDirectory(directory, mechjeb.exists(), protractor.exists());
 	}
 	

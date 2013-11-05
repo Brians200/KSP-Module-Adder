@@ -32,10 +32,35 @@ public class FileChanger {
 			ConfigGrammarLexer cgl = new ConfigGrammarLexer(fileStream);
 			TokenRewriteStream tokens = new TokenRewriteStream(cgl);
 			ConfigGrammarParser cgp = new ConfigGrammarParser(tokens);
-			ConfigGrammarParser.config_return config;
-			config = cgp.config();
+			ConfigGrammarParser.config_return config= cgp.config();
 			
-			IKspPartTree tree = KspPartTreeBuilder.build((CommonTree) config.getTree());
+			IKspPartTree tree = null;
+			
+			try{
+				tree = KspPartTreeBuilder.build((CommonTree) config.getTree());
+			}
+			catch(Exception e)
+			{
+				System.out.println("Attempting to fix: " + filePath);
+				FileFixer.attemptFix(filePath);
+				
+				fileStream = new ANTLRFileStream(filePath);
+				cgl = new ConfigGrammarLexer(fileStream);
+				tokens = new TokenRewriteStream(cgl);
+				cgp = new ConfigGrammarParser(tokens);
+				config = cgp.config();
+				
+				try
+				{
+					tree = KspPartTreeBuilder.build((CommonTree) config.getTree());
+					System.out.println("File can now be parsed! Check file for errors manually.");
+				}
+				catch(Exception e1)
+				{
+					System.out.println("Could not make file parseable... Check file for errors manually.");
+					return;
+				}
+			}
 			
 			
 			if(addMechjeb && tree.addMechjeb(mechjeb))
