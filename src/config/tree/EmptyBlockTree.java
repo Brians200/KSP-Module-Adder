@@ -1,6 +1,7 @@
 package config.tree;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 
 import org.antlr.runtime.tree.CommonTree;
@@ -62,6 +63,11 @@ public class EmptyBlockTree implements IKspPartTree {
 	}
 	
 	@Override
+	public boolean addDeadlyReentry(Hashtable<String, Object> deadlyReentry) {
+		return false;  //Should never add deadly reentry to this
+	}
+	
+	@Override
 	public String toString() {
 		String tabs = KspPartTreeBuilder.createTabs(tabAmount);
 
@@ -79,4 +85,5 @@ public class EmptyBlockTree implements IKspPartTree {
 		
 		return value.toString();
 	}
+
 }

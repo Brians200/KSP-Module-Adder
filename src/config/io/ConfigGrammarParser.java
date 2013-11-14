@@ -1,4 +1,4 @@
-// $ANTLR 3.4 C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g 2013-11-04 01:42:39
+// $ANTLR 3.4 C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g 2013-11-13 16:13:45
 
     package config.io;
 
@@ -819,7 +819,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
             // AST REWRITE
-            // elements: a2, a1
+            // elements: a1, a2
             // token labels: a1, a2
             // rule labels: retval
             // token list labels: 

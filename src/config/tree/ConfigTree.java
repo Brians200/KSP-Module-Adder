@@ -1,6 +1,7 @@
 package config.tree;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 
 import org.antlr.runtime.tree.CommonTree;
@@ -50,6 +51,25 @@ public class ConfigTree implements IKspPartTree {
 			if(parts.get(i).addProtractor(module))
 			{
 				return true;
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public boolean addDeadlyReentry(Hashtable<String, Object> deadlyReentry) {
+		for(int i = 0; i<parts.size();i++)
+		{
+			if(parts.get(i) instanceof BlockTree)
+			{
+				BlockTree tree = (BlockTree) parts.get(i);
+				if(tree.blockName.equals("PART"))
+				{
+					if(parts.get(i).addDeadlyReentry(deadlyReentry))
+					{
+						return true;
+					}
+				}
 			}
 		}
 		return false;

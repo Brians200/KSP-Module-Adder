@@ -22,6 +22,9 @@ public class FolderManager {
 		
 		//Check to see if Protractor is present
 		File protractor = new File(directory + "\\Protractor\\Plugins\\protractor.dll");
+		
+		//Check to see if Deadly Reentry is present
+		File deadlyReentry = new File(directory + "\\DeadlyReentry\\Plugins\\DeadlyReentry.dll");
 			
 		//Files that don't need touched
 		filesToIgnore.add("GameData\\BoulderCo\\common.cfg");
@@ -39,10 +42,17 @@ public class FolderManager {
 		filesToIgnore.add("GameData\\Squad\\Resources\\ScienceDefs.cfg"); 
 		filesToIgnore.add("GameData\\Squad\\Resources\\ResourcesGeneric.cfg");
 		
-		traverseDirectory(directory, mechjeb.exists(), protractor.exists());
+		//Deadly re-entry editor files
+		filesToIgnore.add("GameData\\DeadlyReentry\\custom.cfg");
+		filesToIgnore.add("GameData\\DeadlyReentry\\DeadlyReentry.cfg");
+		filesToIgnore.add("GameData\\DeadlyReentry\\DeadlyReentry_B9.cfg");
+		filesToIgnore.add("GameData\\DeadlyReentry\\DeadlyReentry-HOME.cfg");
+		filesToIgnore.add("GameData\\DeadlyReentry\\DeadlyReentryTechTree.cfg");
+		
+		traverseDirectory(directory, mechjeb.exists(), protractor.exists(), deadlyReentry.exists());
 	}
 	
-	static private void traverseDirectory(String directory, boolean addMechjeb, boolean addProtractor)
+	static private void traverseDirectory(String directory, boolean addMechjeb, boolean addProtractor, boolean addDeadlyReentry)
 	{
 		List<String> fileNames = new ArrayList<>();
 		
@@ -60,16 +70,16 @@ public class FolderManager {
 		{
 			if(Files.isDirectory(Paths.get(path), LinkOption.NOFOLLOW_LINKS))
 			{
-				if(path.equals("GameData\\Squad\\Props"))
+				if(path.equals("GameData\\Squad\\Props")||path.equals("GameData\\MechJeb2\\Plugins\\PluginData\\MechJeb2")||path.equals("GameData\\DeadlyReentry"))
 					continue;
 				
-				traverseDirectory(path, addMechjeb, addProtractor);
+				traverseDirectory(path, addMechjeb, addProtractor, addDeadlyReentry);
 			}
 			else
 			{
 				if(path.endsWith(".cfg") && !filesToIgnore.contains(path))
 				{
-					FileChanger.applyChanges(path, addMechjeb, addProtractor);
+					FileChanger.applyChanges(path, addMechjeb, addProtractor, addDeadlyReentry);
 				}
 			}
 		}

@@ -5,5 +5,14 @@ This program is designed to assist with adding modules that mods create to exist
 
 Currently, it adds:
 
-*Mechjeb to all command pods  (If the dll is present)<br>
-*Protractor to all command pods (If the dll is present)
+<ul>
+<li>MechJeb</li>
+<li><ul><li>Adds it to all command pods, if the dll is present</li></ul></li>
+<li>Protractor</li>
+<li><ul><li>Adds it to all command pods, if the dll is present</li></ul></li>
+<li>Deadly Re-entry</li>
+<li><ul><li>Removes reliance on the module manager program</li>
+<li>Changes the values in the .cgf file instead</li>
+<li>Automatically applies the temperature changing rules, without needing the module manager rules</li>
+<li>Custom rules can be defined in DeadlyReentry.java</li></ul></li>
+</ul>

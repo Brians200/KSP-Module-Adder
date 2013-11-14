@@ -1,6 +1,7 @@
 package config.tree;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 
 import org.antlr.runtime.tree.CommonTree;
@@ -116,6 +117,78 @@ public class BlockTree implements IKspPartTree {
 		return false;
 	}
 	
+	@Override
+	public boolean addDeadlyReentry(Hashtable<String, Object> deadlyReentry) {
+		
+		boolean added = false;
+		
+		if(blockName.equals("PART"))
+		{
+			for(int i=0;i<parts.size();i++)
+			{
+				if(parts.get(i) instanceof AssignmentTree && ((AssignmentTree) parts.get(i)).getLhs().equals("maxTemp"))
+				{
+					//check the previous one and see if this has been fixed already
+					if(parts.get(i-1) instanceof CommentTree && ((CommentTree) parts.get(i-1)).getComment().equals("// Deadly Reentry Added"))
+					{
+						return false;
+					}
+					else
+					{
+						((AssignmentTree) parts.get(i)).addDeadlyReentry(deadlyReentry);
+						CommentTree commentTree = new CommentTree("// Deadly Reentry Added", ((AssignmentTree) parts.get(i)).getTabAmount());
+						parts.add(i++, commentTree);
+						added = true;
+					}
+				}
+				else if(parts.get(i) instanceof BlockTree && ((BlockTree) parts.get(i)).getBlockName().equals("MODULE"))
+				{
+					parts.get(i).addDeadlyReentry(deadlyReentry);
+				}
+			}
+			
+			if(added)
+			{
+				//check to see if there are any special rules for this...
+				String partName = getModuleName();
+				if(deadlyReentry.containsKey(partName))
+				{
+					Object value = deadlyReentry.get(partName);
+					if(value instanceof IKspPartTree)
+					{
+						parts.add((IKspPartTree) value);
+					}
+					else 
+					{
+						@SuppressWarnings("unchecked")
+						List<IKspPartTree> modules = (List<IKspPartTree>) value;
+						for(IKspPartTree module : modules)
+						{
+							parts.add(module);
+						}
+					}
+				}
+				
+			}
+		}
+		else
+		{
+			if(getModuleName().equals("ModuleEngines"))
+			{
+				for(int i=0;i<parts.size();i++)
+				{
+					if(parts.get(i) instanceof AssignmentTree && ((AssignmentTree) parts.get(i)).getLhs().equals("heatProduction"))
+					{
+						((AssignmentTree) parts.get(i)).addDeadlyReentry(deadlyReentry);
+						return true;
+					}
+				}
+			}
+		}
+		
+		return added;
+	}
+	
 	public String getModuleName()
 	{
 		for(IKspPartTree part : parts)
@@ -130,6 +203,11 @@ public class BlockTree implements IKspPartTree {
 			}
 		}
 		return "";
+	}
+	
+	public String getBlockName()
+	{
+		return blockName;
 	}
 	
 	@Override

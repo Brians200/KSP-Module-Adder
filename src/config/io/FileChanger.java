@@ -3,6 +3,7 @@ package config.io;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Hashtable;
 import java.util.Scanner;
 
 import org.antlr.runtime.ANTLRFileStream;
@@ -10,6 +11,7 @@ import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenRewriteStream;
 import org.antlr.runtime.tree.CommonTree;
 
+import config.modules.DeadlyReentry;
 import config.modules.Mechjeb;
 import config.modules.Protractor;
 import config.tree.IKspPartTree;
@@ -19,8 +21,9 @@ public class FileChanger {
 
 	static IKspPartTree mechjeb = Mechjeb.createMechjebTree();
 	static IKspPartTree protractor = Protractor.createProtractorTree();
+	static Hashtable<String, Object> deadlyReentry = DeadlyReentry.createDeadlyReentryModules();
 	
-	public static void applyChanges(String filePath, boolean addMechjeb, boolean addProtractor)
+	public static void applyChanges(String filePath, boolean addMechjeb, boolean addProtractor, boolean addDeadlyReentry)
 	{
 		try {
 			
@@ -72,6 +75,11 @@ public class FileChanger {
 			if(addProtractor && tree.addProtractor(protractor))
 			{
 				System.out.println("Protractor added to " + filePath);
+			}
+			
+			if(addDeadlyReentry && tree.addDeadlyReentry(deadlyReentry))
+			{
+				System.out.println("Deadly Reentry added to " + filePath);
 			}
 			
 			if(!fileContents.equals(tree.toString()))  //only write the file if we changed something
