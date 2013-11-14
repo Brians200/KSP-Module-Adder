@@ -7,12 +7,12 @@ Currently, it adds:
 
 <ul>
 <li>MechJeb</li>
-<li><ul><li>Adds it to all command pods, if the dll is present</li></ul></li>
+<ul><li>Adds it to all command pods, if the dll is present</li></ul>
 <li>Protractor</li>
-<li><ul><li>Adds it to all command pods, if the dll is present</li></ul></li>
+<ul><li>Adds it to all command pods, if the dll is present</li></ul>
 <li>Deadly Re-entry</li>
-<li><ul><li>Removes reliance on the module manager program</li>
+<ul><li>Removes reliance on the module manager program</li>
 <li>Changes the values in the .cgf file instead</li>
 <li>Automatically applies the temperature changing rules, without needing the module manager rules</li>
-<li>Custom rules can be defined in DeadlyReentry.java</li></ul></li>
+<li>Custom rules can be defined in DeadlyReentry.java</li></ul>
 </ul>
