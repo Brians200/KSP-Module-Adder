@@ -48,6 +48,7 @@ public class FolderManager {
 		filesToIgnore.add("GameData\\DeadlyReentry\\DeadlyReentry_B9.cfg");
 		filesToIgnore.add("GameData\\DeadlyReentry\\DeadlyReentry-HOME.cfg");
 		filesToIgnore.add("GameData\\DeadlyReentry\\DeadlyReentryTechTree.cfg");
+		filesToIgnore.add("GameData\\DeadlyReentry\\DeadlyReentry_TiberDyne_Shuttle.cfg");
 		
 		traverseDirectory(directory, mechjeb.exists(), protractor.exists(), deadlyReentry.exists());
 	}

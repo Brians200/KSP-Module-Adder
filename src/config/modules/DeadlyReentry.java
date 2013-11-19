@@ -145,7 +145,6 @@ public class DeadlyReentry {
 		mk1pod.add(resource);}
 		modules.put("mk1pod", mk1pod);
 		
-
 		/*@PART[probeCoreSphere]{
 			MODULE{
 				name = ModuleHeatShield
@@ -335,6 +334,407 @@ public class DeadlyReentry {
 			moduleAnimation2Value2.addPart(valueCurve2);
 		dockingPortLateral.add(moduleAnimation2Value2);}
 		modules.put("dockingPortLateral", dockingPortLateral);
+		
+		
+		/**************************Tiberion Shuttles*******************************************/
+		/*@PART[TD_ShuttleCockpit]
+		{
+			MODULE
+			{
+				name = ModuleHeatShield
+				direction = 0, 0, -1 // underside of fuselage
+				reflective = 0.25 // 25% of heat is ignored at correct angle
+			}
+		}*/
+		
+		BlockTree tdShuttleCockpit = new BlockTree("MODULE", 1);
+			tdShuttleCockpit.addPart(new AssignmentTree("name", "ModuleHeatShield", 2));
+			tdShuttleCockpit.addPart(new AssignmentTree("direction", "0, 0, -1 // underside of fuselage", 2));
+			tdShuttleCockpit.addPart(new AssignmentTree("reflective", "0.25 // 25% of heat is ignored at correct angle", 2));
+			modules.put("TD_ShuttleCockpit", tdShuttleCockpit);
+		
+		/*@PART[TD_ShuttleNoseUnit]{
+			Module
+			{
+				name = ModuleHeatShield
+				direction = 0, 0, -1 // underside of fuselage
+				reflective = 0.25 // 25% of heat is ignored at correct angle
+			}
+		}*/
+		BlockTree tdShuttleNoseUnit = new BlockTree("MODULE", 1);
+			tdShuttleNoseUnit.addPart(new AssignmentTree("name", "ModuleHeatShield", 2));
+			tdShuttleNoseUnit.addPart(new AssignmentTree("direction", "0, 0, -1 // underside of fuselage", 2));
+			tdShuttleNoseUnit.addPart(new AssignmentTree("reflective", "0.25 // 25% of heat is ignored at correct angle", 2));
+			modules.put("TD_ShuttleNoseUnit", tdShuttleNoseUnit);
+			
+		/*@PART[TD_ShuttleNoseUnitMJ]{
+			Module
+			{
+				name = ModuleHeatShield
+				direction = 0, 0, -1 // underside of fuselage
+				reflective = 0.25 // 25% of heat is ignored at correct angle
+			}
+		}*/
+		BlockTree tdShuttleNoseUnitMJ = new BlockTree("MODULE", 1);
+			tdShuttleNoseUnitMJ.addPart(new AssignmentTree("name", "ModuleHeatShield", 2));
+			tdShuttleNoseUnitMJ.addPart(new AssignmentTree("direction", "0, 0, -1 // underside of fuselage", 2));
+			tdShuttleNoseUnitMJ.addPart(new AssignmentTree("reflective", "0.25 // 25% of heat is ignored at correct angle", 2));
+			modules.put("TD_ShuttleNoseUnitMJ", tdShuttleNoseUnitMJ);
+			
+		/*	
+		@PART[TD_ShuttleUnitSmall]
+		{
+			Module
+			{
+				name = ModuleHeatShield
+				direction = 0, 0, -1 // underside of fuselage
+				reflective = 0.25 // 25% of heat is ignored at correct angle
+			}
+		}*/
+		BlockTree tdShuttleUnitSmall = new BlockTree("MODULE", 1);
+			tdShuttleUnitSmall.addPart(new AssignmentTree("name", "ModuleHeatShield", 2));
+			tdShuttleUnitSmall.addPart(new AssignmentTree("direction", "0, 0, -1 // underside of fuselage", 2));
+			tdShuttleUnitSmall.addPart(new AssignmentTree("reflective", "0.25 // 25% of heat is ignored at correct angle", 2));
+			modules.put("TD_ShuttleUnitSmall", tdShuttleUnitSmall);
+			
+		/*@PART[TD_ShuttleUnitSmallMJ]{
+			Module
+			{
+				name = ModuleHeatShield
+				direction = 0, 0, -1 // underside of fuselage
+				reflective = 0.25 // 25% of heat is ignored at correct angle
+			}
+		}*/
+		BlockTree tdShuttleUnitSmallMJ = new BlockTree("MODULE", 1);
+			tdShuttleUnitSmallMJ.addPart(new AssignmentTree("name", "ModuleHeatShield", 2));
+			tdShuttleUnitSmallMJ.addPart(new AssignmentTree("direction", "0, 0, -1 // underside of fuselage", 2));
+			tdShuttleUnitSmallMJ.addPart(new AssignmentTree("reflective", "0.25 // 25% of heat is ignored at correct angle", 2));
+			modules.put("TD_ShuttleUnitSmallMJ", tdShuttleUnitSmallMJ);
+		
+		/*@PART[TD_ShuttleGearDown]{
+			Module
+			{
+				name = ModuleHeatShield
+				direction = 0, 0, -1 // underside of fuselage
+				reflective = 0.25 // 25% of heat is ignored at correct angle
+			}
+		}*/
+		BlockTree tdShuttleGearDown = new BlockTree("MODULE", 1);
+			tdShuttleGearDown.addPart(new AssignmentTree("name", "ModuleHeatShield", 2));
+			tdShuttleGearDown.addPart(new AssignmentTree("direction", "0, 0, -1 // underside of fuselage", 2));
+			tdShuttleGearDown.addPart(new AssignmentTree("reflective", "0.25 // 25% of heat is ignored at correct angle", 2));
+			modules.put("TD_ShuttleGearDown", tdShuttleGearDown);
+		
+		/*@PART[TD_ShuttleGearDownLarge]
+		{
+			Module
+			{
+				name = ModuleHeatShield
+				direction = 0, 0, -1 // underside of fuselage
+				reflective = 0.25 // 25% of heat is ignored at correct angle
+			}
+		}*/
+		BlockTree tdShuttleGearDownLarge = new BlockTree("MODULE", 1);
+			tdShuttleGearDownLarge.addPart(new AssignmentTree("name", "ModuleHeatShield", 2));
+			tdShuttleGearDownLarge.addPart(new AssignmentTree("direction", "0, 0, -1 // underside of fuselage", 2));
+			tdShuttleGearDownLarge.addPart(new AssignmentTree("reflective", "0.25 // 25% of heat is ignored at correct angle", 2));
+			modules.put("TD_ShuttleGearDownLarge", tdShuttleGearDownLarge);
+		
+		/*@PART[TD_ShuttleGearUp]{
+			Module
+			{
+				name = ModuleHeatShield
+				direction = 0, 0, -1 // underside of fuselage
+				reflective = 0.25 // 25% of heat is ignored at correct angle
+			}
+		}*/
+		BlockTree tdShuttleGearUp = new BlockTree("MODULE", 1);
+			tdShuttleGearUp.addPart(new AssignmentTree("name", "ModuleHeatShield", 2));
+			tdShuttleGearUp.addPart(new AssignmentTree("direction", "0, 0, -1 // underside of fuselage", 2));
+			tdShuttleGearUp.addPart(new AssignmentTree("reflective", "0.25 // 25% of heat is ignored at correct angle", 2));
+			modules.put("TD_ShuttleGearUp", tdShuttleGearUp);
+		
+		/*@PART[TD_ShuttleGearUpLarge]
+		{
+			Module
+			{
+				name = ModuleHeatShield
+				direction = 0, 0, -1 // underside of fuselage
+				reflective = 0.25 // 25% of heat is ignored at correct angle
+			}
+		}*/
+		BlockTree tdShuttleGearUpLarge = new BlockTree("MODULE", 1);
+			tdShuttleGearUpLarge.addPart(new AssignmentTree("name", "ModuleHeatShield", 2));
+			tdShuttleGearUpLarge.addPart(new AssignmentTree("direction", "0, 0, -1 // underside of fuselage", 2));
+			tdShuttleGearUpLarge.addPart(new AssignmentTree("reflective", "0.25 // 25% of heat is ignored at correct angle", 2));
+			modules.put("TD_ShuttleGearUpLarge", tdShuttleGearUpLarge);
+		
+		/*@PART[TD_BuranEngMount]{
+			Module
+			{
+				name = ModuleHeatShield
+				direction = 0, 0, -1 // underside of fuselage
+				reflective = 0.25 // 25% of heat is ignored at correct angle
+			}
+		}*/
+		BlockTree tdBuranEngMount = new BlockTree("MODULE", 1);
+			tdBuranEngMount.addPart(new AssignmentTree("name", "ModuleHeatShield", 2));
+			tdBuranEngMount.addPart(new AssignmentTree("direction", "0, 0, -1 // underside of fuselage", 2));
+			tdBuranEngMount.addPart(new AssignmentTree("reflective", "0.25 // 25% of heat is ignored at correct angle", 2));
+			modules.put("TD_BuranEngMount", tdBuranEngMount);
+		
+		/*@PART[TD_ShuttleCargoBay]{
+			Module
+			{
+				name = ModuleHeatShield
+				direction = 0, 0, -1 // underside of fuselage
+				reflective = 0.25 // 25% of heat is ignored at correct angle
+			}
+		}*/
+		BlockTree tdShuttleCargoBay = new BlockTree("MODULE", 1);
+			tdShuttleCargoBay.addPart(new AssignmentTree("name", "ModuleHeatShield", 2));
+			tdShuttleCargoBay.addPart(new AssignmentTree("direction", "0, 0, -1 // underside of fuselage", 2));
+			tdShuttleCargoBay.addPart(new AssignmentTree("reflective", "0.25 // 25% of heat is ignored at correct angle", 2));
+			modules.put("TD_ShuttleCargoBay", tdShuttleCargoBay);
+		
+		/*@PART[TD_EngMountRadial]{
+			Module
+			{
+				name = ModuleHeatShield
+				direction = 0, 0, -1 // underside of fuselage
+				reflective = 0.25 // 25% of heat is ignored at correct angle
+			}
+		}*/
+		BlockTree tdEngMountRadial = new BlockTree("MODULE", 1);
+			tdEngMountRadial.addPart(new AssignmentTree("name", "ModuleHeatShield", 2));
+			tdEngMountRadial.addPart(new AssignmentTree("direction", "0, 0, -1 // underside of fuselage", 2));
+			tdEngMountRadial.addPart(new AssignmentTree("reflective", "0.25 // 25% of heat is ignored at correct angle", 2));
+			modules.put("TD_EngMountRadial", tdEngMountRadial);
+		
+		/*@PART[TD_EngMountRadialLong]{
+			Module
+			{
+				name = ModuleHeatShield
+				direction = 0, 0, -1 // underside of fuselage
+				reflective = 0.25 // 25% of heat is ignored at correct angle
+			}
+		}*/
+		BlockTree tdEngMountRadialLong = new BlockTree("MODULE", 1);
+			tdEngMountRadialLong.addPart(new AssignmentTree("name", "ModuleHeatShield", 2));
+			tdEngMountRadialLong.addPart(new AssignmentTree("direction", "0, 0, -1 // underside of fuselage", 2));
+			tdEngMountRadialLong.addPart(new AssignmentTree("reflective", "0.25 // 25% of heat is ignored at correct angle", 2));
+			modules.put("TD_EngMountRadialLong", tdEngMountRadialLong);
+		
+		/*@PART[TD_HeavyStrut]{
+			Module
+			{
+				name = ModuleHeatShield
+				direction = 0, 0, -1 // underside of fuselage
+				reflective = 0.25 // 25% of heat is ignored at correct angle
+			}
+		}*/
+		BlockTree tdHeavyStrut = new BlockTree("MODULE", 1);
+			tdHeavyStrut.addPart(new AssignmentTree("name", "ModuleHeatShield", 2));
+			tdHeavyStrut.addPart(new AssignmentTree("direction", "0, 0, -1 // underside of fuselage", 2));
+			tdHeavyStrut.addPart(new AssignmentTree("reflective", "0.25 // 25% of heat is ignored at correct angle", 2));
+			modules.put("TD_HeavyStrut", tdHeavyStrut);
+		
+		/*@Part[TD_ShuttleResourceFull]{
+			Module
+			{
+				name = ModuleHeatShield
+				direction = 0, 0, -1 // underside of fuselage
+				reflective = 0.25 // 25% of heat is ignored at correct angle
+			}
+		}*/
+		BlockTree tdShuttleResourceFull = new BlockTree("MODULE", 1);
+			tdShuttleResourceFull.addPart(new AssignmentTree("name", "ModuleHeatShield", 2));
+			tdShuttleResourceFull.addPart(new AssignmentTree("direction", "0, 0, -1 // underside of fuselage", 2));
+			tdShuttleResourceFull.addPart(new AssignmentTree("reflective", "0.25 // 25% of heat is ignored at correct angle", 2));
+			modules.put("TD_ShuttleResourceFull", tdShuttleResourceFull);
+		
+		/*@PART[TD_ShuttleResourceHalf]{
+			Module
+			{
+				name = ModuleHeatShield
+				direction = 0, 0, -1 // underside of fuselage
+				reflective = 0.25 // 25% of heat is ignored at correct angle
+			}
+		}*/
+		BlockTree tdShuttleResourceHalf = new BlockTree("MODULE", 1);
+			tdShuttleResourceHalf.addPart(new AssignmentTree("name", "ModuleHeatShield", 2));
+			tdShuttleResourceHalf.addPart(new AssignmentTree("direction", "0, 0, -1 // underside of fuselage", 2));
+			tdShuttleResourceHalf.addPart(new AssignmentTree("reflective", "0.25 // 25% of heat is ignored at correct angle", 2));
+			modules.put("TD_ShuttleResourceHalf", tdShuttleResourceHalf);
+		
+		/*@PART[TD_ShuttleTankRCS]{
+			Module
+			{
+				name = ModuleHeatShield
+				direction = 0, 0, -1 // underside of fuselage
+				reflective = 0.25 // 25% of heat is ignored at correct angle
+			}
+		}*/
+		BlockTree tdShuttleTankRCS = new BlockTree("MODULE", 1);
+			tdShuttleTankRCS.addPart(new AssignmentTree("name", "ModuleHeatShield", 2));
+			tdShuttleTankRCS.addPart(new AssignmentTree("direction", "0, 0, -1 // underside of fuselage", 2));
+			tdShuttleTankRCS.addPart(new AssignmentTree("reflective", "0.25 // 25% of heat is ignored at correct angle", 2));
+			modules.put("TD_ShuttleTankRCS", tdShuttleTankRCS);
+		
+		/*@PART[TD_ShuttleElevBigLeft]{
+			Module
+			{
+				name = ModuleHeatShield
+				direction = 0, 0, -1 // underside of fuselage
+				reflective = 0.25 // 25% of heat is ignored at correct angle
+			}
+		}*/
+		BlockTree tdShuttleElevBigLeft = new BlockTree("MODULE", 1);
+			tdShuttleElevBigLeft.addPart(new AssignmentTree("name", "ModuleHeatShield", 2));
+			tdShuttleElevBigLeft.addPart(new AssignmentTree("direction", "0, 0, -1 // underside of fuselage", 2));
+			tdShuttleElevBigLeft.addPart(new AssignmentTree("reflective", "0.25 // 25% of heat is ignored at correct angle", 2));
+			modules.put("TD_ShuttleElevBigLeft", tdShuttleElevBigLeft);
+		
+		/*@PART[TD_ShuttleElevBigRight]{
+			Module
+			{
+				name = ModuleHeatShield
+				direction = 0, 0, -1 // underside of fuselage
+				reflective = 0.25 // 25% of heat is ignored at correct angle
+			}
+		}*/
+		BlockTree tdShuttleElevBigRight = new BlockTree("MODULE", 1);
+			tdShuttleElevBigRight.addPart(new AssignmentTree("name", "ModuleHeatShield", 2));
+			tdShuttleElevBigRight.addPart(new AssignmentTree("direction", "0, 0, -1 // underside of fuselage", 2));
+			tdShuttleElevBigRight.addPart(new AssignmentTree("reflective", "0.25 // 25% of heat is ignored at correct angle", 2));
+			modules.put("TD_ShuttleElevBigRight", tdShuttleElevBigRight);
+		
+		/*@PART[TD_ShuttleElevTankLeft]{
+			Module
+			{
+				name = ModuleHeatShield
+				direction = 0, 0, -1 // underside of fuselage
+				reflective = 0.25 // 25% of heat is ignored at correct angle
+			}
+		}*/
+		BlockTree tdShuttleElevTankLeft = new BlockTree("MODULE", 1);
+			tdShuttleElevTankLeft.addPart(new AssignmentTree("name", "ModuleHeatShield", 2));
+			tdShuttleElevTankLeft.addPart(new AssignmentTree("direction", "0, 0, -1 // underside of fuselage", 2));
+			tdShuttleElevTankLeft.addPart(new AssignmentTree("reflective", "0.25 // 25% of heat is ignored at correct angle", 2));
+			modules.put("TD_ShuttleElevTankLeft", tdShuttleElevTankLeft);
+		
+		/*@PART[TD_ShuttleElevTankRight]{
+			Module
+			{
+				name = ModuleHeatShield
+				direction = 0, 0, -1 // underside of fuselage
+				reflective = 0.25 // 25% of heat is ignored at correct angle
+			}
+		}*/
+		BlockTree tdShuttleElevTankRight = new BlockTree("MODULE", 1);
+			tdShuttleElevTankRight.addPart(new AssignmentTree("name", "ModuleHeatShield", 2));
+			tdShuttleElevTankRight.addPart(new AssignmentTree("direction", "0, 0, -1 // underside of fuselage", 2));
+			tdShuttleElevTankRight.addPart(new AssignmentTree("reflective", "0.25 // 25% of heat is ignored at correct angle", 2));
+			modules.put("TD_ShuttleElevTankRight", tdShuttleElevTankRight);
+		
+		/*@PART[TD_ShuttleTailFin]{
+			Module
+			{
+				name = ModuleHeatShield
+				direction = 0, 0, -1 // underside of fuselage
+				reflective = 0.25 // 25% of heat is ignored at correct angle
+			}
+		}*/
+		BlockTree tdShuttleTailFin = new BlockTree("MODULE", 1);
+			tdShuttleTailFin.addPart(new AssignmentTree("name", "ModuleHeatShield", 2));
+			tdShuttleTailFin.addPart(new AssignmentTree("direction", "0, 0, -1 // underside of fuselage", 2));
+			tdShuttleTailFin.addPart(new AssignmentTree("reflective", "0.25 // 25% of heat is ignored at correct angle", 2));
+			modules.put("TD_ShuttleTailFin", tdShuttleTailFin);
+		
+		/*@PART[TD_ShuttleWingBigCanard]{
+			Module
+			{
+				name = ModuleHeatShield
+				direction = 0, 0, -1 // underside of fuselage
+				reflective = 0.25 // 25% of heat is ignored at correct angle
+			}
+		}*/
+		BlockTree tdShuttleWingBigCanard = new BlockTree("MODULE", 1);
+			tdShuttleWingBigCanard.addPart(new AssignmentTree("name", "ModuleHeatShield", 2));
+			tdShuttleWingBigCanard.addPart(new AssignmentTree("direction", "0, 0, -1 // underside of fuselage", 2));
+			tdShuttleWingBigCanard.addPart(new AssignmentTree("reflective", "0.25 // 25% of heat is ignored at correct angle", 2));
+			modules.put("TD_ShuttleWingBigCanard", tdShuttleWingBigCanard);
+		
+		/*@PART[TD_ShuttleWingBigLeft]{
+			Module
+			{
+				name = ModuleHeatShield
+				direction = 0, 0, -1 // underside of fuselage
+				reflective = 0.25 // 25% of heat is ignored at correct angle
+			}
+		}*/
+		BlockTree tdShuttleWingBigLeft = new BlockTree("MODULE", 1);
+			tdShuttleWingBigLeft.addPart(new AssignmentTree("name", "ModuleHeatShield", 2));
+			tdShuttleWingBigLeft.addPart(new AssignmentTree("direction", "0, 0, -1 // underside of fuselage", 2));
+			tdShuttleWingBigLeft.addPart(new AssignmentTree("reflective", "0.25 // 25% of heat is ignored at correct angle", 2));
+			modules.put("TD_ShuttleWingBigLeft", tdShuttleWingBigLeft);
+		
+		/*@PART[TD_ShuttleWingBigRight]{
+			Module
+			{
+				name = ModuleHeatShield
+				direction = 0, 0, -1 // underside of fuselage
+				reflective = 0.25 // 25% of heat is ignored at correct angle
+			}
+		}*/
+		BlockTree tdShuttleWingBigRight = new BlockTree("MODULE", 1);
+			tdShuttleWingBigRight.addPart(new AssignmentTree("name", "ModuleHeatShield", 2));
+			tdShuttleWingBigRight.addPart(new AssignmentTree("direction", "0, 0, -1 // underside of fuselage", 2));
+			tdShuttleWingBigRight.addPart(new AssignmentTree("reflective", "0.25 // 25% of heat is ignored at correct angle", 2));
+			modules.put("TD_ShuttleWingBigRight", tdShuttleWingBigRight);
+		
+		/*@PART[TD_ShuttleWingTankCanard]{
+			Module
+			{
+				name = ModuleHeatShield
+				direction = 0, 0, -1 // underside of fuselage
+				reflective = 0.25 // 25% of heat is ignored at correct angle
+			}
+		}*/
+		BlockTree tdShuttleWingTankCanard = new BlockTree("MODULE", 1);
+			tdShuttleWingTankCanard.addPart(new AssignmentTree("name", "ModuleHeatShield", 2));
+			tdShuttleWingTankCanard.addPart(new AssignmentTree("direction", "0, 0, -1 // underside of fuselage", 2));
+			tdShuttleWingTankCanard.addPart(new AssignmentTree("reflective", "0.25 // 25% of heat is ignored at correct angle", 2));
+			modules.put("TD_ShuttleWingTankCanard", tdShuttleWingTankCanard);
+		
+		/*@PART[TD_ShuttleWingTankLeft]{
+			Module
+			{
+				name = ModuleHeatShield
+				direction = 0, 0, -1 // underside of fuselage
+				reflective = 0.25 // 25% of heat is ignored at correct angle
+			}
+		}*/
+		BlockTree tdShuttleWingTankLeft = new BlockTree("MODULE", 1);
+			tdShuttleWingTankLeft.addPart(new AssignmentTree("name", "ModuleHeatShield", 2));
+			tdShuttleWingTankLeft.addPart(new AssignmentTree("direction", "0, 0, -1 // underside of fuselage", 2));
+			tdShuttleWingTankLeft.addPart(new AssignmentTree("reflective", "0.25 // 25% of heat is ignored at correct angle", 2));
+			modules.put("TD_ShuttleWingTankLeft", tdShuttleWingTankLeft);
+		
+		/*@PART[TD_ShuttleWingTankRight]{
+			Module
+			{
+				name = ModuleHeatShield
+				direction = 0, 0, -1 // underside of fuselage
+				reflective = 0.25 // 25% of heat is ignored at correct angle
+			}
+		}*/
+		BlockTree tdShuttleWingTankRight = new BlockTree("MODULE", 1);
+			tdShuttleWingTankRight.addPart(new AssignmentTree("name", "ModuleHeatShield", 2));
+			tdShuttleWingTankRight.addPart(new AssignmentTree("direction", "0, 0, -1 // underside of fuselage", 2));
+			tdShuttleWingTankRight.addPart(new AssignmentTree("reflective", "0.25 // 25% of heat is ignored at correct angle", 2));
+			modules.put("TD_ShuttleWingTankRight", tdShuttleWingTankRight);
+		
 		
 		return modules;		
 	}
