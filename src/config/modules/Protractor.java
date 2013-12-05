@@ -1,21 +1,24 @@
 package config.modules;
 
-import config.tree.AssignmentTree;
-import config.tree.BlockTree;
-
 public class Protractor {
 	//MODULE
 	//{
 	//	name = ProtractorModule
 	//}
 	
-	public static BlockTree createProtractorTree()
+	public static String createProtractorTree()
 	{
-		BlockTree module = new BlockTree("MODULE",1);
+		StringBuilder sb = new StringBuilder();
+		sb.append("\n\t");
+		sb.append("MODULE");
+		sb.append("\n\t");
+		sb.append("{");
+		sb.append("\n\t\t");
+		sb.append("name = ProtractorModule");
+		sb.append("\n\t");
+		sb.append("}");
+		sb.append("\n");
 		
-		AssignmentTree moduleName = new AssignmentTree("name", "ProtractorModule",2);
-		module.addPart(moduleName);
-		
-		return module;
+		return sb.toString();
 	}
 }

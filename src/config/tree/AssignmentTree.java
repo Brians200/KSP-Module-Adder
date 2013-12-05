@@ -1,6 +1,7 @@
 package config.tree;
 
-import java.util.Hashtable;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.antlr.runtime.tree.CommonTree;
 
@@ -34,20 +35,21 @@ public class AssignmentTree implements IKspPartTree {
 		return tabAmount;
 	}
 
-	public boolean addMechjeb(IKspPartTree module)
+	public String addMechjeb()
 	{
-		return false;  //Should never add mechjeb to this
+		return null;  //Should never add mechjeb to this
 	}
 	
-	public boolean addProtractor(IKspPartTree module) {
-		return false;  //Should never add protractor to this
+	public String addProtractor() {
+		return null;  //Should never add protractor to this
 	}
 	
 	@Override
-	public boolean addDeadlyReentry(Hashtable<String, Object> deadlyReentry) {
+	public Map<String,String> addDeadlyReentry() {
 		int temp = Integer.parseInt(rhs) / 2;
-		rhs = "" + temp;
-		return true;
+		Map<String,String> ret = new HashMap<String, String>();
+		ret.put("value",""+temp);
+		return ret;
 	}
 	
 	public AssignmentTree(String lhs, String rhs, int tabAmount)

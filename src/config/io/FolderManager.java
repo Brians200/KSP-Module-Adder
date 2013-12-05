@@ -16,7 +16,10 @@ public class FolderManager {
 	static public void applyChanges(/*parameters to be added */)
 	{
 		String directory = "GameData";
-	
+		
+		File moduleChanges = new File(directory + "\\moduleChanges.cfg");
+		moduleChanges.delete();
+		
 		//Check to see if mechjeb is present
 		File mechjeb = new File(directory + "\\MechJeb2\\Plugins\\MechJeb2.dll");	
 		
@@ -41,6 +44,13 @@ public class FolderManager {
 		filesToIgnore.add("GameData\\RCSBuildAid\\settings.cfg");
 		filesToIgnore.add("GameData\\Squad\\Resources\\ScienceDefs.cfg"); 
 		filesToIgnore.add("GameData\\Squad\\Resources\\ResourcesGeneric.cfg");
+		filesToIgnore.add("GameData\\StationScience\\Resources\\Bioproducts.cfg");
+		filesToIgnore.add("GameData\\StationScience\\Resources\\Eurekas.cfg");
+		filesToIgnore.add("GameData\\StationScience\\Resources\\Experiments.cfg");
+		filesToIgnore.add("GameData\\StationScience\\Resources\\Kibbal.cfg");
+		filesToIgnore.add("GameData\\StationScience\\Resources\\Kuarqs.cfg");
+		filesToIgnore.add("GameData\\ThunderAerospace\\TacFuelBalancer\\PluginData\\TacFuelBalancer\\FuelBalancer.cfg");
+		filesToIgnore.add("GameData\\WarpPlugin\\Parts\\Resources\\ScienceDefs.cfg");
 		
 		//Deadly re-entry editor files
 		filesToIgnore.add("GameData\\DeadlyReentry\\custom.cfg");

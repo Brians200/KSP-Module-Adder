@@ -1,10 +1,8 @@
 package config.io;
 
-import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Hashtable;
-import java.util.Scanner;
+import java.util.Map;
 
 import org.antlr.runtime.ANTLRFileStream;
 import org.antlr.runtime.RecognitionException;
@@ -19,17 +17,9 @@ import config.tree.KspPartTreeBuilder;
 
 public class FileChanger {
 
-	static IKspPartTree mechjeb = Mechjeb.createMechjebTree();
-	static IKspPartTree protractor = Protractor.createProtractorTree();
-	static Hashtable<String, Object> deadlyReentry = DeadlyReentry.createDeadlyReentryModules();
-	
 	public static void applyChanges(String filePath, boolean addMechjeb, boolean addProtractor, boolean addDeadlyReentry)
 	{
 		try {
-			
-			Scanner file = new Scanner(new File(filePath));
-			String fileContents = file.useDelimiter("\\A").next();
-			file.close();
 			
 			ANTLRFileStream fileStream = new ANTLRFileStream(filePath);
 			ConfigGrammarLexer cgl = new ConfigGrammarLexer(fileStream);
@@ -65,28 +55,67 @@ public class FileChanger {
 				}
 			}
 			
+			String mechjeb = null;
+			String protractor = null;
+			String deadlyReentry = null;
+			String partName = null;
 			
-			if(addMechjeb && tree.addMechjeb(mechjeb))
+			if(addMechjeb)
 			{	
-					System.out.println("Mechjeb added to " + filePath);
+				partName = tree.addMechjeb();
+				if(partName != null)
+				{
+					mechjeb = Mechjeb.createMechjebTree();
+				}
 			}
 			
-			
-			if(addProtractor && tree.addProtractor(protractor))
+			if(addProtractor)
 			{
-				System.out.println("Protractor added to " + filePath);
+				partName = tree.addProtractor();
+				if(partName != null)
+				{
+					protractor = Protractor.createProtractorTree();
+				}
 			}
 			
-			if(addDeadlyReentry && tree.addDeadlyReentry(deadlyReentry))
+			if(addDeadlyReentry)
 			{
-				System.out.println("Deadly Reentry added to " + filePath);
+				Map<String,String> parts = tree.addDeadlyReentry();	
+				if(parts != null)
+				{
+					partName = parts.get("partName");
+					deadlyReentry = DeadlyReentry.createDeadlyReentryModules(parts);
+				}
 			}
 			
-			if(!fileContents.equals(tree.toString()))  //only write the file if we changed something
+			if(mechjeb!=null || protractor!=null || deadlyReentry!=null)
 			{
-				PrintWriter out = new PrintWriter(filePath);
-				out.print(tree.toString());
+				FileWriter out = new FileWriter("GameData\\moduleChanges.cfg",true);
+				out.append("@PART[" + partName + "]");
+				out.append("\n");
+				out.append("{");
+				
+				if(deadlyReentry!=null)
+					out.append(deadlyReentry);
+
+				if(protractor!=null)
+					out.append(protractor);
+				
+				if(mechjeb!=null)
+					out.append(mechjeb);
+				
+				out.append("}");
+				out.append("\n");
+				
+				
 				out.close();
+				
+				if(mechjeb!=null)
+					System.out.println("Mechjeb added to " + filePath);
+				if(protractor!=null)
+					System.out.println("Protractor added to " + filePath);
+				if(deadlyReentry!=null)
+					System.out.println("Deadly Reentry added to " + filePath);
 			}
 			
 		} catch (RecognitionException | IOException e) {

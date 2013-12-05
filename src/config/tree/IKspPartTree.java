@@ -1,9 +1,9 @@
 package config.tree;
 
-import java.util.Hashtable;
+import java.util.Map;
 
 public interface IKspPartTree {
-	public boolean addMechjeb(IKspPartTree module);
-	public boolean addProtractor(IKspPartTree module);
-	public boolean addDeadlyReentry(Hashtable<String, Object> deadlyReentry);
+	public String addMechjeb();
+	public String addProtractor();
+	public Map<String,String> addDeadlyReentry();
 }

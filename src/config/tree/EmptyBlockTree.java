@@ -1,8 +1,8 @@
 package config.tree;
 
 import java.util.ArrayList;
-import java.util.Hashtable;
 import java.util.List;
+import java.util.Map;
 
 import org.antlr.runtime.tree.CommonTree;
 
@@ -53,18 +53,18 @@ public class EmptyBlockTree implements IKspPartTree {
 		parts.add(part);
 	}
 	
-	public boolean addMechjeb(IKspPartTree module)
+	public String addMechjeb()
 	{
-		return false;  //Should never add mechjeb to this
+		return null;  //Should never add mechjeb to this
 	}
 	
-	public boolean addProtractor(IKspPartTree module) {
-		return false;  //Should never add protractor to this
+	public String addProtractor() {
+		return null;  //Should never add protractor to this
 	}
 	
 	@Override
-	public boolean addDeadlyReentry(Hashtable<String, Object> deadlyReentry) {
-		return false;  //Should never add deadly reentry to this
+	public Map<String,String> addDeadlyReentry() {
+		return null;  //Should never add deadly reentry to this
 	}
 	
 	@Override

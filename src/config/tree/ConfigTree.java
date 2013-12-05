@@ -1,8 +1,8 @@
 package config.tree;
 
 import java.util.ArrayList;
-import java.util.Hashtable;
 import java.util.List;
+import java.util.Map;
 
 import org.antlr.runtime.tree.CommonTree;
 
@@ -33,31 +33,33 @@ public class ConfigTree implements IKspPartTree {
 		}
 	}
 	
-	public boolean addMechjeb(IKspPartTree module)
+	public String addMechjeb()
 	{
 		for(int i = 0; i < parts.size(); i++)
 		{
-			if(parts.get(i).addMechjeb(module))
+			String partName = parts.get(i).addMechjeb() ;
+			if(partName != null)
 			{
-				return true;
+				return partName;
 			}
 		}
-		return false;
+		return null;
 	}
 	
-	public boolean addProtractor(IKspPartTree module) {
+	public String addProtractor() {
 		for(int i = 0; i < parts.size(); i++)
 		{
-			if(parts.get(i).addProtractor(module))
+			String partName = parts.get(i).addProtractor() ;
+			if(partName != null)
 			{
-				return true;
+				return partName;
 			}
 		}
-		return false;
+		return null;
 	}
 
 	@Override
-	public boolean addDeadlyReentry(Hashtable<String, Object> deadlyReentry) {
+	public Map<String,String> addDeadlyReentry() {
 		for(int i = 0; i<parts.size();i++)
 		{
 			if(parts.get(i) instanceof BlockTree)
@@ -65,14 +67,12 @@ public class ConfigTree implements IKspPartTree {
 				BlockTree tree = (BlockTree) parts.get(i);
 				if(tree.blockName.equals("PART"))
 				{
-					if(parts.get(i).addDeadlyReentry(deadlyReentry))
-					{
-						return true;
-					}
+					Map<String,String> information = parts.get(i).addDeadlyReentry();
+					return information;
 				}
 			}
 		}
-		return false;
+		return null;
 	}
 	
 	@Override
