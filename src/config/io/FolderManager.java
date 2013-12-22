@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
+import config.misc.GlobalIgnoreList;
 import config.misc.GlobalSettings;
 
 public class FolderManager {
@@ -31,37 +32,6 @@ public class FolderManager {
 		//Check to see if Deadly Reentry is present
 		File deadlyReentry = new File(directory + "\\DeadlyReentry\\Plugins\\DeadlyReentry.dll");*/
 			
-		//Files that don't need touched
-		filesToIgnore.add("GameData\\BoulderCo\\common.cfg");
-		filesToIgnore.add("GameData\\BoulderCo\\Clouds\\cloudLayers.cfg");
-		filesToIgnore.add("GameData\\KAS\\addModule.cfg");
-		filesToIgnore.add("GameData\\KAS\\settings.cfg");
-		filesToIgnore.add("GameData\\Kethane\\Grid.cfg");
-		filesToIgnore.add("GameData\\Kethane\\settings.cfg");
-		filesToIgnore.add("GameData\\Kethane\\Resources\\Kethane.cfg");
-		filesToIgnore.add("GameData\\MechJeb2\\Plugins\\PluginData\\MechJeb2\\mechjeb_settings_global.cfg");
-		filesToIgnore.add("GameData\\MechJeb2\\Plugins\\PluginData\\MechJeb2\\mechjeb_settings_type_.cfg");
-		filesToIgnore.add("GameData\\MechJeb2\\Plugins\\PluginData\\MechJeb2\\mechjeb_settings_type_Untitled Space Craft Probe.cfg");
-		filesToIgnore.add("GameData\\MechJeb2\\Plugins\\PluginData\\MechJeb2\\mechjeb_settings_type_Untitled Space Craft.cfg");
-		filesToIgnore.add("GameData\\RCSBuildAid\\settings.cfg");
-		filesToIgnore.add("GameData\\Squad\\Resources\\ScienceDefs.cfg"); 
-		filesToIgnore.add("GameData\\Squad\\Resources\\ResourcesGeneric.cfg");
-		filesToIgnore.add("GameData\\StationScience\\Resources\\Bioproducts.cfg");
-		filesToIgnore.add("GameData\\StationScience\\Resources\\Eurekas.cfg");
-		filesToIgnore.add("GameData\\StationScience\\Resources\\Experiments.cfg");
-		filesToIgnore.add("GameData\\StationScience\\Resources\\Kibbal.cfg");
-		filesToIgnore.add("GameData\\StationScience\\Resources\\Kuarqs.cfg");
-		filesToIgnore.add("GameData\\ThunderAerospace\\TacFuelBalancer\\PluginData\\TacFuelBalancer\\FuelBalancer.cfg");
-		filesToIgnore.add("GameData\\WarpPlugin\\Parts\\Resources\\ScienceDefs.cfg");
-		
-		//Deadly re-entry editor files
-		filesToIgnore.add("GameData\\DeadlyReentry\\custom.cfg");
-		filesToIgnore.add("GameData\\DeadlyReentry\\DeadlyReentry.cfg");
-		filesToIgnore.add("GameData\\DeadlyReentry\\DeadlyReentry_B9.cfg");
-		filesToIgnore.add("GameData\\DeadlyReentry\\DeadlyReentry-HOME.cfg");
-		filesToIgnore.add("GameData\\DeadlyReentry\\DeadlyReentryTechTree.cfg");
-		filesToIgnore.add("GameData\\DeadlyReentry\\DeadlyReentry_TiberDyne_Shuttle.cfg");
-		
 		traverseDirectory(directory,GlobalSettings.addMechjeb, GlobalSettings.addProtractor, GlobalSettings.addDeadlyReentry);
 	}
 	
@@ -83,14 +53,14 @@ public class FolderManager {
 		{
 			if(Files.isDirectory(Paths.get(path), LinkOption.NOFOLLOW_LINKS))
 			{
-				if(path.equals("GameData\\Squad\\Props")||path.equals("GameData\\MechJeb2\\Plugins\\PluginData\\MechJeb2")||path.equals("GameData\\DeadlyReentry"))
+				if(GlobalIgnoreList.foldersToIgnore.contains(path))
 					continue;
 				
 				traverseDirectory(path, addMechjeb, addProtractor, addDeadlyReentry);
 			}
 			else
 			{
-				if(path.endsWith(".cfg") && !filesToIgnore.contains(path))
+				if(path.endsWith(".cfg") && !GlobalIgnoreList.filesToIgnore.contains(path))
 				{
 					FileChanger.applyChanges(path, addMechjeb, addProtractor, addDeadlyReentry);
 				}

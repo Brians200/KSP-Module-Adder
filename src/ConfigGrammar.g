@@ -26,6 +26,7 @@ config	:	(configField*				-> ^(CONFIG configField*))
 configField
 	:	comment					-> comment
 	|	block					-> block
+	|	assignment				-> ^(ASSIGNMENT assignment)
 	;
 
 block	:	b1=STRING '{' blockField* '}'		-> ^(BLOCK $b1 blockField* )

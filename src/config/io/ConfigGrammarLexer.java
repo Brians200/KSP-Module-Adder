@@ -1,4 +1,4 @@
-// $ANTLR 3.4 C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g 2013-12-22 15:04:06
+// $ANTLR 3.4 C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g 2013-12-22 16:30:06
 
     package config.io;
 
@@ -108,12 +108,12 @@ public class ConfigGrammarLexer extends Lexer {
         try {
             int _type = MMREMOVE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:57:2: ( '!' (~ ( '\\n' | '\\r' | '{' | '!' ) )* ( '\\r' )? '\\n' )
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:57:4: '!' (~ ( '\\n' | '\\r' | '{' | '!' ) )* ( '\\r' )? '\\n'
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:58:2: ( '!' (~ ( '\\n' | '\\r' | '{' | '!' ) )* ( '\\r' )? '\\n' )
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:58:4: '!' (~ ( '\\n' | '\\r' | '{' | '!' ) )* ( '\\r' )? '\\n'
             {
             match('!'); 
 
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:57:8: (~ ( '\\n' | '\\r' | '{' | '!' ) )*
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:58:8: (~ ( '\\n' | '\\r' | '{' | '!' ) )*
             loop1:
             do {
                 int alt1=2;
@@ -147,7 +147,7 @@ public class ConfigGrammarLexer extends Lexer {
             } while (true);
 
 
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:57:32: ( '\\r' )?
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:58:32: ( '\\r' )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -156,7 +156,7 @@ public class ConfigGrammarLexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:57:32: '\\r'
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:58:32: '\\r'
                     {
                     match('\r'); 
 
@@ -184,10 +184,10 @@ public class ConfigGrammarLexer extends Lexer {
         try {
             int _type = STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:60:8: ( (~ ( '\\n' | '\\r' | '\\t' | '//' | '=' | '{' | '}' ) )+ )
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:60:10: (~ ( '\\n' | '\\r' | '\\t' | '//' | '=' | '{' | '}' ) )+
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:61:8: ( (~ ( '\\n' | '\\r' | '\\t' | '//' | '=' | '{' | '}' ) )+ )
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:61:10: (~ ( '\\n' | '\\r' | '\\t' | '//' | '=' | '{' | '}' ) )+
             {
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:60:10: (~ ( '\\n' | '\\r' | '\\t' | '//' | '=' | '{' | '}' ) )+
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:61:10: (~ ( '\\n' | '\\r' | '\\t' | '//' | '=' | '{' | '}' ) )+
             int cnt3=0;
             loop3:
             do {
@@ -201,7 +201,7 @@ public class ConfigGrammarLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:60:10: ~ ( '\\n' | '\\r' | '\\t' | '//' | '=' | '{' | '}' )
+            	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:61:10: ~ ( '\\n' | '\\r' | '\\t' | '//' | '=' | '{' | '}' )
             	    {
             	    if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '\b')||(input.LA(1) >= '\u000B' && input.LA(1) <= '\f')||(input.LA(1) >= '\u000E' && input.LA(1) <= '<')||(input.LA(1) >= '>' && input.LA(1) <= 'z')||input.LA(1)=='|'||(input.LA(1) >= '~' && input.LA(1) <= '\uFFFF') ) {
             	        input.consume();
@@ -242,10 +242,10 @@ public class ConfigGrammarLexer extends Lexer {
         try {
             int _type = COMMENTT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:64:5: ( ( ' ' | '\\t' )* '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:64:9: ( ' ' | '\\t' )* '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:65:5: ( ( ' ' | '\\t' )* '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:65:9: ( ' ' | '\\t' )* '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
             {
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:64:9: ( ' ' | '\\t' )*
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:65:9: ( ' ' | '\\t' )*
             loop4:
             do {
                 int alt4=2;
@@ -283,7 +283,7 @@ public class ConfigGrammarLexer extends Lexer {
 
 
 
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:64:28: (~ ( '\\n' | '\\r' ) )*
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:65:28: (~ ( '\\n' | '\\r' ) )*
             loop5:
             do {
                 int alt5=2;
@@ -317,7 +317,7 @@ public class ConfigGrammarLexer extends Lexer {
             } while (true);
 
 
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:64:42: ( '\\r' )?
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:65:42: ( '\\r' )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -326,7 +326,7 @@ public class ConfigGrammarLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:64:42: '\\r'
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:65:42: '\\r'
                     {
                     match('\r'); 
 
@@ -354,10 +354,10 @@ public class ConfigGrammarLexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:67:5: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:67:9: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:68:5: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:68:9: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:67:9: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:68:9: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt7=0;
             loop7:
             do {

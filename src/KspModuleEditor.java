@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import config.io.FolderManager;
+import config.misc.GlobalIgnoreList;
 import config.misc.GlobalSettings;
 
 public class KspModuleEditor {
@@ -35,6 +36,40 @@ public class KspModuleEditor {
 			e.printStackTrace();
 		}
 		
+		
+		try{
+			Scanner scanner = new Scanner(new File("FilesAndFoldersToIgnore.txt"));
+			boolean fileMode = true;
+			while(scanner.hasNext())
+			{
+				String inLine = scanner.next().trim();
+				if(inLine.equals(""))
+				{
+					continue;
+				}
+				else if(inLine.equals("#Folders"))
+				{
+					fileMode = false;
+				}
+				else if(inLine.equals("#Files"))
+				{
+					fileMode = true;
+				}
+				else if(fileMode)
+				{
+					GlobalIgnoreList.filesToIgnore.add(inLine);
+				}
+				else
+				{
+					GlobalIgnoreList.foldersToIgnore.add(inLine);
+				}
+				
+			}
+			scanner.close();
+		} catch (FileNotFoundException e) {
+			// TODO proper error handling
+			e.printStackTrace();
+		}
 		
 		FolderManager.applyChanges();
 		

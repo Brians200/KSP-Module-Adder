@@ -1,0 +1,6 @@
+#Files
+
+
+#Folders
+GameData\Squad\Props
+GameData\MechJeb2\Plugins\PluginData\MechJeb2

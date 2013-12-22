@@ -25,6 +25,10 @@ public class ConfigTree implements IKspPartTree {
 			{	
 				parts.add(new CommentTree(child, 0));
 			}
+			else if(child.getText().equals("ASSIGNMENT"))
+			{
+				parts.add(new AssignmentTree(child, 0));
+			}
 			else
 			{
 				throw new IllegalArgumentException();

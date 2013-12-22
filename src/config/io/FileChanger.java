@@ -34,6 +34,7 @@ public class FileChanger {
 			}
 			catch(Exception e)
 			{
+				e.printStackTrace();
 				System.out.println("Attempting to fix: " + filePath);
 				FileFixer.attemptFix(filePath);
 				
