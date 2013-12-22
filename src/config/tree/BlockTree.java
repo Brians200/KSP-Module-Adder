@@ -40,6 +40,10 @@ public class BlockTree implements IKspPartTree {
 			{
 				parts.add(new AssignmentTree(child, tabAmount+1));
 			}
+			else if (child.getText().equals("MMREMOVERULE"))
+			{
+				parts.add(new MMRemoveTree(child, tabAmount+1));
+			}
 			else
 			{
 				throw new IllegalArgumentException();
@@ -188,17 +192,25 @@ public class BlockTree implements IKspPartTree {
 		
 		value.append(tabs);
 		value.append(blockName);
-				
-		value.append("\n");
-		value.append(tabs);
-		value.append("{\n");
 		
-		for(IKspPartTree child : parts)
+		if(parts.size()>0)
 		{
-			value.append(child);
+			value.append("\n");
+			value.append(tabs);
 		}
+		value.append("{");
 		
-		value.append(tabs);
+		if(parts.size()>0)
+		{
+			value.append("\n");
+			
+			for(IKspPartTree child : parts)
+			{
+				value.append(child);
+			}
+			
+			value.append(tabs);
+		}
 		value.append("}\n");
 		
 		return value.toString();

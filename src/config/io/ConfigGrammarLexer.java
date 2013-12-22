@@ -1,4 +1,4 @@
-// $ANTLR 3.4 C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g 2013-11-28 00:27:50
+// $ANTLR 3.4 C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g 2013-12-22 15:04:06
 
     package config.io;
 
@@ -11,17 +11,19 @@ import java.util.ArrayList;
 @SuppressWarnings({"all", "warnings", "unchecked"})
 public class ConfigGrammarLexer extends Lexer {
     public static final int EOF=-1;
-    public static final int T__12=12;
-    public static final int T__13=13;
     public static final int T__14=14;
+    public static final int T__15=15;
+    public static final int T__16=16;
     public static final int ASSIGNMENT=4;
     public static final int BLOCK=5;
     public static final int COMMENT=6;
     public static final int COMMENTT=7;
     public static final int CONFIG=8;
     public static final int EMPTYBLOCK=9;
-    public static final int STRING=10;
-    public static final int WS=11;
+    public static final int MMREMOVE=10;
+    public static final int MMREMOVERULE=11;
+    public static final int STRING=12;
+    public static final int WS=13;
 
     // delegates
     // delegators
@@ -38,10 +40,10 @@ public class ConfigGrammarLexer extends Lexer {
     }
     public String getGrammarFileName() { return "C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g"; }
 
-    // $ANTLR start "T__12"
-    public final void mT__12() throws RecognitionException {
+    // $ANTLR start "T__14"
+    public final void mT__14() throws RecognitionException {
         try {
-            int _type = T__12;
+            int _type = T__14;
             int _channel = DEFAULT_TOKEN_CHANNEL;
             // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:6:7: ( '=' )
             // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:6:9: '='
@@ -57,12 +59,12 @@ public class ConfigGrammarLexer extends Lexer {
         	// do for sure before leaving
         }
     }
-    // $ANTLR end "T__12"
+    // $ANTLR end "T__14"
 
-    // $ANTLR start "T__13"
-    public final void mT__13() throws RecognitionException {
+    // $ANTLR start "T__15"
+    public final void mT__15() throws RecognitionException {
         try {
-            int _type = T__13;
+            int _type = T__15;
             int _channel = DEFAULT_TOKEN_CHANNEL;
             // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:7:7: ( '{' )
             // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:7:9: '{'
@@ -78,12 +80,12 @@ public class ConfigGrammarLexer extends Lexer {
         	// do for sure before leaving
         }
     }
-    // $ANTLR end "T__13"
+    // $ANTLR end "T__15"
 
-    // $ANTLR start "T__14"
-    public final void mT__14() throws RecognitionException {
+    // $ANTLR start "T__16"
+    public final void mT__16() throws RecognitionException {
         try {
-            int _type = T__14;
+            int _type = T__16;
             int _channel = DEFAULT_TOKEN_CHANNEL;
             // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:8:7: ( '}' )
             // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:8:9: '}'
@@ -99,31 +101,107 @@ public class ConfigGrammarLexer extends Lexer {
         	// do for sure before leaving
         }
     }
-    // $ANTLR end "T__14"
+    // $ANTLR end "T__16"
 
-    // $ANTLR start "STRING"
-    public final void mSTRING() throws RecognitionException {
+    // $ANTLR start "MMREMOVE"
+    public final void mMMREMOVE() throws RecognitionException {
         try {
-            int _type = STRING;
+            int _type = MMREMOVE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:51:8: ( (~ ( '\\n' | '\\r' | '\\t' | '//' | '=' | '{' | '}' ) )+ )
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:51:10: (~ ( '\\n' | '\\r' | '\\t' | '//' | '=' | '{' | '}' ) )+
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:57:2: ( '!' (~ ( '\\n' | '\\r' | '{' | '!' ) )* ( '\\r' )? '\\n' )
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:57:4: '!' (~ ( '\\n' | '\\r' | '{' | '!' ) )* ( '\\r' )? '\\n'
             {
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:51:10: (~ ( '\\n' | '\\r' | '\\t' | '//' | '=' | '{' | '}' ) )+
-            int cnt1=0;
+            match('!'); 
+
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:57:8: (~ ( '\\n' | '\\r' | '{' | '!' ) )*
             loop1:
             do {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( ((LA1_0 >= '\u0000' && LA1_0 <= '\b')||(LA1_0 >= '\u000B' && LA1_0 <= '\f')||(LA1_0 >= '\u000E' && LA1_0 <= '<')||(LA1_0 >= '>' && LA1_0 <= 'z')||LA1_0=='|'||(LA1_0 >= '~' && LA1_0 <= '\uFFFF')) ) {
+                if ( ((LA1_0 >= '\u0000' && LA1_0 <= '\t')||(LA1_0 >= '\u000B' && LA1_0 <= '\f')||(LA1_0 >= '\u000E' && LA1_0 <= ' ')||(LA1_0 >= '\"' && LA1_0 <= 'z')||(LA1_0 >= '|' && LA1_0 <= '\uFFFF')) ) {
                     alt1=1;
                 }
 
 
                 switch (alt1) {
             	case 1 :
-            	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:51:10: ~ ( '\\n' | '\\r' | '\\t' | '//' | '=' | '{' | '}' )
+            	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:
+            	    {
+            	    if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '\t')||(input.LA(1) >= '\u000B' && input.LA(1) <= '\f')||(input.LA(1) >= '\u000E' && input.LA(1) <= ' ')||(input.LA(1) >= '\"' && input.LA(1) <= 'z')||(input.LA(1) >= '|' && input.LA(1) <= '\uFFFF') ) {
+            	        input.consume();
+            	    }
+            	    else {
+            	        MismatchedSetException mse = new MismatchedSetException(null,input);
+            	        recover(mse);
+            	        throw mse;
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop1;
+                }
+            } while (true);
+
+
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:57:32: ( '\\r' )?
+            int alt2=2;
+            int LA2_0 = input.LA(1);
+
+            if ( (LA2_0=='\r') ) {
+                alt2=1;
+            }
+            switch (alt2) {
+                case 1 :
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:57:32: '\\r'
+                    {
+                    match('\r'); 
+
+                    }
+                    break;
+
+            }
+
+
+            match('\n'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "MMREMOVE"
+
+    // $ANTLR start "STRING"
+    public final void mSTRING() throws RecognitionException {
+        try {
+            int _type = STRING;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:60:8: ( (~ ( '\\n' | '\\r' | '\\t' | '//' | '=' | '{' | '}' ) )+ )
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:60:10: (~ ( '\\n' | '\\r' | '\\t' | '//' | '=' | '{' | '}' ) )+
+            {
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:60:10: (~ ( '\\n' | '\\r' | '\\t' | '//' | '=' | '{' | '}' ) )+
+            int cnt3=0;
+            loop3:
+            do {
+                int alt3=2;
+                int LA3_0 = input.LA(1);
+
+                if ( ((LA3_0 >= '\u0000' && LA3_0 <= '\b')||(LA3_0 >= '\u000B' && LA3_0 <= '\f')||(LA3_0 >= '\u000E' && LA3_0 <= '<')||(LA3_0 >= '>' && LA3_0 <= 'z')||LA3_0=='|'||(LA3_0 >= '~' && LA3_0 <= '\uFFFF')) ) {
+                    alt3=1;
+                }
+
+
+                switch (alt3) {
+            	case 1 :
+            	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:60:10: ~ ( '\\n' | '\\r' | '\\t' | '//' | '=' | '{' | '}' )
             	    {
             	    if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '\b')||(input.LA(1) >= '\u000B' && input.LA(1) <= '\f')||(input.LA(1) >= '\u000E' && input.LA(1) <= '<')||(input.LA(1) >= '>' && input.LA(1) <= 'z')||input.LA(1)=='|'||(input.LA(1) >= '~' && input.LA(1) <= '\uFFFF') ) {
             	        input.consume();
@@ -139,12 +217,12 @@ public class ConfigGrammarLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt1 >= 1 ) break loop1;
+            	    if ( cnt3 >= 1 ) break loop3;
                         EarlyExitException eee =
-                            new EarlyExitException(1, input);
+                            new EarlyExitException(3, input);
                         throw eee;
                 }
-                cnt1++;
+                cnt3++;
             } while (true);
 
 
@@ -164,21 +242,21 @@ public class ConfigGrammarLexer extends Lexer {
         try {
             int _type = COMMENTT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:55:5: ( ( ' ' | '\\t' )* '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:55:9: ( ' ' | '\\t' )* '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:64:5: ( ( ' ' | '\\t' )* '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:64:9: ( ' ' | '\\t' )* '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
             {
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:55:9: ( ' ' | '\\t' )*
-            loop2:
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:64:9: ( ' ' | '\\t' )*
+            loop4:
             do {
-                int alt2=2;
-                int LA2_0 = input.LA(1);
+                int alt4=2;
+                int LA4_0 = input.LA(1);
 
-                if ( (LA2_0=='\t'||LA2_0==' ') ) {
-                    alt2=1;
+                if ( (LA4_0=='\t'||LA4_0==' ') ) {
+                    alt4=1;
                 }
 
 
-                switch (alt2) {
+                switch (alt4) {
             	case 1 :
             	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:
             	    {
@@ -196,7 +274,7 @@ public class ConfigGrammarLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop2;
+            	    break loop4;
                 }
             } while (true);
 
@@ -205,18 +283,18 @@ public class ConfigGrammarLexer extends Lexer {
 
 
 
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:55:28: (~ ( '\\n' | '\\r' ) )*
-            loop3:
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:64:28: (~ ( '\\n' | '\\r' ) )*
+            loop5:
             do {
-                int alt3=2;
-                int LA3_0 = input.LA(1);
+                int alt5=2;
+                int LA5_0 = input.LA(1);
 
-                if ( ((LA3_0 >= '\u0000' && LA3_0 <= '\t')||(LA3_0 >= '\u000B' && LA3_0 <= '\f')||(LA3_0 >= '\u000E' && LA3_0 <= '\uFFFF')) ) {
-                    alt3=1;
+                if ( ((LA5_0 >= '\u0000' && LA5_0 <= '\t')||(LA5_0 >= '\u000B' && LA5_0 <= '\f')||(LA5_0 >= '\u000E' && LA5_0 <= '\uFFFF')) ) {
+                    alt5=1;
                 }
 
 
-                switch (alt3) {
+                switch (alt5) {
             	case 1 :
             	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:
             	    {
@@ -234,21 +312,21 @@ public class ConfigGrammarLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop3;
+            	    break loop5;
                 }
             } while (true);
 
 
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:55:42: ( '\\r' )?
-            int alt4=2;
-            int LA4_0 = input.LA(1);
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:64:42: ( '\\r' )?
+            int alt6=2;
+            int LA6_0 = input.LA(1);
 
-            if ( (LA4_0=='\r') ) {
-                alt4=1;
+            if ( (LA6_0=='\r') ) {
+                alt6=1;
             }
-            switch (alt4) {
+            switch (alt6) {
                 case 1 :
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:55:42: '\\r'
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:64:42: '\\r'
                     {
                     match('\r'); 
 
@@ -276,22 +354,22 @@ public class ConfigGrammarLexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:58:5: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:58:9: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:67:5: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:67:9: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:58:9: ( ' ' | '\\t' | '\\r' | '\\n' )+
-            int cnt5=0;
-            loop5:
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:67:9: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            int cnt7=0;
+            loop7:
             do {
-                int alt5=2;
-                int LA5_0 = input.LA(1);
+                int alt7=2;
+                int LA7_0 = input.LA(1);
 
-                if ( ((LA5_0 >= '\t' && LA5_0 <= '\n')||LA5_0=='\r'||LA5_0==' ') ) {
-                    alt5=1;
+                if ( ((LA7_0 >= '\t' && LA7_0 <= '\n')||LA7_0=='\r'||LA7_0==' ') ) {
+                    alt7=1;
                 }
 
 
-                switch (alt5) {
+                switch (alt7) {
             	case 1 :
             	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:
             	    {
@@ -309,12 +387,12 @@ public class ConfigGrammarLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt5 >= 1 ) break loop5;
+            	    if ( cnt7 >= 1 ) break loop7;
                         EarlyExitException eee =
-                            new EarlyExitException(5, input);
+                            new EarlyExitException(7, input);
                         throw eee;
                 }
-                cnt5++;
+                cnt7++;
             } while (true);
 
 
@@ -332,52 +410,60 @@ public class ConfigGrammarLexer extends Lexer {
     // $ANTLR end "WS"
 
     public void mTokens() throws RecognitionException {
-        // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:1:8: ( T__12 | T__13 | T__14 | STRING | COMMENTT | WS )
-        int alt6=6;
-        alt6 = dfa6.predict(input);
-        switch (alt6) {
+        // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:1:8: ( T__14 | T__15 | T__16 | MMREMOVE | STRING | COMMENTT | WS )
+        int alt8=7;
+        alt8 = dfa8.predict(input);
+        switch (alt8) {
             case 1 :
-                // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:1:10: T__12
-                {
-                mT__12(); 
-
-
-                }
-                break;
-            case 2 :
-                // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:1:16: T__13
-                {
-                mT__13(); 
-
-
-                }
-                break;
-            case 3 :
-                // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:1:22: T__14
+                // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:1:10: T__14
                 {
                 mT__14(); 
 
 
                 }
                 break;
+            case 2 :
+                // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:1:16: T__15
+                {
+                mT__15(); 
+
+
+                }
+                break;
+            case 3 :
+                // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:1:22: T__16
+                {
+                mT__16(); 
+
+
+                }
+                break;
             case 4 :
-                // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:1:28: STRING
+                // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:1:28: MMREMOVE
+                {
+                mMMREMOVE(); 
+
+
+                }
+                break;
+            case 5 :
+                // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:1:37: STRING
                 {
                 mSTRING(); 
 
 
                 }
                 break;
-            case 5 :
-                // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:1:35: COMMENTT
+            case 6 :
+                // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:1:44: COMMENTT
                 {
                 mCOMMENTT(); 
 
 
                 }
                 break;
-            case 6 :
-                // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:1:44: WS
+            case 7 :
+                // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:1:53: WS
                 {
                 mWS(); 
 
@@ -390,124 +476,159 @@ public class ConfigGrammarLexer extends Lexer {
     }
 
 
-    protected DFA6 dfa6 = new DFA6(this);
-    static final String DFA6_eotS =
-        "\4\uffff\2\7\1\10\2\uffff\1\7\1\uffff\1\7";
-    static final String DFA6_eofS =
-        "\14\uffff";
-    static final String DFA6_minS =
-        "\1\0\3\uffff\1\11\1\57\1\11\2\uffff\1\0\1\uffff\1\0";
-    static final String DFA6_maxS =
-        "\1\uffff\3\uffff\3\57\2\uffff\1\uffff\1\uffff\1\uffff";
-    static final String DFA6_acceptS =
-        "\1\uffff\1\1\1\2\1\3\3\uffff\1\4\1\6\1\uffff\1\5\1\uffff";
-    static final String DFA6_specialS =
-        "\1\1\10\uffff\1\0\1\uffff\1\2}>";
-    static final String[] DFA6_transitionS = {
-            "\11\7\1\6\1\10\2\7\1\10\22\7\1\4\16\7\1\5\15\7\1\1\75\7\1\2"+
-            "\1\7\1\3\uff82\7",
+    protected DFA8 dfa8 = new DFA8(this);
+    static final String DFA8_eotS =
+        "\4\uffff\3\10\1\11\2\uffff\1\10\1\uffff\1\10\1\uffff\1\10";
+    static final String DFA8_eofS =
+        "\17\uffff";
+    static final String DFA8_minS =
+        "\1\0\3\uffff\1\0\1\11\1\57\1\11\2\uffff\1\0\1\uffff\1\0\1\uffff"+
+        "\1\0";
+    static final String DFA8_maxS =
+        "\1\uffff\3\uffff\1\uffff\3\57\2\uffff\1\uffff\1\uffff\1\uffff\1"+
+        "\uffff\1\uffff";
+    static final String DFA8_acceptS =
+        "\1\uffff\1\1\1\2\1\3\4\uffff\1\5\1\7\1\uffff\1\4\1\uffff\1\6\1\uffff";
+    static final String DFA8_specialS =
+        "\1\4\3\uffff\1\1\5\uffff\1\0\1\uffff\1\3\1\uffff\1\2}>";
+    static final String[] DFA8_transitionS = {
+            "\11\10\1\7\1\11\2\10\1\11\22\10\1\5\1\4\15\10\1\6\15\10\1\1"+
+            "\75\10\1\2\1\10\1\3\uff82\10",
             "",
             "",
             "",
-            "\1\6\1\10\2\uffff\1\10\22\uffff\1\4\16\uffff\1\5",
-            "\1\11",
-            "\1\6\26\uffff\1\6\16\uffff\1\12",
+            "\11\12\2\13\2\12\1\13\23\12\1\uffff\33\12\1\13\75\12\1\uffff"+
+            "\1\12\1\13\uff82\12",
+            "\1\7\1\11\2\uffff\1\11\22\uffff\1\5\16\uffff\1\6",
+            "\1\14",
+            "\1\7\26\uffff\1\7\16\uffff\1\15",
             "",
             "",
-            "\11\13\2\12\2\13\1\12\57\13\1\12\75\13\1\12\1\13\1\12\uff82"+
-            "\13",
+            "\11\12\2\13\2\12\1\13\23\12\1\uffff\33\12\1\13\75\12\1\uffff"+
+            "\1\12\1\13\uff82\12",
             "",
-            "\11\13\2\12\2\13\1\12\57\13\1\12\75\13\1\12\1\13\1\12\uff82"+
-            "\13"
+            "\11\16\2\15\2\16\1\15\57\16\1\15\75\16\1\15\1\16\1\15\uff82"+
+            "\16",
+            "",
+            "\11\16\2\15\2\16\1\15\57\16\1\15\75\16\1\15\1\16\1\15\uff82"+
+            "\16"
     };
 
-    static final short[] DFA6_eot = DFA.unpackEncodedString(DFA6_eotS);
-    static final short[] DFA6_eof = DFA.unpackEncodedString(DFA6_eofS);
-    static final char[] DFA6_min = DFA.unpackEncodedStringToUnsignedChars(DFA6_minS);
-    static final char[] DFA6_max = DFA.unpackEncodedStringToUnsignedChars(DFA6_maxS);
-    static final short[] DFA6_accept = DFA.unpackEncodedString(DFA6_acceptS);
-    static final short[] DFA6_special = DFA.unpackEncodedString(DFA6_specialS);
-    static final short[][] DFA6_transition;
+    static final short[] DFA8_eot = DFA.unpackEncodedString(DFA8_eotS);
+    static final short[] DFA8_eof = DFA.unpackEncodedString(DFA8_eofS);
+    static final char[] DFA8_min = DFA.unpackEncodedStringToUnsignedChars(DFA8_minS);
+    static final char[] DFA8_max = DFA.unpackEncodedStringToUnsignedChars(DFA8_maxS);
+    static final short[] DFA8_accept = DFA.unpackEncodedString(DFA8_acceptS);
+    static final short[] DFA8_special = DFA.unpackEncodedString(DFA8_specialS);
+    static final short[][] DFA8_transition;
 
     static {
-        int numStates = DFA6_transitionS.length;
-        DFA6_transition = new short[numStates][];
+        int numStates = DFA8_transitionS.length;
+        DFA8_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA6_transition[i] = DFA.unpackEncodedString(DFA6_transitionS[i]);
+            DFA8_transition[i] = DFA.unpackEncodedString(DFA8_transitionS[i]);
         }
     }
 
-    class DFA6 extends DFA {
+    class DFA8 extends DFA {
 
-        public DFA6(BaseRecognizer recognizer) {
+        public DFA8(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 6;
-            this.eot = DFA6_eot;
-            this.eof = DFA6_eof;
-            this.min = DFA6_min;
-            this.max = DFA6_max;
-            this.accept = DFA6_accept;
-            this.special = DFA6_special;
-            this.transition = DFA6_transition;
+            this.decisionNumber = 8;
+            this.eot = DFA8_eot;
+            this.eof = DFA8_eof;
+            this.min = DFA8_min;
+            this.max = DFA8_max;
+            this.accept = DFA8_accept;
+            this.special = DFA8_special;
+            this.transition = DFA8_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__12 | T__13 | T__14 | STRING | COMMENTT | WS );";
+            return "1:1: Tokens : ( T__14 | T__15 | T__16 | MMREMOVE | STRING | COMMENTT | WS );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA6_9 = input.LA(1);
+                        int LA8_10 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA6_9 >= '\u0000' && LA6_9 <= '\b')||(LA6_9 >= '\u000B' && LA6_9 <= '\f')||(LA6_9 >= '\u000E' && LA6_9 <= '<')||(LA6_9 >= '>' && LA6_9 <= 'z')||LA6_9=='|'||(LA6_9 >= '~' && LA6_9 <= '\uFFFF')) ) {s = 11;}
+                        if ( ((LA8_10 >= '\t' && LA8_10 <= '\n')||LA8_10=='\r'||LA8_10=='='||LA8_10=='}') ) {s = 11;}
 
-                        else if ( ((LA6_9 >= '\t' && LA6_9 <= '\n')||LA6_9=='\r'||LA6_9=='='||LA6_9=='{'||LA6_9=='}') ) {s = 10;}
+                        else if ( ((LA8_10 >= '\u0000' && LA8_10 <= '\b')||(LA8_10 >= '\u000B' && LA8_10 <= '\f')||(LA8_10 >= '\u000E' && LA8_10 <= ' ')||(LA8_10 >= '\"' && LA8_10 <= '<')||(LA8_10 >= '>' && LA8_10 <= 'z')||LA8_10=='|'||(LA8_10 >= '~' && LA8_10 <= '\uFFFF')) ) {s = 10;}
 
-                        else s = 7;
+                        else s = 8;
 
                         if ( s>=0 ) return s;
                         break;
 
                     case 1 : 
-                        int LA6_0 = input.LA(1);
+                        int LA8_4 = input.LA(1);
 
                         s = -1;
-                        if ( (LA6_0=='=') ) {s = 1;}
+                        if ( ((LA8_4 >= '\u0000' && LA8_4 <= '\b')||(LA8_4 >= '\u000B' && LA8_4 <= '\f')||(LA8_4 >= '\u000E' && LA8_4 <= ' ')||(LA8_4 >= '\"' && LA8_4 <= '<')||(LA8_4 >= '>' && LA8_4 <= 'z')||LA8_4=='|'||(LA8_4 >= '~' && LA8_4 <= '\uFFFF')) ) {s = 10;}
 
-                        else if ( (LA6_0=='{') ) {s = 2;}
+                        else if ( ((LA8_4 >= '\t' && LA8_4 <= '\n')||LA8_4=='\r'||LA8_4=='='||LA8_4=='}') ) {s = 11;}
 
-                        else if ( (LA6_0=='}') ) {s = 3;}
-
-                        else if ( (LA6_0==' ') ) {s = 4;}
-
-                        else if ( (LA6_0=='/') ) {s = 5;}
-
-                        else if ( (LA6_0=='\t') ) {s = 6;}
-
-                        else if ( ((LA6_0 >= '\u0000' && LA6_0 <= '\b')||(LA6_0 >= '\u000B' && LA6_0 <= '\f')||(LA6_0 >= '\u000E' && LA6_0 <= '\u001F')||(LA6_0 >= '!' && LA6_0 <= '.')||(LA6_0 >= '0' && LA6_0 <= '<')||(LA6_0 >= '>' && LA6_0 <= 'z')||LA6_0=='|'||(LA6_0 >= '~' && LA6_0 <= '\uFFFF')) ) {s = 7;}
-
-                        else if ( (LA6_0=='\n'||LA6_0=='\r') ) {s = 8;}
+                        else s = 8;
 
                         if ( s>=0 ) return s;
                         break;
 
                     case 2 : 
-                        int LA6_11 = input.LA(1);
+                        int LA8_14 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA6_11 >= '\t' && LA6_11 <= '\n')||LA6_11=='\r'||LA6_11=='='||LA6_11=='{'||LA6_11=='}') ) {s = 10;}
+                        if ( ((LA8_14 >= '\t' && LA8_14 <= '\n')||LA8_14=='\r'||LA8_14=='='||LA8_14=='{'||LA8_14=='}') ) {s = 13;}
 
-                        else if ( ((LA6_11 >= '\u0000' && LA6_11 <= '\b')||(LA6_11 >= '\u000B' && LA6_11 <= '\f')||(LA6_11 >= '\u000E' && LA6_11 <= '<')||(LA6_11 >= '>' && LA6_11 <= 'z')||LA6_11=='|'||(LA6_11 >= '~' && LA6_11 <= '\uFFFF')) ) {s = 11;}
+                        else if ( ((LA8_14 >= '\u0000' && LA8_14 <= '\b')||(LA8_14 >= '\u000B' && LA8_14 <= '\f')||(LA8_14 >= '\u000E' && LA8_14 <= '<')||(LA8_14 >= '>' && LA8_14 <= 'z')||LA8_14=='|'||(LA8_14 >= '~' && LA8_14 <= '\uFFFF')) ) {s = 14;}
 
-                        else s = 7;
+                        else s = 8;
+
+                        if ( s>=0 ) return s;
+                        break;
+
+                    case 3 : 
+                        int LA8_12 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA8_12 >= '\u0000' && LA8_12 <= '\b')||(LA8_12 >= '\u000B' && LA8_12 <= '\f')||(LA8_12 >= '\u000E' && LA8_12 <= '<')||(LA8_12 >= '>' && LA8_12 <= 'z')||LA8_12=='|'||(LA8_12 >= '~' && LA8_12 <= '\uFFFF')) ) {s = 14;}
+
+                        else if ( ((LA8_12 >= '\t' && LA8_12 <= '\n')||LA8_12=='\r'||LA8_12=='='||LA8_12=='{'||LA8_12=='}') ) {s = 13;}
+
+                        else s = 8;
+
+                        if ( s>=0 ) return s;
+                        break;
+
+                    case 4 : 
+                        int LA8_0 = input.LA(1);
+
+                        s = -1;
+                        if ( (LA8_0=='=') ) {s = 1;}
+
+                        else if ( (LA8_0=='{') ) {s = 2;}
+
+                        else if ( (LA8_0=='}') ) {s = 3;}
+
+                        else if ( (LA8_0=='!') ) {s = 4;}
+
+                        else if ( (LA8_0==' ') ) {s = 5;}
+
+                        else if ( (LA8_0=='/') ) {s = 6;}
+
+                        else if ( (LA8_0=='\t') ) {s = 7;}
+
+                        else if ( ((LA8_0 >= '\u0000' && LA8_0 <= '\b')||(LA8_0 >= '\u000B' && LA8_0 <= '\f')||(LA8_0 >= '\u000E' && LA8_0 <= '\u001F')||(LA8_0 >= '\"' && LA8_0 <= '.')||(LA8_0 >= '0' && LA8_0 <= '<')||(LA8_0 >= '>' && LA8_0 <= 'z')||LA8_0=='|'||(LA8_0 >= '~' && LA8_0 <= '\uFFFF')) ) {s = 8;}
+
+                        else if ( (LA8_0=='\n'||LA8_0=='\r') ) {s = 9;}
 
                         if ( s>=0 ) return s;
                         break;
             }
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 6, _s, input);
+                new NoViableAltException(getDescription(), 8, _s, input);
             error(nvae);
             throw nvae;
         }

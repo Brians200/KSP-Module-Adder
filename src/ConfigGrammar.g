@@ -9,6 +9,7 @@ tokens
 	EMPTYBLOCK;
 	COMMENT;
 	ASSIGNMENT;
+	MMREMOVERULE;
 }
 
 @lexer::header {
@@ -35,17 +36,25 @@ emptyBlock
 	;
 	
 blockField
-	:	('{') => emptyBlock
+	:	mmRemoveRule
+	|	('{') => emptyBlock
 	|	block
 	|	comment						
 	|	assignment				-> ^(ASSIGNMENT assignment)
 	;
 	
+mmRemoveRule
+	:	MMREMOVE				-> ^(MMREMOVERULE MMREMOVE)
+	;
+	
 assignment
-	:	(a1=STRING '=' a2=STRING  -> $a1 $a2 ) 
+	:	(a1=STRING '=' a2=STRING  -> $a1 $a2 )
 	;
 	
 comment	:	COMMENTT					-> ^(COMMENT COMMENTT)
+	;
+MMREMOVE
+	:	'!' ~('\n'|'\r'|'{' | '!')* '\r'? '\n'
 	;
 
 STRING	:	~('\n' | '\r' | '\t' | '//' | '=' | '{' | '}')+	

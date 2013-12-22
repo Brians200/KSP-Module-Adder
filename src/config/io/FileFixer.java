@@ -28,9 +28,9 @@ public class FileFixer {
 				{
 					builder.append("\n");
 				}
-				else if(line.startsWith("//"))
+				else if(line.startsWith("//") || line.startsWith("!"))
 				{
-					//comment
+					//comment or mmremove line
 					builder.append(line);
 					builder.append("\n");
 				}

@@ -1,4 +1,4 @@
-// $ANTLR 3.4 C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g 2013-11-28 00:27:50
+// $ANTLR 3.4 C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g 2013-12-22 15:04:06
 
     package config.io;
 
@@ -16,21 +16,23 @@ import org.antlr.runtime.tree.*;
 @SuppressWarnings({"all", "warnings", "unchecked"})
 public class ConfigGrammarParser extends Parser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "ASSIGNMENT", "BLOCK", "COMMENT", "COMMENTT", "CONFIG", "EMPTYBLOCK", "STRING", "WS", "'='", "'{'", "'}'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "ASSIGNMENT", "BLOCK", "COMMENT", "COMMENTT", "CONFIG", "EMPTYBLOCK", "MMREMOVE", "MMREMOVERULE", "STRING", "WS", "'='", "'{'", "'}'"
     };
 
     public static final int EOF=-1;
-    public static final int T__12=12;
-    public static final int T__13=13;
     public static final int T__14=14;
+    public static final int T__15=15;
+    public static final int T__16=16;
     public static final int ASSIGNMENT=4;
     public static final int BLOCK=5;
     public static final int COMMENT=6;
     public static final int COMMENTT=7;
     public static final int CONFIG=8;
     public static final int EMPTYBLOCK=9;
-    public static final int STRING=10;
-    public static final int WS=11;
+    public static final int MMREMOVE=10;
+    public static final int MMREMOVERULE=11;
+    public static final int STRING=12;
+    public static final int WS=13;
 
     // delegates
     public Parser[] getDelegates() {
@@ -66,7 +68,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "config"
-    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:22:1: config : ( ( configField )* -> ^( CONFIG ( configField )* ) ) ;
+    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:23:1: config : ( ( configField )* -> ^( CONFIG ( configField )* ) ) ;
     public final ConfigGrammarParser.config_return config() throws RecognitionException {
         ConfigGrammarParser.config_return retval = new ConfigGrammarParser.config_return();
         retval.start = input.LT(1);
@@ -79,13 +81,13 @@ public TreeAdaptor getTreeAdaptor() {
 
         RewriteRuleSubtreeStream stream_configField=new RewriteRuleSubtreeStream(adaptor,"rule configField");
         try {
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:22:8: ( ( ( configField )* -> ^( CONFIG ( configField )* ) ) )
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:22:10: ( ( configField )* -> ^( CONFIG ( configField )* ) )
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:23:8: ( ( ( configField )* -> ^( CONFIG ( configField )* ) ) )
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:23:10: ( ( configField )* -> ^( CONFIG ( configField )* ) )
             {
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:22:10: ( ( configField )* -> ^( CONFIG ( configField )* ) )
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:22:11: ( configField )*
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:23:10: ( ( configField )* -> ^( CONFIG ( configField )* ) )
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:23:11: ( configField )*
             {
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:22:11: ( configField )*
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:23:11: ( configField )*
             loop1:
             do {
                 int alt1=2;
@@ -98,9 +100,9 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt1) {
             	case 1 :
-            	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:22:11: configField
+            	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:23:11: configField
             	    {
-            	    pushFollow(FOLLOW_configField_in_config62);
+            	    pushFollow(FOLLOW_configField_in_config66);
             	    configField1=configField();
 
             	    state._fsp--;
@@ -129,16 +131,16 @@ public TreeAdaptor getTreeAdaptor() {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 22:27: -> ^( CONFIG ( configField )* )
+            // 23:27: -> ^( CONFIG ( configField )* )
             {
-                // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:22:30: ^( CONFIG ( configField )* )
+                // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:23:30: ^( CONFIG ( configField )* )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot(
                 (Object)adaptor.create(CONFIG, "CONFIG")
                 , root_1);
 
-                // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:22:39: ( configField )*
+                // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:23:39: ( configField )*
                 while ( stream_configField.hasNext() ) {
                     adaptor.addChild(root_1, stream_configField.nextTree());
 
@@ -190,7 +192,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "configField"
-    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:25:1: configField : ( comment -> comment | block -> block );
+    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:26:1: configField : ( comment -> comment | block -> block );
     public final ConfigGrammarParser.configField_return configField() throws RecognitionException {
         ConfigGrammarParser.configField_return retval = new ConfigGrammarParser.configField_return();
         retval.start = input.LT(1);
@@ -206,7 +208,7 @@ public TreeAdaptor getTreeAdaptor() {
         RewriteRuleSubtreeStream stream_block=new RewriteRuleSubtreeStream(adaptor,"rule block");
         RewriteRuleSubtreeStream stream_comment=new RewriteRuleSubtreeStream(adaptor,"rule comment");
         try {
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:26:2: ( comment -> comment | block -> block )
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:27:2: ( comment -> comment | block -> block )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -226,9 +228,9 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt2) {
                 case 1 :
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:26:4: comment
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:27:4: comment
                     {
-                    pushFollow(FOLLOW_comment_in_configField88);
+                    pushFollow(FOLLOW_comment_in_configField92);
                     comment2=comment();
 
                     state._fsp--;
@@ -248,7 +250,7 @@ public TreeAdaptor getTreeAdaptor() {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 26:16: -> comment
+                    // 27:16: -> comment
                     {
                         adaptor.addChild(root_0, stream_comment.nextTree());
 
@@ -261,9 +263,9 @@ public TreeAdaptor getTreeAdaptor() {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:27:4: block
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:28:4: block
                     {
-                    pushFollow(FOLLOW_block_in_configField101);
+                    pushFollow(FOLLOW_block_in_configField105);
                     block3=block();
 
                     state._fsp--;
@@ -283,7 +285,7 @@ public TreeAdaptor getTreeAdaptor() {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 27:14: -> block
+                    // 28:14: -> block
                     {
                         adaptor.addChild(root_0, stream_block.nextTree());
 
@@ -328,7 +330,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "block"
-    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:30:1: block : b1= STRING '{' ( blockField )* '}' -> ^( BLOCK $b1 ( blockField )* ) ;
+    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:31:1: block : b1= STRING '{' ( blockField )* '}' -> ^( BLOCK $b1 ( blockField )* ) ;
     public final ConfigGrammarParser.block_return block() throws RecognitionException {
         ConfigGrammarParser.block_return retval = new ConfigGrammarParser.block_return();
         retval.start = input.LT(1);
@@ -345,38 +347,38 @@ public TreeAdaptor getTreeAdaptor() {
         Object b1_tree=null;
         Object char_literal4_tree=null;
         Object char_literal6_tree=null;
-        RewriteRuleTokenStream stream_13=new RewriteRuleTokenStream(adaptor,"token 13");
-        RewriteRuleTokenStream stream_14=new RewriteRuleTokenStream(adaptor,"token 14");
+        RewriteRuleTokenStream stream_15=new RewriteRuleTokenStream(adaptor,"token 15");
+        RewriteRuleTokenStream stream_16=new RewriteRuleTokenStream(adaptor,"token 16");
         RewriteRuleTokenStream stream_STRING=new RewriteRuleTokenStream(adaptor,"token STRING");
         RewriteRuleSubtreeStream stream_blockField=new RewriteRuleSubtreeStream(adaptor,"rule blockField");
         try {
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:30:7: (b1= STRING '{' ( blockField )* '}' -> ^( BLOCK $b1 ( blockField )* ) )
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:30:9: b1= STRING '{' ( blockField )* '}'
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:31:7: (b1= STRING '{' ( blockField )* '}' -> ^( BLOCK $b1 ( blockField )* ) )
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:31:9: b1= STRING '{' ( blockField )* '}'
             {
-            b1=(Token)match(input,STRING,FOLLOW_STRING_in_block121); if (state.failed) return retval; 
+            b1=(Token)match(input,STRING,FOLLOW_STRING_in_block125); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_STRING.add(b1);
 
 
-            char_literal4=(Token)match(input,13,FOLLOW_13_in_block123); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_13.add(char_literal4);
+            char_literal4=(Token)match(input,15,FOLLOW_15_in_block127); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_15.add(char_literal4);
 
 
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:30:23: ( blockField )*
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:31:23: ( blockField )*
             loop3:
             do {
                 int alt3=2;
                 int LA3_0 = input.LA(1);
 
-                if ( (LA3_0==COMMENTT||LA3_0==STRING||LA3_0==13) ) {
+                if ( (LA3_0==COMMENTT||LA3_0==MMREMOVE||LA3_0==STRING||LA3_0==15) ) {
                     alt3=1;
                 }
 
 
                 switch (alt3) {
             	case 1 :
-            	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:30:23: blockField
+            	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:31:23: blockField
             	    {
-            	    pushFollow(FOLLOW_blockField_in_block125);
+            	    pushFollow(FOLLOW_blockField_in_block129);
             	    blockField5=blockField();
 
             	    state._fsp--;
@@ -392,8 +394,8 @@ public TreeAdaptor getTreeAdaptor() {
             } while (true);
 
 
-            char_literal6=(Token)match(input,14,FOLLOW_14_in_block128); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_14.add(char_literal6);
+            char_literal6=(Token)match(input,16,FOLLOW_16_in_block132); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_16.add(char_literal6);
 
 
             // AST REWRITE
@@ -410,9 +412,9 @@ public TreeAdaptor getTreeAdaptor() {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 30:40: -> ^( BLOCK $b1 ( blockField )* )
+            // 31:40: -> ^( BLOCK $b1 ( blockField )* )
             {
-                // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:30:43: ^( BLOCK $b1 ( blockField )* )
+                // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:31:43: ^( BLOCK $b1 ( blockField )* )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot(
@@ -421,7 +423,7 @@ public TreeAdaptor getTreeAdaptor() {
 
                 adaptor.addChild(root_1, stream_b1.nextNode());
 
-                // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:30:55: ( blockField )*
+                // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:31:55: ( blockField )*
                 while ( stream_blockField.hasNext() ) {
                     adaptor.addChild(root_1, stream_blockField.nextTree());
 
@@ -470,7 +472,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "emptyBlock"
-    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:33:1: emptyBlock : '{' ( blockField )* '}' -> ^( EMPTYBLOCK ( blockField )* ) ;
+    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:34:1: emptyBlock : '{' ( blockField )* '}' -> ^( EMPTYBLOCK ( blockField )* ) ;
     public final ConfigGrammarParser.emptyBlock_return emptyBlock() throws RecognitionException {
         ConfigGrammarParser.emptyBlock_return retval = new ConfigGrammarParser.emptyBlock_return();
         retval.start = input.LT(1);
@@ -485,33 +487,33 @@ public TreeAdaptor getTreeAdaptor() {
 
         Object char_literal7_tree=null;
         Object char_literal9_tree=null;
-        RewriteRuleTokenStream stream_13=new RewriteRuleTokenStream(adaptor,"token 13");
-        RewriteRuleTokenStream stream_14=new RewriteRuleTokenStream(adaptor,"token 14");
+        RewriteRuleTokenStream stream_15=new RewriteRuleTokenStream(adaptor,"token 15");
+        RewriteRuleTokenStream stream_16=new RewriteRuleTokenStream(adaptor,"token 16");
         RewriteRuleSubtreeStream stream_blockField=new RewriteRuleSubtreeStream(adaptor,"rule blockField");
         try {
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:34:2: ( '{' ( blockField )* '}' -> ^( EMPTYBLOCK ( blockField )* ) )
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:34:4: '{' ( blockField )* '}'
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:35:2: ( '{' ( blockField )* '}' -> ^( EMPTYBLOCK ( blockField )* ) )
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:35:4: '{' ( blockField )* '}'
             {
-            char_literal7=(Token)match(input,13,FOLLOW_13_in_emptyBlock154); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_13.add(char_literal7);
+            char_literal7=(Token)match(input,15,FOLLOW_15_in_emptyBlock158); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_15.add(char_literal7);
 
 
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:34:8: ( blockField )*
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:35:8: ( blockField )*
             loop4:
             do {
                 int alt4=2;
                 int LA4_0 = input.LA(1);
 
-                if ( (LA4_0==COMMENTT||LA4_0==STRING||LA4_0==13) ) {
+                if ( (LA4_0==COMMENTT||LA4_0==MMREMOVE||LA4_0==STRING||LA4_0==15) ) {
                     alt4=1;
                 }
 
 
                 switch (alt4) {
             	case 1 :
-            	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:34:8: blockField
+            	    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:35:8: blockField
             	    {
-            	    pushFollow(FOLLOW_blockField_in_emptyBlock156);
+            	    pushFollow(FOLLOW_blockField_in_emptyBlock160);
             	    blockField8=blockField();
 
             	    state._fsp--;
@@ -527,8 +529,8 @@ public TreeAdaptor getTreeAdaptor() {
             } while (true);
 
 
-            char_literal9=(Token)match(input,14,FOLLOW_14_in_emptyBlock159); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_14.add(char_literal9);
+            char_literal9=(Token)match(input,16,FOLLOW_16_in_emptyBlock163); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_16.add(char_literal9);
 
 
             // AST REWRITE
@@ -544,16 +546,16 @@ public TreeAdaptor getTreeAdaptor() {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 34:27: -> ^( EMPTYBLOCK ( blockField )* )
+            // 35:27: -> ^( EMPTYBLOCK ( blockField )* )
             {
-                // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:34:30: ^( EMPTYBLOCK ( blockField )* )
+                // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:35:30: ^( EMPTYBLOCK ( blockField )* )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot(
                 (Object)adaptor.create(EMPTYBLOCK, "EMPTYBLOCK")
                 , root_1);
 
-                // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:34:43: ( blockField )*
+                // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:35:43: ( blockField )*
                 while ( stream_blockField.hasNext() ) {
                     adaptor.addChild(root_1, stream_blockField.nextTree());
 
@@ -602,7 +604,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "blockField"
-    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:37:1: blockField : ( ( '{' )=> emptyBlock | block | comment | assignment -> ^( ASSIGNMENT assignment ) );
+    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:38:1: blockField : ( mmRemoveRule | ( '{' )=> emptyBlock | block | comment | assignment -> ^( ASSIGNMENT assignment ) );
     public final ConfigGrammarParser.blockField_return blockField() throws RecognitionException {
         ConfigGrammarParser.blockField_return retval = new ConfigGrammarParser.blockField_return();
         retval.start = input.LT(1);
@@ -610,44 +612,49 @@ public TreeAdaptor getTreeAdaptor() {
 
         Object root_0 = null;
 
-        ConfigGrammarParser.emptyBlock_return emptyBlock10 =null;
+        ConfigGrammarParser.mmRemoveRule_return mmRemoveRule10 =null;
 
-        ConfigGrammarParser.block_return block11 =null;
+        ConfigGrammarParser.emptyBlock_return emptyBlock11 =null;
 
-        ConfigGrammarParser.comment_return comment12 =null;
+        ConfigGrammarParser.block_return block12 =null;
 
-        ConfigGrammarParser.assignment_return assignment13 =null;
+        ConfigGrammarParser.comment_return comment13 =null;
+
+        ConfigGrammarParser.assignment_return assignment14 =null;
 
 
         RewriteRuleSubtreeStream stream_assignment=new RewriteRuleSubtreeStream(adaptor,"rule assignment");
         try {
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:38:2: ( ( '{' )=> emptyBlock | block | comment | assignment -> ^( ASSIGNMENT assignment ) )
-            int alt5=4;
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:39:2: ( mmRemoveRule | ( '{' )=> emptyBlock | block | comment | assignment -> ^( ASSIGNMENT assignment ) )
+            int alt5=5;
             int LA5_0 = input.LA(1);
 
-            if ( (LA5_0==13) && (synpred1_ConfigGrammar())) {
+            if ( (LA5_0==MMREMOVE) ) {
                 alt5=1;
             }
+            else if ( (LA5_0==15) && (synpred1_ConfigGrammar())) {
+                alt5=2;
+            }
             else if ( (LA5_0==STRING) ) {
-                int LA5_2 = input.LA(2);
+                int LA5_3 = input.LA(2);
 
-                if ( (LA5_2==13) ) {
-                    alt5=2;
+                if ( (LA5_3==15) ) {
+                    alt5=3;
                 }
-                else if ( (LA5_2==12) ) {
-                    alt5=4;
+                else if ( (LA5_3==14) ) {
+                    alt5=5;
                 }
                 else {
                     if (state.backtracking>0) {state.failed=true; return retval;}
                     NoViableAltException nvae =
-                        new NoViableAltException("", 5, 2, input);
+                        new NoViableAltException("", 5, 3, input);
 
                     throw nvae;
 
                 }
             }
             else if ( (LA5_0==COMMENTT) ) {
-                alt5=3;
+                alt5=4;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return retval;}
@@ -659,59 +666,74 @@ public TreeAdaptor getTreeAdaptor() {
             }
             switch (alt5) {
                 case 1 :
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:38:4: ( '{' )=> emptyBlock
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:39:4: mmRemoveRule
                     {
                     root_0 = (Object)adaptor.nil();
 
 
-                    pushFollow(FOLLOW_emptyBlock_in_blockField189);
-                    emptyBlock10=emptyBlock();
+                    pushFollow(FOLLOW_mmRemoveRule_in_blockField187);
+                    mmRemoveRule10=mmRemoveRule();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) adaptor.addChild(root_0, emptyBlock10.getTree());
+                    if ( state.backtracking==0 ) adaptor.addChild(root_0, mmRemoveRule10.getTree());
 
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:39:4: block
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:40:4: ( '{' )=> emptyBlock
                     {
                     root_0 = (Object)adaptor.nil();
 
 
-                    pushFollow(FOLLOW_block_in_blockField194);
-                    block11=block();
+                    pushFollow(FOLLOW_emptyBlock_in_blockField198);
+                    emptyBlock11=emptyBlock();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) adaptor.addChild(root_0, block11.getTree());
+                    if ( state.backtracking==0 ) adaptor.addChild(root_0, emptyBlock11.getTree());
 
                     }
                     break;
                 case 3 :
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:40:4: comment
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:41:4: block
                     {
                     root_0 = (Object)adaptor.nil();
 
 
-                    pushFollow(FOLLOW_comment_in_blockField199);
-                    comment12=comment();
+                    pushFollow(FOLLOW_block_in_blockField203);
+                    block12=block();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) adaptor.addChild(root_0, comment12.getTree());
+                    if ( state.backtracking==0 ) adaptor.addChild(root_0, block12.getTree());
 
                     }
                     break;
                 case 4 :
-                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:41:4: assignment
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:42:4: comment
                     {
-                    pushFollow(FOLLOW_assignment_in_blockField210);
-                    assignment13=assignment();
+                    root_0 = (Object)adaptor.nil();
+
+
+                    pushFollow(FOLLOW_comment_in_blockField208);
+                    comment13=comment();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) stream_assignment.add(assignment13.getTree());
+                    if ( state.backtracking==0 ) adaptor.addChild(root_0, comment13.getTree());
+
+                    }
+                    break;
+                case 5 :
+                    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:43:4: assignment
+                    {
+                    pushFollow(FOLLOW_assignment_in_blockField219);
+                    assignment14=assignment();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    if ( state.backtracking==0 ) stream_assignment.add(assignment14.getTree());
 
                     // AST REWRITE
                     // elements: assignment
@@ -726,9 +748,9 @@ public TreeAdaptor getTreeAdaptor() {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 41:18: -> ^( ASSIGNMENT assignment )
+                    // 43:18: -> ^( ASSIGNMENT assignment )
                     {
-                        // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:41:21: ^( ASSIGNMENT assignment )
+                        // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:43:21: ^( ASSIGNMENT assignment )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot(
@@ -774,6 +796,95 @@ public TreeAdaptor getTreeAdaptor() {
     // $ANTLR end "blockField"
 
 
+    public static class mmRemoveRule_return extends ParserRuleReturnScope {
+        Object tree;
+        public Object getTree() { return tree; }
+    };
+
+
+    // $ANTLR start "mmRemoveRule"
+    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:46:1: mmRemoveRule : MMREMOVE -> ^( MMREMOVERULE MMREMOVE ) ;
+    public final ConfigGrammarParser.mmRemoveRule_return mmRemoveRule() throws RecognitionException {
+        ConfigGrammarParser.mmRemoveRule_return retval = new ConfigGrammarParser.mmRemoveRule_return();
+        retval.start = input.LT(1);
+
+
+        Object root_0 = null;
+
+        Token MMREMOVE15=null;
+
+        Object MMREMOVE15_tree=null;
+        RewriteRuleTokenStream stream_MMREMOVE=new RewriteRuleTokenStream(adaptor,"token MMREMOVE");
+
+        try {
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:47:2: ( MMREMOVE -> ^( MMREMOVERULE MMREMOVE ) )
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:47:4: MMREMOVE
+            {
+            MMREMOVE15=(Token)match(input,MMREMOVE,FOLLOW_MMREMOVE_in_mmRemoveRule242); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_MMREMOVE.add(MMREMOVE15);
+
+
+            // AST REWRITE
+            // elements: MMREMOVE
+            // token labels: 
+            // rule labels: retval
+            // token list labels: 
+            // rule list labels: 
+            // wildcard labels: 
+            if ( state.backtracking==0 ) {
+
+            retval.tree = root_0;
+            RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
+
+            root_0 = (Object)adaptor.nil();
+            // 47:16: -> ^( MMREMOVERULE MMREMOVE )
+            {
+                // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:47:19: ^( MMREMOVERULE MMREMOVE )
+                {
+                Object root_1 = (Object)adaptor.nil();
+                root_1 = (Object)adaptor.becomeRoot(
+                (Object)adaptor.create(MMREMOVERULE, "MMREMOVERULE")
+                , root_1);
+
+                adaptor.addChild(root_1, 
+                stream_MMREMOVE.nextNode()
+                );
+
+                adaptor.addChild(root_0, root_1);
+                }
+
+            }
+
+
+            retval.tree = root_0;
+            }
+
+            }
+
+            retval.stop = input.LT(-1);
+
+
+            if ( state.backtracking==0 ) {
+
+            retval.tree = (Object)adaptor.rulePostProcessing(root_0);
+            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+    	retval.tree = (Object)adaptor.errorNode(input, retval.start, input.LT(-1), re);
+
+        }
+
+        finally {
+        	// do for sure before leaving
+        }
+        return retval;
+    }
+    // $ANTLR end "mmRemoveRule"
+
+
     public static class assignment_return extends ParserRuleReturnScope {
         Object tree;
         public Object getTree() { return tree; }
@@ -781,7 +892,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "assignment"
-    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:44:1: assignment : (a1= STRING '=' a2= STRING -> $a1 $a2) ;
+    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:50:1: assignment : (a1= STRING '=' a2= STRING -> $a1 $a2) ;
     public final ConfigGrammarParser.assignment_return assignment() throws RecognitionException {
         ConfigGrammarParser.assignment_return retval = new ConfigGrammarParser.assignment_return();
         retval.start = input.LT(1);
@@ -791,30 +902,30 @@ public TreeAdaptor getTreeAdaptor() {
 
         Token a1=null;
         Token a2=null;
-        Token char_literal14=null;
+        Token char_literal16=null;
 
         Object a1_tree=null;
         Object a2_tree=null;
-        Object char_literal14_tree=null;
+        Object char_literal16_tree=null;
+        RewriteRuleTokenStream stream_14=new RewriteRuleTokenStream(adaptor,"token 14");
         RewriteRuleTokenStream stream_STRING=new RewriteRuleTokenStream(adaptor,"token STRING");
-        RewriteRuleTokenStream stream_12=new RewriteRuleTokenStream(adaptor,"token 12");
 
         try {
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:45:2: ( (a1= STRING '=' a2= STRING -> $a1 $a2) )
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:45:4: (a1= STRING '=' a2= STRING -> $a1 $a2)
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:51:2: ( (a1= STRING '=' a2= STRING -> $a1 $a2) )
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:51:4: (a1= STRING '=' a2= STRING -> $a1 $a2)
             {
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:45:4: (a1= STRING '=' a2= STRING -> $a1 $a2)
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:45:5: a1= STRING '=' a2= STRING
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:51:4: (a1= STRING '=' a2= STRING -> $a1 $a2)
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:51:5: a1= STRING '=' a2= STRING
             {
-            a1=(Token)match(input,STRING,FOLLOW_STRING_in_assignment236); if (state.failed) return retval; 
+            a1=(Token)match(input,STRING,FOLLOW_STRING_in_assignment268); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_STRING.add(a1);
 
 
-            char_literal14=(Token)match(input,12,FOLLOW_12_in_assignment238); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_12.add(char_literal14);
+            char_literal16=(Token)match(input,14,FOLLOW_14_in_assignment270); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_14.add(char_literal16);
 
 
-            a2=(Token)match(input,STRING,FOLLOW_STRING_in_assignment242); if (state.failed) return retval; 
+            a2=(Token)match(input,STRING,FOLLOW_STRING_in_assignment274); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_STRING.add(a2);
 
 
@@ -833,7 +944,7 @@ public TreeAdaptor getTreeAdaptor() {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 45:30: -> $a1 $a2
+            // 51:30: -> $a1 $a2
             {
                 adaptor.addChild(root_0, stream_a1.nextNode());
 
@@ -881,7 +992,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "comment"
-    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:48:1: comment : COMMENTT -> ^( COMMENT COMMENTT ) ;
+    // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:54:1: comment : COMMENTT -> ^( COMMENT COMMENTT ) ;
     public final ConfigGrammarParser.comment_return comment() throws RecognitionException {
         ConfigGrammarParser.comment_return retval = new ConfigGrammarParser.comment_return();
         retval.start = input.LT(1);
@@ -889,17 +1000,17 @@ public TreeAdaptor getTreeAdaptor() {
 
         Object root_0 = null;
 
-        Token COMMENTT15=null;
+        Token COMMENTT17=null;
 
-        Object COMMENTT15_tree=null;
+        Object COMMENTT17_tree=null;
         RewriteRuleTokenStream stream_COMMENTT=new RewriteRuleTokenStream(adaptor,"token COMMENTT");
 
         try {
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:48:9: ( COMMENTT -> ^( COMMENT COMMENTT ) )
-            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:48:11: COMMENTT
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:54:9: ( COMMENTT -> ^( COMMENT COMMENTT ) )
+            // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:54:11: COMMENTT
             {
-            COMMENTT15=(Token)match(input,COMMENTT,FOLLOW_COMMENTT_in_comment265); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_COMMENTT.add(COMMENTT15);
+            COMMENTT17=(Token)match(input,COMMENTT,FOLLOW_COMMENTT_in_comment296); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_COMMENTT.add(COMMENTT17);
 
 
             // AST REWRITE
@@ -915,9 +1026,9 @@ public TreeAdaptor getTreeAdaptor() {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 48:24: -> ^( COMMENT COMMENTT )
+            // 54:24: -> ^( COMMENT COMMENTT )
             {
-                // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:48:27: ^( COMMENT COMMENTT )
+                // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:54:27: ^( COMMENT COMMENTT )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot(
@@ -964,10 +1075,10 @@ public TreeAdaptor getTreeAdaptor() {
 
     // $ANTLR start synpred1_ConfigGrammar
     public final void synpred1_ConfigGrammar_fragment() throws RecognitionException {
-        // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:38:4: ( '{' )
-        // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:38:5: '{'
+        // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:40:4: ( '{' )
+        // C:\\Users\\Brian\\workspace\\KSP-Module-Adder\\src\\ConfigGrammar.g:40:5: '{'
         {
-        match(input,13,FOLLOW_13_in_synpred1_ConfigGrammar184); if (state.failed) return ;
+        match(input,15,FOLLOW_15_in_synpred1_ConfigGrammar193); if (state.failed) return ;
 
         }
 
@@ -994,24 +1105,26 @@ public TreeAdaptor getTreeAdaptor() {
 
  
 
-    public static final BitSet FOLLOW_configField_in_config62 = new BitSet(new long[]{0x0000000000000482L});
-    public static final BitSet FOLLOW_comment_in_configField88 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_block_in_configField101 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRING_in_block121 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_block123 = new BitSet(new long[]{0x0000000000006480L});
-    public static final BitSet FOLLOW_blockField_in_block125 = new BitSet(new long[]{0x0000000000006480L});
-    public static final BitSet FOLLOW_14_in_block128 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_emptyBlock154 = new BitSet(new long[]{0x0000000000006480L});
-    public static final BitSet FOLLOW_blockField_in_emptyBlock156 = new BitSet(new long[]{0x0000000000006480L});
-    public static final BitSet FOLLOW_14_in_emptyBlock159 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_emptyBlock_in_blockField189 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_block_in_blockField194 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_comment_in_blockField199 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_assignment_in_blockField210 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRING_in_assignment236 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_assignment238 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_STRING_in_assignment242 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_COMMENTT_in_comment265 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_synpred1_ConfigGrammar184 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_configField_in_config66 = new BitSet(new long[]{0x0000000000001082L});
+    public static final BitSet FOLLOW_comment_in_configField92 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_block_in_configField105 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRING_in_block125 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_block127 = new BitSet(new long[]{0x0000000000019480L});
+    public static final BitSet FOLLOW_blockField_in_block129 = new BitSet(new long[]{0x0000000000019480L});
+    public static final BitSet FOLLOW_16_in_block132 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_15_in_emptyBlock158 = new BitSet(new long[]{0x0000000000019480L});
+    public static final BitSet FOLLOW_blockField_in_emptyBlock160 = new BitSet(new long[]{0x0000000000019480L});
+    public static final BitSet FOLLOW_16_in_emptyBlock163 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_mmRemoveRule_in_blockField187 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_emptyBlock_in_blockField198 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_block_in_blockField203 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_comment_in_blockField208 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_assignment_in_blockField219 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_MMREMOVE_in_mmRemoveRule242 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRING_in_assignment268 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_assignment270 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_STRING_in_assignment274 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_COMMENTT_in_comment296 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_15_in_synpred1_ConfigGrammar193 = new BitSet(new long[]{0x0000000000000002L});
 
 }
