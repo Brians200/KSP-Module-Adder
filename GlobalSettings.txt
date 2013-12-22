@@ -1,0 +1,3 @@
+AddMechJeb=false;
+AddProtractor=false;
+AddDeadlyReentry=false;

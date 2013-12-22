@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
+import config.misc.GlobalSettings;
+
 public class FolderManager {
 	static HashSet<String> filesToIgnore = new HashSet<>(); 
 	static public void applyChanges(/*parameters to be added */)
@@ -20,14 +22,14 @@ public class FolderManager {
 		File moduleChanges = new File(directory + "\\moduleChanges.cfg");
 		moduleChanges.delete();
 		
-		//Check to see if mechjeb is present
+		/*//Check to see if mechjeb is present
 		File mechjeb = new File(directory + "\\MechJeb2\\Plugins\\MechJeb2.dll");	
 		
 		//Check to see if Protractor is present
 		File protractor = new File(directory + "\\Protractor\\Plugins\\protractor.dll");
 		
 		//Check to see if Deadly Reentry is present
-		File deadlyReentry = new File(directory + "\\DeadlyReentry\\Plugins\\DeadlyReentry.dll");
+		File deadlyReentry = new File(directory + "\\DeadlyReentry\\Plugins\\DeadlyReentry.dll");*/
 			
 		//Files that don't need touched
 		filesToIgnore.add("GameData\\BoulderCo\\common.cfg");
@@ -60,7 +62,7 @@ public class FolderManager {
 		filesToIgnore.add("GameData\\DeadlyReentry\\DeadlyReentryTechTree.cfg");
 		filesToIgnore.add("GameData\\DeadlyReentry\\DeadlyReentry_TiberDyne_Shuttle.cfg");
 		
-		traverseDirectory(directory, mechjeb.exists(), protractor.exists(), deadlyReentry.exists());
+		traverseDirectory(directory,GlobalSettings.addMechjeb, GlobalSettings.addProtractor, GlobalSettings.addDeadlyReentry);
 	}
 	
 	static private void traverseDirectory(String directory, boolean addMechjeb, boolean addProtractor, boolean addDeadlyReentry)
