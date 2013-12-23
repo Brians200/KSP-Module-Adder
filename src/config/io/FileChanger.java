@@ -9,6 +9,7 @@ import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenRewriteStream;
 import org.antlr.runtime.tree.CommonTree;
 
+import config.misc.GlobalSettings;
 import config.modules.DeadlyReentry;
 import config.modules.Mechjeb;
 import config.modules.Protractor;
@@ -17,7 +18,7 @@ import config.tree.KspPartTreeBuilder;
 
 public class FileChanger {
 
-	public static void applyChanges(String filePath, boolean addMechjeb, boolean addProtractor, boolean addDeadlyReentry)
+	public static void applyChanges(String filePath)
 	{
 		try {
 			
@@ -34,7 +35,7 @@ public class FileChanger {
 			}
 			catch(Exception e)
 			{
-				e.printStackTrace();
+				//e.printStackTrace();
 				System.out.println("Attempting to fix: " + filePath);
 				FileFixer.attemptFix(filePath);
 				
@@ -61,7 +62,7 @@ public class FileChanger {
 			String deadlyReentry = null;
 			String partName = null;
 			
-			if(addMechjeb)
+			if(GlobalSettings.addMechjeb)
 			{	
 				partName = tree.addMechjeb();
 				if(partName != null)
@@ -70,7 +71,7 @@ public class FileChanger {
 				}
 			}
 			
-			if(addProtractor)
+			if(GlobalSettings.addProtractor)
 			{
 				partName = tree.addProtractor();
 				if(partName != null)
@@ -79,7 +80,7 @@ public class FileChanger {
 				}
 			}
 			
-			if(addDeadlyReentry)
+			if(GlobalSettings.addDeadlyReentry)
 			{
 				Map<String,String> parts = tree.addDeadlyReentry();	
 				if(parts != null)

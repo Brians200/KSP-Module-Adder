@@ -1,5 +1,5 @@
 #Files
-
+GameData\Squad\Resources\ScienceDefs.cfg
 
 #Folders
 GameData\Squad\Props

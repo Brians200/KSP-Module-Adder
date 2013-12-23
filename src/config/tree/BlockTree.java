@@ -1,9 +1,12 @@
 package config.tree;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.antlr.runtime.tree.CommonTree;
 
@@ -12,6 +15,8 @@ public class BlockTree implements IKspPartTree {
 	int tabAmount;
 	String blockName;
 	List<IKspPartTree> parts = new ArrayList<>();
+	public static Set<String> assignmentsToRecord = new HashSet<String>(Arrays.asList("maxTemp", "CrewCapacity", "category"));
+	public static Set<String> modulesToRecord = new HashSet<String>(Arrays.asList("ModuleCommand","ModuleScienceExperiment","ModuleEngines"));
 	
 	public BlockTree(CommonTree t, int tabAmount)
 	{
@@ -121,45 +126,40 @@ public class BlockTree implements IKspPartTree {
 		}
 		return null;
 	}
-	
+
 	@Override
 	public Map<String,String> addDeadlyReentry() {
 		Map<String,String> ret = new HashMap<>();
-		if(blockName.equals("PART"))
+		if(blockName.equals("PART")|| blockName.equals("﻿PART")) //some files have this weird encoding?
 		{
 			String partName = getModuleName();
 			ret.put("partName", partName);
 			for(int i=0;i<parts.size();i++)
 			{
 				IKspPartTree current = parts.get(i);
-				if(current instanceof AssignmentTree && ((AssignmentTree) current).getLhs().equals("maxTemp"))
+				if(current instanceof AssignmentTree)
 				{
-					Map<String,String> value = ((AssignmentTree) parts.get(i)).addDeadlyReentry();
-					ret.put("maxTemp", value.get("value"));
+					String lhs = ((AssignmentTree) current).getLhs();
+					
+					if(assignmentsToRecord.contains(lhs))
+					{
+						Map<String,String> value = ((AssignmentTree) parts.get(i)).addDeadlyReentry();
+						ret.putAll(value);
+					}					
 				}
 				else if(current instanceof BlockTree && ((BlockTree) current).getBlockName().equals("MODULE"))
 				{
-					Map<String,String> module = parts.get(i).addDeadlyReentry();
-					ret.putAll(module);
-				}
-			}
-		}
-		else
-		{
-			if(getModuleName().equals("ModuleEngines"))
-			{
-				for(int i=0;i<parts.size();i++)
-				{
-					if(parts.get(i) instanceof AssignmentTree && ((AssignmentTree) parts.get(i)).getLhs().equals("heatProduction"))
+					BlockTree module = (BlockTree) parts.get(i);
+					String moduleName = module.getModuleName();
+					
+					if(modulesToRecord.contains(moduleName))
 					{
-						Map<String,String> assignment = ((AssignmentTree) parts.get(i)).addDeadlyReentry();
-						ret.put("heatProduction", assignment.get("value"));
-						return ret;
+						ret.put("Module", moduleName);
 					}
 				}
 			}
 		}
-		
+				
 		return ret;
 	}
 	

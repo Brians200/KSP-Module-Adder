@@ -12,7 +12,6 @@ import java.util.HashSet;
 import java.util.List;
 
 import config.misc.GlobalIgnoreList;
-import config.misc.GlobalSettings;
 
 public class FolderManager {
 	static HashSet<String> filesToIgnore = new HashSet<>(); 
@@ -32,10 +31,10 @@ public class FolderManager {
 		//Check to see if Deadly Reentry is present
 		File deadlyReentry = new File(directory + "\\DeadlyReentry\\Plugins\\DeadlyReentry.dll");*/
 			
-		traverseDirectory(directory,GlobalSettings.addMechjeb, GlobalSettings.addProtractor, GlobalSettings.addDeadlyReentry);
+		traverseDirectory(directory);
 	}
 	
-	static private void traverseDirectory(String directory, boolean addMechjeb, boolean addProtractor, boolean addDeadlyReentry)
+	static private void traverseDirectory(String directory)
 	{
 		List<String> fileNames = new ArrayList<>();
 		
@@ -56,13 +55,13 @@ public class FolderManager {
 				if(GlobalIgnoreList.foldersToIgnore.contains(path))
 					continue;
 				
-				traverseDirectory(path, addMechjeb, addProtractor, addDeadlyReentry);
+				traverseDirectory(path);
 			}
 			else
 			{
 				if(path.endsWith(".cfg") && !GlobalIgnoreList.filesToIgnore.contains(path))
 				{
-					FileChanger.applyChanges(path, addMechjeb, addProtractor, addDeadlyReentry);
+					FileChanger.applyChanges(path);
 				}
 			}
 		}

@@ -69,7 +69,7 @@ public class ConfigTree implements IKspPartTree {
 			if(parts.get(i) instanceof BlockTree)
 			{
 				BlockTree tree = (BlockTree) parts.get(i);
-				if(tree.blockName.equals("PART"))
+				if(tree.blockName.equals("PART") || tree.blockName.equals("﻿PART")) //some files have this weird encoding?
 				{
 					Map<String,String> information = parts.get(i).addDeadlyReentry();
 					return information;

@@ -46,9 +46,8 @@ public class AssignmentTree implements IKspPartTree {
 	
 	@Override
 	public Map<String,String> addDeadlyReentry() {
-		int temp = Integer.parseInt(rhs) / 2;
 		Map<String,String> ret = new HashMap<String, String>();
-		ret.put("value",""+temp);
+		ret.put(lhs,rhs);
 		return ret;
 	}
 	
