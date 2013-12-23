@@ -11,9 +11,9 @@ This program is designed to assist with adding modules that mods create to exist
 <li>Deadly Re-entry</li>
 <ul>
 <li>Creates a generic rule for parts</li>
-<li><ul>default maxtemp of 1450</ul>
-<ul> parachutes 1150 </ul>
-<ul> parachutes 1150 </ul>
-<ul> parachutes 1150 </ul>
+<li>default maxtemp of 1450</li>
+<li> parachutes 1150 </li>
+<li> pod, aerodynamic, structural 1600 </li>
+<li> science 600 </li></ul>
 
 </ul>
