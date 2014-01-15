@@ -4,3 +4,7 @@ GameData\Squad\Resources\ScienceDefs.cfg
 #Folders
 GameData\Squad\Props
 GameData\MechJeb2\Plugins\PluginData\MechJeb2
+GameData\DeadlyReentry
+GameData\StationScience\Resources
+GameData\RBR\Plugins\PluginData\chatterer
+GameData\BoulderCo\textureCompressorConfigs
