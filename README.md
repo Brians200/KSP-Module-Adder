@@ -5,11 +5,15 @@ This program is designed to assist with adding modules that mods create to exist
 
 <ul>
 <li>MechJeb</li>
-<ul><li>Adds it to all command pods, if the dll is present</li></ul>
+<ul><li>Adds it to all command pods</li></ul>
 <li>Protractor</li>
-<ul><li>Adds it to all command pods, if the dll is present</li></ul>
+<ul><li>Adds it to all command pods</li></ul>
 <li>Deadly Re-entry</li>
 <ul>
-<li>Creates a generic rule of setting the max temperature to half its original value</li>
-<li>Creates a generic rule of setting the heat production to half its original value on engines</li>
+<li>Creates a generic rule for parts</li>
+<li>default maxtemp of 1450</li>
+<li> parachutes 1150 </li>
+<li> pod, aerodynamic, structural 1600 </li>
+<li> science 600 </li></ul>
+
 </ul>
